@@ -107,7 +107,7 @@ public class HLDB {
         db in
         
         // TODO: SWIFTUP: typecast to [AnyObject] may be slow, look at
-        if !db.executeUpdate(query, withArgumentsInArray:args as! [AnyObject]) {
+        if !db.executeUpdate(query, withArgumentsInArray:args as [AnyObject]) {
           println("DB Query \(self.fileName) failed: \(db.lastErrorMessage())")
           p.success(Result.Error(Int(db.lastErrorCode()), db.lastErrorMessage()))
           return
@@ -127,7 +127,7 @@ public class HLDB {
         for query in queries {
           //NSLog("Running query=\(query.query) argCount=\(query.args.count) args=\(query.args)")
           // TODO: SWIFTUP: typecast to [AnyObject] may be slow, look at
-          if !db.executeUpdate(query.query, withArgumentsInArray:query.args as! [AnyObject]) {
+          if !db.executeUpdate(query.query, withArgumentsInArray:query.args as [AnyObject]) {
             rollback.initialize(true)
             println("DB Query \(self.fileName) failed: \(db.lastErrorMessage())")
             p.success(Result.Error(Int(db.lastErrorCode()), db.lastErrorMessage()))
@@ -183,7 +183,7 @@ public class HLDB {
       self.fields = f
     }
     
-    public init(fields: NSMutableDictionary = [:]) {
+    public init(fields: NSDictionary = [:]) {
       self.fields = fields
     }
     
@@ -708,7 +708,7 @@ public class HLDB {
   
   public class EntityTable {
     public let table: Table
-    let useCache = true
+    let useCache: Bool
     let cache: EntityCache
     
     public enum Result {
@@ -818,4 +818,3 @@ public class HLDB {
   }
 
 }
-
