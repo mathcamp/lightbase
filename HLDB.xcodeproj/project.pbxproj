@@ -10,7 +10,6 @@
 		1935D65C1B6AADD500864C31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935D65B1B6AADD500864C31 /* AppDelegate.swift */; };
 		1935D65E1B6AADD500864C31 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935D65D1B6AADD500864C31 /* ViewController.swift */; };
 		1935D6611B6AADD500864C31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1935D65F1B6AADD500864C31 /* Main.storyboard */; };
-		1935D6631B6AADD500864C31 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1935D6621B6AADD500864C31 /* Images.xcassets */; };
 		1935D6661B6AADD500864C31 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1935D6641B6AADD500864C31 /* LaunchScreen.xib */; };
 		1935D6721B6AADD500864C31 /* HLDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935D6711B6AADD500864C31 /* HLDBTests.swift */; };
 		1935D67D1B6ABF4D00864C31 /* HLDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935D67C1B6ABF4D00864C31 /* HLDB.swift */; };
@@ -53,7 +52,6 @@
 		1935D65B1B6AADD500864C31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1935D65D1B6AADD500864C31 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1935D6601B6AADD500864C31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1935D6621B6AADD500864C31 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1935D6651B6AADD500864C31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		1935D66B1B6AADD500864C31 /* HLDBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HLDBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1935D6701B6AADD500864C31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -137,7 +135,6 @@
 				1935D65B1B6AADD500864C31 /* AppDelegate.swift */,
 				1935D65D1B6AADD500864C31 /* ViewController.swift */,
 				1935D65F1B6AADD500864C31 /* Main.storyboard */,
-				1935D6621B6AADD500864C31 /* Images.xcassets */,
 				1935D6641B6AADD500864C31 /* LaunchScreen.xib */,
 				1935D6591B6AADD500864C31 /* Supporting Files */,
 			);
@@ -351,7 +348,6 @@
 			files = (
 				1935D6611B6AADD500864C31 /* Main.storyboard in Resources */,
 				1935D6661B6AADD500864C31 /* LaunchScreen.xib in Resources */,
-				1935D6631B6AADD500864C31 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
