@@ -8,6 +8,7 @@
 
 import UIKit
 import XCTest
+import HLDB
 
 class HLDBTests: XCTestCase {
   
@@ -52,7 +53,7 @@ class HLDBTests: XCTestCase {
   }
   
   func simpleTable(db: HLDB.DB, name: String) -> HLDB.Table {
-    let fields = [ HLDB.Table.Field(name: "id", type: .Text, index: .Primary, defaultValue: .NonNull),
+    let fields = [ HLDB.Table.Field(name: "id", type: .Text, index: .PrimaryKey, defaultValue: .NonNull),
       HLDB.Table.Field(name: "v", type: .Text, index: .None, defaultValue: .NonNull),
       HLDB.Table.Field(name: "ts", type: .Integer, index: .None, defaultValue: .NonNull)]
     return HLDB.Table(db: db, name: name, fields: fields)
@@ -105,9 +106,9 @@ class HLDBTests: XCTestCase {
     }
     
     // Loop until the expectation is fulfilled
-    waitForExpectationsWithTimeout(1, { error in
+    waitForExpectationsWithTimeout(1) { error in
       XCTAssertNil(error, "Error")
-    })
+    }
   }
   
   func testDelete() {
@@ -187,9 +188,9 @@ class HLDBTests: XCTestCase {
     }
     
     // Loop until the expectation is fulfilled
-    waitForExpectationsWithTimeout(1, { error in
+    waitForExpectationsWithTimeout(1) { error in
       XCTAssertNil(error, "Error")
-    })
+    }
   }
   
   func testUpdate() {
@@ -282,9 +283,9 @@ class HLDBTests: XCTestCase {
     }
     
     // Loop until the expectation is fulfilled
-    waitForExpectationsWithTimeout(1, { error in
+    waitForExpectationsWithTimeout(1) { error in
       XCTAssertNil(error, "Error")
-    })
+    }
   }
   
   func testInsert() {
@@ -351,9 +352,9 @@ class HLDBTests: XCTestCase {
     }
     
     // Loop until the expectation is fulfilled
-    waitForExpectationsWithTimeout(1, { error in
+    waitForExpectationsWithTimeout(1) { error in
       XCTAssertNil(error, "Error")
-    })
+    }
   }
   
   func testUpsert() {
@@ -517,9 +518,9 @@ class HLDBTests: XCTestCase {
     }
     
     // Loop until the expectation is fulfilled
-    waitForExpectationsWithTimeout(1, { error in
+    waitForExpectationsWithTimeout(1) { error in
       XCTAssertNil(error, "Error")
-    })
+    }
   }
   
   func testInsertPerf() {
@@ -547,9 +548,9 @@ class HLDBTests: XCTestCase {
       }
       
       // Loop until the expectation is fulfilled
-      self.waitForExpectationsWithTimeout(10, { error in
+      self.waitForExpectationsWithTimeout(10) { error in
         XCTAssertNil(error, "Error")
-      })
+      }
     }
     
   }

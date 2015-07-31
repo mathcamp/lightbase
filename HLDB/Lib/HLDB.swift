@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import BrightFutures
 
 public func ==(lhs: HLDB.Table.Row, rhs: HLDB.Table.Row) -> Bool {
   var leftKeys: [String] = lhs.fields.allKeys as! [String]
