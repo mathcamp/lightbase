@@ -12,7 +12,6 @@
 		1935D6611B6AADD500864C31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1935D65F1B6AADD500864C31 /* Main.storyboard */; };
 		1935D6661B6AADD500864C31 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1935D6641B6AADD500864C31 /* LaunchScreen.xib */; };
 		1935D6721B6AADD500864C31 /* HLDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935D6711B6AADD500864C31 /* HLDBTests.swift */; };
-		1935D67D1B6ABF4D00864C31 /* HLDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935D67C1B6ABF4D00864C31 /* HLDB.swift */; };
 		1935D67F1B6ABF8200864C31 /* HLDBEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935D67E1B6ABF8200864C31 /* HLDBEntityTests.swift */; };
 		460D04B31B6AE2C200BF1DE2 /* FMDatabase+FTS3.m in Sources */ = {isa = PBXBuildFile; fileRef = 460D049A1B6AE2C200BF1DE2 /* FMDatabase+FTS3.m */; };
 		460D04B41B6AE2C200BF1DE2 /* FMTokenizers.m in Sources */ = {isa = PBXBuildFile; fileRef = 460D049C1B6AE2C200BF1DE2 /* FMTokenizers.m */; };
@@ -30,7 +29,6 @@
 		460D04C21B6AE6CE00BF1DE2 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 460D04AA1B6AE2C200BF1DE2 /* FMDatabasePool.m */; };
 		460D04C31B6AE6D100BF1DE2 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 460D04A81B6AE2C200BF1DE2 /* FMDatabaseAdditions.m */; };
 		460D04C41B6AE6D300BF1DE2 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 460D04A61B6AE2C200BF1DE2 /* FMDatabase.m */; };
-		460D04C51B6AE73C00BF1DE2 /* HLDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935D67C1B6ABF4D00864C31 /* HLDB.swift */; };
 		460D04C61B6AE8EC00BF1DE2 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C36B604220DBE21D6CEE6A /* Pods.framework */; };
 		46FC61A01B6BFE0D002CE042 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 460D04BE1B6AE41200BF1DE2 /* libsqlite3.0.dylib */; };
 		51AF7242629BCF41D256A51A /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C36B604220DBE21D6CEE6A /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -56,7 +54,6 @@
 		1935D66B1B6AADD500864C31 /* HLDBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HLDBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1935D6701B6AADD500864C31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1935D6711B6AADD500864C31 /* HLDBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HLDBTests.swift; sourceTree = "<group>"; };
-		1935D67C1B6ABF4D00864C31 /* HLDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HLDB.swift; path = HLDB/Lib/HLDB.swift; sourceTree = "<group>"; };
 		1935D67E1B6ABF8200864C31 /* HLDBEntityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLDBEntityTests.swift; sourceTree = "<group>"; };
 		23FA60B9399A83F8809889E5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		45963AE272D137245D02D45D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -82,6 +79,12 @@
 		460D04AE1B6AE2C200BF1DE2 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		460D04AF1B6AE2C200BF1DE2 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		460D04BE1B6AE41200BF1DE2 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		46FC61A21B6C2B04002CE042 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		46FC61A41B6C2CAA002CE042 /* EntityCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityCache.swift; sourceTree = "<group>"; };
+		46FC61A61B6C2CE2002CE042 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
+		46FC61A81B6C2D1D002CE042 /* EntityTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityTable.swift; sourceTree = "<group>"; };
+		46FC61AA1B6C2D77002CE042 /* DB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
+		46FC61AC1B6C2D7E002CE042 /* Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
 		B4C36B604220DBE21D6CEE6A /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -171,7 +174,12 @@
 		1935D67B1B6ABF3000864C31 /* HLDB */ = {
 			isa = PBXGroup;
 			children = (
-				1935D67C1B6ABF4D00864C31 /* HLDB.swift */,
+				46FC61AA1B6C2D77002CE042 /* DB.swift */,
+				46FC61AC1B6C2D7E002CE042 /* Table.swift */,
+				46FC61A61B6C2CE2002CE042 /* Operators.swift */,
+				46FC61A21B6C2B04002CE042 /* Entity.swift */,
+				46FC61A81B6C2D1D002CE042 /* EntityTable.swift */,
+				46FC61A41B6C2CAA002CE042 /* EntityCache.swift */,
 				460D048F1B6AD8C400BF1DE2 /* HLDB-Bridging-Header.h */,
 			);
 			name = HLDB;
@@ -413,13 +421,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1935D67D1B6ABF4D00864C31 /* HLDB.swift in Sources */,
+				46FC61AD1B6C2D7E002CE042 /* Table.swift in Sources */,
 				460D04B61B6AE2C200BF1DE2 /* FMDatabaseAdditionsVariadic.swift in Sources */,
+				46FC61A31B6C2B04002CE042 /* Entity.swift in Sources */,
 				1935D65E1B6AADD500864C31 /* ViewController.swift in Sources */,
+				46FC61A91B6C2D1D002CE042 /* EntityTable.swift in Sources */,
+				46FC61A51B6C2CAA002CE042 /* EntityCache.swift in Sources */,
 				460D04B81B6AE2C200BF1DE2 /* FMDatabase.m in Sources */,
 				1935D65C1B6AADD500864C31 /* AppDelegate.swift in Sources */,
 				460D04BB1B6AE2C200BF1DE2 /* FMDatabaseQueue.m in Sources */,
 				460D04BC1B6AE2C200BF1DE2 /* FMResultSet.m in Sources */,
+				46FC61A71B6C2CE2002CE042 /* Operators.swift in Sources */,
+				46FC61AB1B6C2D77002CE042 /* DB.swift in Sources */,
 				460D04BA1B6AE2C200BF1DE2 /* FMDatabasePool.m in Sources */,
 				460D04B31B6AE2C200BF1DE2 /* FMDatabase+FTS3.m in Sources */,
 				460D04B41B6AE2C200BF1DE2 /* FMTokenizers.m in Sources */,
@@ -440,7 +453,6 @@
 				460D04C11B6AE6CB00BF1DE2 /* FMResultSet.m in Sources */,
 				460D04C01B6AE6C900BF1DE2 /* FMDatabaseQueue.m in Sources */,
 				460D04C31B6AE6D100BF1DE2 /* FMDatabaseAdditions.m in Sources */,
-				460D04C51B6AE73C00BF1DE2 /* HLDB.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
