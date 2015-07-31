@@ -33,6 +33,7 @@
 		460D04C41B6AE6D300BF1DE2 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 460D04A61B6AE2C200BF1DE2 /* FMDatabase.m */; };
 		460D04C51B6AE73C00BF1DE2 /* HLDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935D67C1B6ABF4D00864C31 /* HLDB.swift */; };
 		460D04C61B6AE8EC00BF1DE2 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C36B604220DBE21D6CEE6A /* Pods.framework */; };
+		46FC61A01B6BFE0D002CE042 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 460D04BE1B6AE41200BF1DE2 /* libsqlite3.0.dylib */; };
 		51AF7242629BCF41D256A51A /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C36B604220DBE21D6CEE6A /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -100,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46FC61A01B6BFE0D002CE042 /* libsqlite3.0.dylib in Frameworks */,
 				460D04C61B6AE8EC00BF1DE2 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
