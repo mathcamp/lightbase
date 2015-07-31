@@ -183,7 +183,7 @@ public class HLDB {
       self.fields = f
     }
     
-    public init(fields: NSMutableDictionary = [:]) {
+    public init(fields: NSDictionary = [:]) {
       self.fields = fields
     }
     
@@ -708,7 +708,7 @@ public class HLDB {
   
   public class EntityTable {
     public let table: Table
-    let useCache = true
+    let useCache: Bool
     let cache: EntityCache
     
     public enum Result {
@@ -818,4 +818,3 @@ public class HLDB {
   }
 
 }
-
