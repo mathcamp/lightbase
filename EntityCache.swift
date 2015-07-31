@@ -8,13 +8,13 @@
 
 import Foundation
 
+enum CacheStatus {
+  case Cached(NSTimeInterval)
+  case Unknown
+}
+
 class EntityCache<T> {
-  enum Status {
-    case Cached(NSTimeInterval)
-    case Unknown
-  }
-  
-  var map: [String: Entity] = [:]
+  var map: [String: Entity<T>] = [:]
   let table: Table
   
   init(table: Table) {
@@ -39,7 +39,7 @@ class EntityCache<T> {
     return nil
   }
   
-  func remove(entities: [Entity]) {
+  func remove(entities: [Entity<T>]) {
     if let primaryKey = primaryKey() {
       var keys: [String] = []
       for entity in entities {
@@ -51,7 +51,7 @@ class EntityCache<T> {
     }
   }
   
-  func store(entities: [Entity]) {
+  func store(entities: [Entity<T>]) {
     if let primaryKey = primaryKey() {
       let updateTime = NSDate().timeIntervalSince1970
       for entity in entities {
@@ -63,8 +63,8 @@ class EntityCache<T> {
     }
   }
   
-  func find(keys: [String]) -> [Entity] {
-    var entities: [Entity] = []
+  func find(keys: [String]) -> [Entity<T>] {
+    var entities: [Entity<T>] = []
     if map.count == 0 { return entities }
     for key in keys {
       if let foundEntity = self.map[key] {
@@ -74,9 +74,9 @@ class EntityCache<T> {
     return entities
   }
   
-  func findAsMap(keys: [String]) -> [String: Entity] {
-    var entities: [Entity] = find(keys)
-    var entityMap: [String: Entity] = [:]
+  func findAsMap(keys: [String]) -> [String: Entity<T>] {
+    var entities: [Entity<T>] = find(keys)
+    var entityMap: [String: Entity<T>] = [:]
     if let primaryKey = primaryKey() {
       for entity in entities {
         if let primaryKeyValue = entity.fields[primaryKey] as? String {

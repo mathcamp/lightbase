@@ -7,17 +7,18 @@
 //
 
 import Foundation
+import BrightFutures
 
-public class DB {
+public enum DBResult {
+  case Success
+  case Items([NSDictionary])
+  case Error(Int, String)
+}
+
+public class DB<T: Any> {
   public var queue: FMDatabaseQueue?
   public let fileName: String
   public let dbPath: String
-  
-  public enum Result {
-    case Success
-    case Items([NSDictionary])
-    case Error(Int, String)
-  }
   
   public struct QueryArgs {
     let query: String

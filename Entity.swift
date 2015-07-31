@@ -10,7 +10,7 @@ import Foundation
 
 public class Entity<T> {
   let fields: NSDictionary
-  var cacheStatus: Cache.Status = .Unknown
+  var cacheStatus: CacheStatus = .Unknown
   
   public init(obj: AnyObject?) {
     var f = NSMutableDictionary()
