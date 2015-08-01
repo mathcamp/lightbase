@@ -31,9 +31,13 @@
 		460D04C31B6AE6D100BF1DE2 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 460D04A81B6AE2C200BF1DE2 /* FMDatabaseAdditions.m */; };
 		460D04C41B6AE6D300BF1DE2 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 460D04A61B6AE2C200BF1DE2 /* FMDatabase.m */; };
 		460D04C51B6AE73C00BF1DE2 /* HLDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935D67C1B6ABF4D00864C31 /* HLDB.swift */; };
-		460D04C61B6AE8EC00BF1DE2 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C36B604220DBE21D6CEE6A /* Pods.framework */; };
+		463B90BE1B6C5A2700F4D341 /* Box.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90BB1B6C5A2700F4D341 /* Box.framework */; };
+		463B90BF1B6C5A2700F4D341 /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90BC1B6C5A2700F4D341 /* BrightFutures.framework */; };
+		463B90C01B6C5A2700F4D341 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90BD1B6C5A2700F4D341 /* Result.framework */; };
+		463B90C11B6C5A2C00F4D341 /* Box.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90BB1B6C5A2700F4D341 /* Box.framework */; };
+		463B90C21B6C5A2C00F4D341 /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90BC1B6C5A2700F4D341 /* BrightFutures.framework */; };
+		463B90C31B6C5A2C00F4D341 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90BD1B6C5A2700F4D341 /* Result.framework */; };
 		46FC61A11B6C21C1002CE042 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 460D04BE1B6AE41200BF1DE2 /* libsqlite3.0.dylib */; };
-		51AF7242629BCF41D256A51A /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C36B604220DBE21D6CEE6A /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,8 +62,6 @@
 		1935D6711B6AADD500864C31 /* HLDBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HLDBTests.swift; sourceTree = "<group>"; };
 		1935D67C1B6ABF4D00864C31 /* HLDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HLDB.swift; path = HLDB/Lib/HLDB.swift; sourceTree = "<group>"; };
 		1935D67E1B6ABF8200864C31 /* HLDBEntityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLDBEntityTests.swift; sourceTree = "<group>"; };
-		23FA60B9399A83F8809889E5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		45963AE272D137245D02D45D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		460D048F1B6AD8C400BF1DE2 /* HLDB-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HLDB-Bridging-Header.h"; sourceTree = "<group>"; };
 		460D04991B6AE2C200BF1DE2 /* FMDatabase+FTS3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDatabase+FTS3.h"; sourceTree = "<group>"; };
 		460D049A1B6AE2C200BF1DE2 /* FMDatabase+FTS3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FMDatabase+FTS3.m"; sourceTree = "<group>"; };
@@ -82,7 +84,9 @@
 		460D04AE1B6AE2C200BF1DE2 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		460D04AF1B6AE2C200BF1DE2 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		460D04BE1B6AE41200BF1DE2 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
-		B4C36B604220DBE21D6CEE6A /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		463B90BB1B6C5A2700F4D341 /* Box.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Box.framework; path = Carthage/Build/iOS/Box.framework; sourceTree = "<group>"; };
+		463B90BC1B6C5A2700F4D341 /* BrightFutures.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BrightFutures.framework; path = Carthage/Build/iOS/BrightFutures.framework; sourceTree = "<group>"; };
+		463B90BD1B6C5A2700F4D341 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,8 +94,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				463B90BF1B6C5A2700F4D341 /* BrightFutures.framework in Frameworks */,
+				463B90BE1B6C5A2700F4D341 /* Box.framework in Frameworks */,
 				460D04BF1B6AE41200BF1DE2 /* libsqlite3.0.dylib in Frameworks */,
-				51AF7242629BCF41D256A51A /* Pods.framework in Frameworks */,
+				463B90C01B6C5A2700F4D341 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,8 +105,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46FC61A01B6BFE0D002CE042 /* libsqlite3.0.dylib in Frameworks */,
-				460D04C61B6AE8EC00BF1DE2 /* Pods.framework in Frameworks */,
+				463B90C21B6C5A2C00F4D341 /* BrightFutures.framework in Frameworks */,
+				463B90C11B6C5A2C00F4D341 /* Box.framework in Frameworks */,
+				46FC61A11B6C21C1002CE042 /* libsqlite3.0.dylib in Frameworks */,
+				463B90C31B6C5A2C00F4D341 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,13 +118,11 @@
 		1935D64D1B6AADD500864C31 = {
 			isa = PBXGroup;
 			children = (
-				460D04961B6AE2C200BF1DE2 /* FMDB */,
+				B3C9BC0597733AC50396B0D9 /* Frameworks */,
 				1935D67B1B6ABF3000864C31 /* HLDB */,
 				1935D6581B6AADD500864C31 /* HLDB Harness */,
 				1935D66E1B6AADD500864C31 /* HLDBTests */,
 				1935D6571B6AADD500864C31 /* Products */,
-				F52B9D41A85DC75320DC9070 /* Pods */,
-				B3C9BC0597733AC50396B0D9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -248,19 +254,13 @@
 		B3C9BC0597733AC50396B0D9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				463B90BB1B6C5A2700F4D341 /* Box.framework */,
+				463B90BC1B6C5A2700F4D341 /* BrightFutures.framework */,
+				463B90BD1B6C5A2700F4D341 /* Result.framework */,
+				460D04961B6AE2C200BF1DE2 /* FMDB */,
 				460D04BE1B6AE41200BF1DE2 /* libsqlite3.0.dylib */,
-				B4C36B604220DBE21D6CEE6A /* Pods.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		F52B9D41A85DC75320DC9070 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				45963AE272D137245D02D45D /* Pods.debug.xcconfig */,
-				23FA60B9399A83F8809889E5 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,12 +270,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1935D6751B6AADD500864C31 /* Build configuration list for PBXNativeTarget "HLDB" */;
 			buildPhases = (
-				9E8C90B85E0ABADE3DB16612 /* Check Pods Manifest.lock */,
 				1935D6521B6AADD500864C31 /* Sources */,
 				1935D6531B6AADD500864C31 /* Frameworks */,
 				1935D6541B6AADD500864C31 /* Resources */,
-				ED35E4C0FA8E1A6C2480EF26 /* Copy Pods Resources */,
-				5DC5B9806292232C0F16A92A /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -359,54 +356,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		5DC5B9806292232C0F16A92A /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9E8C90B85E0ABADE3DB16612 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		ED35E4C0FA8E1A6C2480EF26 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1935D6521B6AADD500864C31 /* Sources */ = {
@@ -557,10 +506,12 @@
 		};
 		1935D6761B6AADD500864C31 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 45963AE272D137245D02D45D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = HLDB/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -570,10 +521,12 @@
 		};
 		1935D6771B6AADD500864C31 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 23FA60B9399A83F8809889E5 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = HLDB/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -585,7 +538,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -602,7 +558,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = HLDBTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
