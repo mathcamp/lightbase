@@ -2,4 +2,6 @@
 
 import UIKit
 
+let lol = "dsa"
+
 var str = "Hello, playground"

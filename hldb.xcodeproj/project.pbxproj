@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		463B90D71B6C5AAD00F4D341 /* HLDB-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90CC1B6C5AAD00F4D341 /* HLDB-iOS.framework */; };
+		463B90D71B6C5AAD00F4D341 /* hldb.temp_caseinsensitive_rename-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90CC1B6C5AAD00F4D341 /* hldb.temp_caseinsensitive_rename-iOS.framework */; };
 		463B90E61B6C5AE700F4D341 /* HLDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935D67C1B6ABF4D00864C31 /* HLDB.swift */; };
 		463B90E71B6C5AE800F4D341 /* HLDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935D67C1B6ABF4D00864C31 /* HLDB.swift */; };
 		463B90E81B6C5B3900F4D341 /* Box.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90BB1B6C5A2700F4D341 /* Box.framework */; };
@@ -73,8 +73,8 @@
 		463B90BB1B6C5A2700F4D341 /* Box.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Box.framework; path = Carthage/Build/iOS/Box.framework; sourceTree = "<group>"; };
 		463B90BC1B6C5A2700F4D341 /* BrightFutures.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BrightFutures.framework; path = Carthage/Build/iOS/BrightFutures.framework; sourceTree = "<group>"; };
 		463B90BD1B6C5A2700F4D341 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
-		463B90CC1B6C5AAD00F4D341 /* HLDB-iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "HLDB-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		463B90D61B6C5AAD00F4D341 /* HLDB-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HLDB-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		463B90CC1B6C5AAD00F4D341 /* hldb.temp_caseinsensitive_rename-iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "hldb.temp_caseinsensitive_rename-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		463B90D61B6C5AAD00F4D341 /* hldb.temp_caseinsensitive_rename-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "hldb.temp_caseinsensitive_rename-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		463B91051B6C5BDB00F4D341 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,7 +97,7 @@
 				463B90EC1B6C5B3900F4D341 /* BrightFutures.framework in Frameworks */,
 				463B90EF1B6C5B3E00F4D341 /* libsqlite3.0.dylib in Frameworks */,
 				463B90EB1B6C5B3900F4D341 /* Box.framework in Frameworks */,
-				463B90D71B6C5AAD00F4D341 /* HLDB-iOS.framework in Frameworks */,
+				463B90D71B6C5AAD00F4D341 /* hldb.temp_caseinsensitive_rename-iOS.framework in Frameworks */,
 				463B90ED1B6C5B3900F4D341 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -118,8 +118,8 @@
 		1935D6571B6AADD500864C31 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				463B90CC1B6C5AAD00F4D341 /* HLDB-iOS.framework */,
-				463B90D61B6C5AAD00F4D341 /* HLDB-iOSTests.xctest */,
+				463B90CC1B6C5AAD00F4D341 /* hldb.temp_caseinsensitive_rename-iOS.framework */,
+				463B90D61B6C5AAD00F4D341 /* hldb.temp_caseinsensitive_rename-iOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -256,9 +256,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		463B90CB1B6C5AAD00F4D341 /* HLDB-iOS */ = {
+		463B90CB1B6C5AAD00F4D341 /* hldb-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 463B90DF1B6C5AAD00F4D341 /* Build configuration list for PBXNativeTarget "HLDB-iOS" */;
+			buildConfigurationList = 463B90DF1B6C5AAD00F4D341 /* Build configuration list for PBXNativeTarget "hldb-iOS" */;
 			buildPhases = (
 				463B90C71B6C5AAD00F4D341 /* Sources */,
 				463B90C81B6C5AAD00F4D341 /* Frameworks */,
@@ -269,14 +269,14 @@
 			);
 			dependencies = (
 			);
-			name = "HLDB-iOS";
+			name = "hldb-iOS";
 			productName = "HLDB-iOS";
-			productReference = 463B90CC1B6C5AAD00F4D341 /* HLDB-iOS.framework */;
+			productReference = 463B90CC1B6C5AAD00F4D341 /* hldb.temp_caseinsensitive_rename-iOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		463B90D51B6C5AAD00F4D341 /* HLDB-iOSTests */ = {
+		463B90D51B6C5AAD00F4D341 /* hldb-iOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 463B90E21B6C5AAD00F4D341 /* Build configuration list for PBXNativeTarget "HLDB-iOSTests" */;
+			buildConfigurationList = 463B90E21B6C5AAD00F4D341 /* Build configuration list for PBXNativeTarget "hldb-iOSTests" */;
 			buildPhases = (
 				463B90D21B6C5AAD00F4D341 /* Sources */,
 				463B90D31B6C5AAD00F4D341 /* Frameworks */,
@@ -287,9 +287,9 @@
 			dependencies = (
 				463B90D91B6C5AAD00F4D341 /* PBXTargetDependency */,
 			);
-			name = "HLDB-iOSTests";
+			name = "hldb-iOSTests";
 			productName = "HLDB-iOSTests";
-			productReference = 463B90D61B6C5AAD00F4D341 /* HLDB-iOSTests.xctest */;
+			productReference = 463B90D61B6C5AAD00F4D341 /* hldb.temp_caseinsensitive_rename-iOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -309,7 +309,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1935D6511B6AADD500864C31 /* Build configuration list for PBXProject "HLDB" */;
+			buildConfigurationList = 1935D6511B6AADD500864C31 /* Build configuration list for PBXProject "hldb" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -322,8 +322,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				463B90CB1B6C5AAD00F4D341 /* HLDB-iOS */,
-				463B90D51B6C5AAD00F4D341 /* HLDB-iOSTests */,
+				463B90CB1B6C5AAD00F4D341 /* hldb-iOS */,
+				463B90D51B6C5AAD00F4D341 /* hldb-iOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -377,7 +377,7 @@
 /* Begin PBXTargetDependency section */
 		463B90D91B6C5AAD00F4D341 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 463B90CB1B6C5AAD00F4D341 /* HLDB-iOS */;
+			target = 463B90CB1B6C5AAD00F4D341 /* hldb-iOS */;
 			targetProxy = 463B90D81B6C5AAD00F4D341 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -419,7 +419,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -457,7 +457,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -480,10 +480,10 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "HLDB-iOS/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "hldb.temp_caseinsensitive_rename-iOS";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -503,10 +503,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "HLDB-iOS/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "hldb.temp_caseinsensitive_rename-iOS";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -528,7 +528,7 @@
 				);
 				INFOPLIST_FILE = "HLDB-iOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "hldb.temp_caseinsensitive_rename-iOSTests";
 			};
 			name = Debug;
 		};
@@ -542,14 +542,14 @@
 				);
 				INFOPLIST_FILE = "HLDB-iOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "hldb.temp_caseinsensitive_rename-iOSTests";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1935D6511B6AADD500864C31 /* Build configuration list for PBXProject "HLDB" */ = {
+		1935D6511B6AADD500864C31 /* Build configuration list for PBXProject "hldb" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1935D6731B6AADD500864C31 /* Debug */,
@@ -558,21 +558,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		463B90DF1B6C5AAD00F4D341 /* Build configuration list for PBXNativeTarget "HLDB-iOS" */ = {
+		463B90DF1B6C5AAD00F4D341 /* Build configuration list for PBXNativeTarget "hldb-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				463B90E01B6C5AAD00F4D341 /* Debug */,
 				463B90E11B6C5AAD00F4D341 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		463B90E21B6C5AAD00F4D341 /* Build configuration list for PBXNativeTarget "HLDB-iOSTests" */ = {
+		463B90E21B6C5AAD00F4D341 /* Build configuration list for PBXNativeTarget "hldb-iOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				463B90E31B6C5AAD00F4D341 /* Debug */,
 				463B90E41B6C5AAD00F4D341 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -2,12 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:HLDB.playground">
+      location = "group:/Users/asb/Developer/hldb/hldb.playground">
    </FileRef>
    <FileRef
-      location = "group:HLDB.xcodeproj">
+      location = "group:/Users/asb/Developer/hldb/hldb.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:HLDB-Demo/HLDB-Demo.xcodeproj">
+      location = "group:/Users/asb/Developer/hldb/HLDB-Demo/hldb Demo.xcodeproj">
    </FileRef>
 </Workspace>

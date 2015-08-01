@@ -26,14 +26,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		463B91101B6C5D2100F4D341 /* HLDB-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HLDB-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		463B91101B6C5D2100F4D341 /* hldb Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hldb Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		463B91141B6C5D2100F4D341 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		463B91151B6C5D2100F4D341 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		463B91171B6C5D2100F4D341 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		463B911A1B6C5D2100F4D341 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		463B911C1B6C5D2100F4D341 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		463B911F1B6C5D2100F4D341 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		463B91251B6C5D2100F4D341 /* HLDB-DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HLDB-DemoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		463B91251B6C5D2100F4D341 /* hldb DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "hldb DemoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		463B912A1B6C5D2100F4D341 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		463B912B1B6C5D2100F4D341 /* HLDB_DemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HLDB_DemoTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,8 +68,8 @@
 		463B91111B6C5D2100F4D341 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				463B91101B6C5D2100F4D341 /* HLDB-Demo.app */,
-				463B91251B6C5D2100F4D341 /* HLDB-DemoTests.xctest */,
+				463B91101B6C5D2100F4D341 /* hldb Demo.app */,
+				463B91251B6C5D2100F4D341 /* hldb DemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -115,9 +115,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		463B910F1B6C5D2100F4D341 /* HLDB-Demo */ = {
+		463B910F1B6C5D2100F4D341 /* hldb Demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 463B912F1B6C5D2100F4D341 /* Build configuration list for PBXNativeTarget "HLDB-Demo" */;
+			buildConfigurationList = 463B912F1B6C5D2100F4D341 /* Build configuration list for PBXNativeTarget "hldb Demo" */;
 			buildPhases = (
 				463B910C1B6C5D2100F4D341 /* Sources */,
 				463B910D1B6C5D2100F4D341 /* Frameworks */,
@@ -127,14 +127,14 @@
 			);
 			dependencies = (
 			);
-			name = "HLDB-Demo";
+			name = "hldb Demo";
 			productName = "HLDB-Demo";
-			productReference = 463B91101B6C5D2100F4D341 /* HLDB-Demo.app */;
+			productReference = 463B91101B6C5D2100F4D341 /* hldb Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		463B91241B6C5D2100F4D341 /* HLDB-DemoTests */ = {
+		463B91241B6C5D2100F4D341 /* hldb DemoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 463B91321B6C5D2100F4D341 /* Build configuration list for PBXNativeTarget "HLDB-DemoTests" */;
+			buildConfigurationList = 463B91321B6C5D2100F4D341 /* Build configuration list for PBXNativeTarget "hldb DemoTests" */;
 			buildPhases = (
 				463B91211B6C5D2100F4D341 /* Sources */,
 				463B91221B6C5D2100F4D341 /* Frameworks */,
@@ -145,9 +145,9 @@
 			dependencies = (
 				463B91271B6C5D2100F4D341 /* PBXTargetDependency */,
 			);
-			name = "HLDB-DemoTests";
+			name = "hldb DemoTests";
 			productName = "HLDB-DemoTests";
-			productReference = 463B91251B6C5D2100F4D341 /* HLDB-DemoTests.xctest */;
+			productReference = 463B91251B6C5D2100F4D341 /* hldb DemoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -168,7 +168,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 463B910B1B6C5D2000F4D341 /* Build configuration list for PBXProject "HLDB-Demo" */;
+			buildConfigurationList = 463B910B1B6C5D2000F4D341 /* Build configuration list for PBXProject "hldb Demo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -181,8 +181,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				463B910F1B6C5D2100F4D341 /* HLDB-Demo */,
-				463B91241B6C5D2100F4D341 /* HLDB-DemoTests */,
+				463B910F1B6C5D2100F4D341 /* hldb Demo */,
+				463B91241B6C5D2100F4D341 /* hldb DemoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -230,7 +230,7 @@
 /* Begin PBXTargetDependency section */
 		463B91271B6C5D2100F4D341 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 463B910F1B6C5D2100F4D341 /* HLDB-Demo */;
+			target = 463B910F1B6C5D2100F4D341 /* hldb Demo */;
 			targetProxy = 463B91261B6C5D2100F4D341 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -291,7 +291,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -330,7 +330,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -344,7 +344,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "HLDB-Demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "hldb Demo";
 			};
 			name = Debug;
 		};
@@ -354,7 +354,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "HLDB-Demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "hldb Demo";
 			};
 			name = Release;
 		};
@@ -372,7 +372,7 @@
 				);
 				INFOPLIST_FILE = "HLDB-DemoTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "hldb DemoTests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HLDB-Demo.app/HLDB-Demo";
 			};
 			name = Debug;
@@ -387,7 +387,7 @@
 				);
 				INFOPLIST_FILE = "HLDB-DemoTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "hldb DemoTests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HLDB-Demo.app/HLDB-Demo";
 			};
 			name = Release;
@@ -395,7 +395,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		463B910B1B6C5D2000F4D341 /* Build configuration list for PBXProject "HLDB-Demo" */ = {
+		463B910B1B6C5D2000F4D341 /* Build configuration list for PBXProject "hldb Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				463B912D1B6C5D2100F4D341 /* Debug */,
@@ -404,21 +404,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		463B912F1B6C5D2100F4D341 /* Build configuration list for PBXNativeTarget "HLDB-Demo" */ = {
+		463B912F1B6C5D2100F4D341 /* Build configuration list for PBXNativeTarget "hldb Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				463B91301B6C5D2100F4D341 /* Debug */,
 				463B91311B6C5D2100F4D341 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		463B91321B6C5D2100F4D341 /* Build configuration list for PBXNativeTarget "HLDB-DemoTests" */ = {
+		463B91321B6C5D2100F4D341 /* Build configuration list for PBXNativeTarget "hldb DemoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				463B91331B6C5D2100F4D341 /* Debug */,
 				463B91341B6C5D2100F4D341 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
