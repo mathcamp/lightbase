@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		463B90D71B6C5AAD00F4D341 /* hldb-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90CC1B6C5AAD00F4D341 /* hldb-iOS.framework */; };
-		463B90E61B6C5AE700F4D341 /* HLDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935D67C1B6ABF4D00864C31 /* HLDB.swift */; };
-		463B90E71B6C5AE800F4D341 /* HLDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935D67C1B6ABF4D00864C31 /* HLDB.swift */; };
+		463B90E61B6C5AE700F4D341 /* hldb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935D67C1B6ABF4D00864C31 /* hldb.swift */; };
+		463B90E71B6C5AE800F4D341 /* hldb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935D67C1B6ABF4D00864C31 /* hldb.swift */; };
 		463B90E81B6C5B3900F4D341 /* Box.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90BB1B6C5A2700F4D341 /* Box.framework */; };
 		463B90E91B6C5B3900F4D341 /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90BC1B6C5A2700F4D341 /* BrightFutures.framework */; };
 		463B90EA1B6C5B3900F4D341 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90BD1B6C5A2700F4D341 /* Result.framework */; };
@@ -31,7 +31,6 @@
 		463B90FC1B6C5B5C00F4D341 /* fts3_tokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D049D1B6AE2C200BF1DE2 /* fts3_tokenizer.h */; };
 		463B90FF1B6C5B6100F4D341 /* FMDatabase+FTS3.m in Sources */ = {isa = PBXBuildFile; fileRef = 460D049A1B6AE2C200BF1DE2 /* FMDatabase+FTS3.m */; };
 		463B91001B6C5B6100F4D341 /* FMTokenizers.m in Sources */ = {isa = PBXBuildFile; fileRef = 460D049C1B6AE2C200BF1DE2 /* FMTokenizers.m */; };
-		46E66C771B6FFCDE00A8E32E /* hldb-iOS-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 46E66C761B6FFCDE00A8E32E /* hldb-iOS-Bridging-Header.h */; };
 		46E66C781B6FFF2100A8E32E /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D04A51B6AE2C200BF1DE2 /* FMDatabase.h */; };
 		46E66C791B6FFF2100A8E32E /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 460D04A61B6AE2C200BF1DE2 /* FMDatabase.m */; };
 		46E66C7A1B6FFF2100A8E32E /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D04A71B6AE2C200BF1DE2 /* FMDatabaseAdditions.h */; };
@@ -43,8 +42,8 @@
 		46E66C801B6FFF2100A8E32E /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D04AD1B6AE2C200BF1DE2 /* FMDB.h */; };
 		46E66C811B6FFF2100A8E32E /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D04AE1B6AE2C200BF1DE2 /* FMResultSet.h */; };
 		46E66C821B6FFF2100A8E32E /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 460D04AF1B6AE2C200BF1DE2 /* FMResultSet.m */; };
-		46E66C841B6FFF7300A8E32E /* HLDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E66C831B6FFF7300A8E32E /* HLDBTests.swift */; };
-		46E66C861B6FFF7900A8E32E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 46E66C851B6FFF7900A8E32E /* Info.plist */; };
+		46E66C841B6FFF7300A8E32E /* hldbTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E66C831B6FFF7300A8E32E /* hldbTests.swift */; };
+		46E66C8A1B70010800A8E32E /* hldb-iOS-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 46E66C881B70010800A8E32E /* hldb-iOS-Bridging-Header.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1935D67C1B6ABF4D00864C31 /* HLDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HLDB.swift; path = HLDB/Lib/HLDB.swift; sourceTree = "<group>"; };
+		1935D67C1B6ABF4D00864C31 /* hldb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = hldb.swift; path = HLDB/Lib/hldb.swift; sourceTree = "<group>"; };
 		460D04991B6AE2C200BF1DE2 /* FMDatabase+FTS3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDatabase+FTS3.h"; sourceTree = "<group>"; };
 		460D049A1B6AE2C200BF1DE2 /* FMDatabase+FTS3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FMDatabase+FTS3.m"; sourceTree = "<group>"; };
 		460D049B1B6AE2C200BF1DE2 /* FMTokenizers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMTokenizers.h; sourceTree = "<group>"; };
@@ -85,11 +84,11 @@
 		463B90BD1B6C5A2700F4D341 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		463B90CC1B6C5AAD00F4D341 /* hldb-iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "hldb-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		463B90D61B6C5AAD00F4D341 /* hldb-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "hldb-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		463B91051B6C5BDB00F4D341 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		46E66C761B6FFCDE00A8E32E /* hldb-iOS-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "hldb-iOS-Bridging-Header.h"; sourceTree = "<group>"; };
-		46E66C831B6FFF7300A8E32E /* HLDBTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HLDBTests.swift; path = "hldb-iOSTests/HLDBTests.swift"; sourceTree = SOURCE_ROOT; };
+		46E66C831B6FFF7300A8E32E /* hldbTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = hldbTests.swift; path = "hldb-iOSTests/hldbTests.swift"; sourceTree = SOURCE_ROOT; };
 		46E66C851B6FFF7900A8E32E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "hldb-iOSTests/Info.plist"; sourceTree = SOURCE_ROOT; };
 		46E66C871B6FFFFD00A8E32E /* hldb-iOSTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "hldb-iOSTests-Bridging-Header.h"; path = "hldb-iOSTests/hldb-iOSTests-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		46E66C881B70010800A8E32E /* hldb-iOS-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "hldb-iOS-Bridging-Header.h"; path = "hldb/Supporting Files/hldb-iOS-Bridging-Header.h"; sourceTree = "<group>"; };
+		46E66C891B70010800A8E32E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "hldb/Supporting Files/Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,8 +122,8 @@
 			isa = PBXGroup;
 			children = (
 				B3C9BC0597733AC50396B0D9 /* Frameworks */,
-				1935D67B1B6ABF3000864C31 /* HLDB */,
-				1935D66E1B6AADD500864C31 /* HLDBTests */,
+				1935D67B1B6ABF3000864C31 /* hldb */,
+				1935D66E1B6AADD500864C31 /* hldbTests */,
 				1935D6571B6AADD500864C31 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -138,12 +137,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1935D66E1B6AADD500864C31 /* HLDBTests */ = {
+		1935D66E1B6AADD500864C31 /* hldbTests */ = {
 			isa = PBXGroup;
 			children = (
-				46E66C831B6FFF7300A8E32E /* HLDBTests.swift */,
+				46E66C831B6FFF7300A8E32E /* hldbTests.swift */,
 				1935D66F1B6AADD500864C31 /* Supporting Files */,
 			);
+			name = hldbTests;
 			path = HLDBTests;
 			sourceTree = "<group>";
 		};
@@ -156,13 +156,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		1935D67B1B6ABF3000864C31 /* HLDB */ = {
+		1935D67B1B6ABF3000864C31 /* hldb */ = {
 			isa = PBXGroup;
 			children = (
-				1935D67C1B6ABF4D00864C31 /* HLDB.swift */,
+				1935D67C1B6ABF4D00864C31 /* hldb.swift */,
 				463B91041B6C5BA900F4D341 /* Supporting Files */,
 			);
-			name = HLDB;
+			name = hldb;
 			sourceTree = "<group>";
 		};
 		460D04961B6AE2C200BF1DE2 /* FMDB */ = {
@@ -236,8 +236,8 @@
 		463B91041B6C5BA900F4D341 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				46E66C761B6FFCDE00A8E32E /* hldb-iOS-Bridging-Header.h */,
-				463B91051B6C5BDB00F4D341 /* Info.plist */,
+				46E66C881B70010800A8E32E /* hldb-iOS-Bridging-Header.h */,
+				46E66C891B70010800A8E32E /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -261,8 +261,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46E66C8A1B70010800A8E32E /* hldb-iOS-Bridging-Header.h in Headers */,
 				46E66C7C1B6FFF2100A8E32E /* FMDatabasePool.h in Headers */,
-				46E66C771B6FFCDE00A8E32E /* hldb-iOS-Bridging-Header.h in Headers */,
 				463B90FC1B6C5B5C00F4D341 /* fts3_tokenizer.h in Headers */,
 				46E66C7A1B6FFF2100A8E32E /* FMDatabaseAdditions.h in Headers */,
 				46E66C781B6FFF2100A8E32E /* FMDatabase.h in Headers */,
@@ -362,7 +362,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46E66C861B6FFF7900A8E32E /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,7 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				463B90F21B6C5B4F00F4D341 /* FMDatabaseAdditionsVariadic.swift in Sources */,
-				463B90E61B6C5AE700F4D341 /* HLDB.swift in Sources */,
+				463B90E61B6C5AE700F4D341 /* hldb.swift in Sources */,
 				463B90F31B6C5B4F00F4D341 /* FMDatabaseVariadic.swift in Sources */,
 				46E66C791B6FFF2100A8E32E /* FMDatabase.m in Sources */,
 				46E66C7D1B6FFF2100A8E32E /* FMDatabasePool.m in Sources */,
@@ -392,8 +391,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				463B90F41B6C5B4F00F4D341 /* FMDatabaseAdditionsVariadic.swift in Sources */,
-				46E66C841B6FFF7300A8E32E /* HLDBTests.swift in Sources */,
-				463B90E71B6C5AE800F4D341 /* HLDB.swift in Sources */,
+				46E66C841B6FFF7300A8E32E /* hldbTests.swift in Sources */,
+				463B90E71B6C5AE800F4D341 /* hldb.swift in Sources */,
 				463B90F51B6C5B4F00F4D341 /* FMDatabaseVariadic.swift in Sources */,
 				463B90FF1B6C5B6100F4D341 /* FMDatabase+FTS3.m in Sources */,
 				463B91001B6C5B6100F4D341 /* FMTokenizers.m in Sources */,
@@ -508,12 +507,12 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/hldb/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "hldb-iOS";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(PRODUCT_NAME)-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "hldb/Supporting Files/$(PRODUCT_NAME)-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -532,12 +531,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/hldb/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "hldb-iOS";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(PRODUCT_NAME)-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "hldb/Supporting Files/$(PRODUCT_NAME)-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
