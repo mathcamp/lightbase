@@ -101,8 +101,8 @@ public class HLDB {
     }
     
     // do a query that does not return results without using a transaction
-    public func updateWithoutTx(query: String, args:[AnyObject] = []) -> Future<Result> {
-      let p = Promise<Result>()
+    public func updateWithoutTx(query: String, args:[AnyObject] = []) -> Future<Result, NoError> {
+      let p = Promise<Result, NoError>()
       getQueue()?.inDatabase() {
         db in
         
@@ -119,8 +119,8 @@ public class HLDB {
     }
     
     // do a query that does not return result using a transaction and rollback upon failure
-    public func update(queries: [QueryArgs]) -> Future<Result> {
-      let p = Promise<Result>()
+    public func update(queries: [QueryArgs]) -> Future<Result, NoError> {
+      let p = Promise<Result, NoError>()
       getQueue()?.inTransaction() {
         db, rollback in
         
@@ -141,8 +141,8 @@ public class HLDB {
     }
     
     // do a select style query that returns result
-    public func query(query: String, args:[AnyObject] = []) -> Future<Result> {
-      let p = Promise<Result>()
+    public func query(query: String, args:[AnyObject] = []) -> Future<Result, NoError> {
+      let p = Promise<Result, NoError>()
       getQueue()?.inDatabase() {
         db in
         
@@ -575,7 +575,7 @@ public class HLDB {
       return fieldStrArr
     }
     
-    func insertAndUpdate(insertRows: [Row], updateRows: [Row]) -> Future<DB.Result> {
+    func insertAndUpdate(insertRows: [Row], updateRows: [Row]) -> Future<DB.Result, NoError> {
       var queries: [DB.QueryArgs] = []
       if insertRows.count > 0 {
         let query = "INSERT INTO \(name) (\(fieldNamesStr)) values (\(fieldNamesPlaceholderStr))"
@@ -601,7 +601,7 @@ public class HLDB {
             args.append(primaryKeyVal)
             queries.append(DB.QueryArgs(query: query, args: args))
           } else {
-            let p = Promise<DB.Result>()
+            let p = Promise<DB.Result, NoError>()
             p.success(.Error(-1, "Cannot update without primary key!"))
             return p.future
           }
@@ -610,16 +610,16 @@ public class HLDB {
       return db.update(queries)
     }
     
-    public func insert(rows: [Row]) -> Future<DB.Result> {
+    public func insert(rows: [Row]) -> Future<DB.Result, NoError> {
       return insertAndUpdate(rows, updateRows: [])
     }
     
-    public func update(rows: [Row]) -> Future<DB.Result> {
+    public func update(rows: [Row]) -> Future<DB.Result, NoError> {
       return insertAndUpdate([], updateRows: rows)
     }
     
-    public func upsert(rows: [Row]) -> Future<DB.Result> {
-      let p = Promise<DB.Result>()
+    public func upsert(rows: [Row]) -> Future<DB.Result, NoError> {
+      let p = Promise<DB.Result, NoError>()
       
       var idList: [String] = []
       var placeholderList: [String] = []
@@ -681,7 +681,7 @@ public class HLDB {
       return p.future
     }
     
-    public func select(whereStr: String = "") -> Future<DB.Result> {
+    public func select(whereStr: String = "") -> Future<DB.Result, NoError> {
       var finalWhereString = whereStr
       if count(finalWhereString) > 0 {
         finalWhereString = " WHERE \(whereStr)"
@@ -690,14 +690,14 @@ public class HLDB {
       return db.query(query)
     }
     
-    public func delete(rows: [Row]) -> Future<DB.Result> {
+    public func delete(rows: [Row]) -> Future<DB.Result, NoError> {
       var queries: [DB.QueryArgs] = []
       for row in rows {
         if let primaryKeyValue: AnyObject = row.fields[primaryKey] {
           let query = "DELETE FROM \(name) WHERE \(primaryKey) = ?"
           queries.append(DB.QueryArgs(query: query, args: [primaryKeyValue]))
         } else {
-          let p = Promise<DB.Result>()
+          let p = Promise<DB.Result, NoError>()
           p.success(.Error(-1, "Cannot update without primary key!"))
           return p.future
         }
@@ -738,8 +738,8 @@ public class HLDB {
       cache.erase()
     }
     
-    public func select(whereStr: String = "") -> Future<Result> {
-      let p = Promise<Result>()
+    public func select(whereStr: String = "") -> Future<Result, NoError> {
+      let p = Promise<Result, NoError>()
       table.select(whereStr: whereStr).onSuccess { result in
         switch result {
         case .Success:
@@ -783,8 +783,8 @@ public class HLDB {
       return p.future
     }
     
-    public func delete(keys: [String]) -> Future<Result> {
-      let p = Promise<Result>()
+    public func delete(keys: [String]) -> Future<Result, NoError> {
+      let p = Promise<Result, NoError>()
       var rows: [Table.Row] = keys.map { Table.Row(fields: [self.table.primaryKey: $0]) }
       
       table.delete(rows).onSuccess { result in
@@ -804,15 +804,15 @@ public class HLDB {
       return p.future
     }
     
-    func insertAndUpdate(insertRows: [Table.Row], updateRows: [Table.Row]) -> Future<DB.Result> {
+    func insertAndUpdate(insertRows: [Table.Row], updateRows: [Table.Row]) -> Future<DB.Result, NoError> {
       return table.insertAndUpdate(insertRows, updateRows: updateRows)
     }
     
-    public func insert(rows: [Table.Row]) -> Future<DB.Result> {
+    public func insert(rows: [Table.Row]) -> Future<DB.Result, NoError> {
       return table.insert(rows)
     }
     
-    public func update(rows: [Table.Row]) -> Future<DB.Result> {
+    public func update(rows: [Table.Row]) -> Future<DB.Result, NoError> {
       return table.update(rows)
     }
   }
