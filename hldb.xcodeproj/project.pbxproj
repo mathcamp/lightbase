@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		463B90D71B6C5AAD00F4D341 /* hldb.temp_caseinsensitive_rename-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90CC1B6C5AAD00F4D341 /* hldb.temp_caseinsensitive_rename-iOS.framework */; };
+		463B90D71B6C5AAD00F4D341 /* hldb-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90CC1B6C5AAD00F4D341 /* hldb-iOS.framework */; };
 		463B90E61B6C5AE700F4D341 /* HLDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935D67C1B6ABF4D00864C31 /* HLDB.swift */; };
 		463B90E71B6C5AE800F4D341 /* HLDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935D67C1B6ABF4D00864C31 /* HLDB.swift */; };
 		463B90E81B6C5B3900F4D341 /* Box.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90BB1B6C5A2700F4D341 /* Box.framework */; };
@@ -32,6 +32,7 @@
 		463B90FF1B6C5B6100F4D341 /* FMDatabase+FTS3.m in Sources */ = {isa = PBXBuildFile; fileRef = 460D049A1B6AE2C200BF1DE2 /* FMDatabase+FTS3.m */; };
 		463B91001B6C5B6100F4D341 /* FMTokenizers.m in Sources */ = {isa = PBXBuildFile; fileRef = 460D049C1B6AE2C200BF1DE2 /* FMTokenizers.m */; };
 		463B91061B6C5BDB00F4D341 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 463B91051B6C5BDB00F4D341 /* Info.plist */; };
+		46E66C771B6FFCDE00A8E32E /* hldb-iOS-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 46E66C761B6FFCDE00A8E32E /* hldb-iOS-Bridging-Header.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +49,6 @@
 		1935D6701B6AADD500864C31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1935D6711B6AADD500864C31 /* HLDBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HLDBTests.swift; sourceTree = "<group>"; };
 		1935D67C1B6ABF4D00864C31 /* HLDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HLDB.swift; path = HLDB/Lib/HLDB.swift; sourceTree = "<group>"; };
-		460D048F1B6AD8C400BF1DE2 /* HLDB-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HLDB-Bridging-Header.h"; sourceTree = "<group>"; };
 		460D04991B6AE2C200BF1DE2 /* FMDatabase+FTS3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDatabase+FTS3.h"; sourceTree = "<group>"; };
 		460D049A1B6AE2C200BF1DE2 /* FMDatabase+FTS3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FMDatabase+FTS3.m"; sourceTree = "<group>"; };
 		460D049B1B6AE2C200BF1DE2 /* FMTokenizers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMTokenizers.h; sourceTree = "<group>"; };
@@ -73,9 +73,10 @@
 		463B90BB1B6C5A2700F4D341 /* Box.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Box.framework; path = Carthage/Build/iOS/Box.framework; sourceTree = "<group>"; };
 		463B90BC1B6C5A2700F4D341 /* BrightFutures.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BrightFutures.framework; path = Carthage/Build/iOS/BrightFutures.framework; sourceTree = "<group>"; };
 		463B90BD1B6C5A2700F4D341 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
-		463B90CC1B6C5AAD00F4D341 /* hldb.temp_caseinsensitive_rename-iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "hldb.temp_caseinsensitive_rename-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		463B90CC1B6C5AAD00F4D341 /* hldb-iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "hldb-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		463B90D61B6C5AAD00F4D341 /* hldb.temp_caseinsensitive_rename-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "hldb.temp_caseinsensitive_rename-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		463B91051B6C5BDB00F4D341 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46E66C761B6FFCDE00A8E32E /* hldb-iOS-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "hldb-iOS-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +98,7 @@
 				463B90EC1B6C5B3900F4D341 /* BrightFutures.framework in Frameworks */,
 				463B90EF1B6C5B3E00F4D341 /* libsqlite3.0.dylib in Frameworks */,
 				463B90EB1B6C5B3900F4D341 /* Box.framework in Frameworks */,
-				463B90D71B6C5AAD00F4D341 /* hldb.temp_caseinsensitive_rename-iOS.framework in Frameworks */,
+				463B90D71B6C5AAD00F4D341 /* hldb-iOS.framework in Frameworks */,
 				463B90ED1B6C5B3900F4D341 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -118,7 +119,7 @@
 		1935D6571B6AADD500864C31 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				463B90CC1B6C5AAD00F4D341 /* hldb.temp_caseinsensitive_rename-iOS.framework */,
+				463B90CC1B6C5AAD00F4D341 /* hldb-iOS.framework */,
 				463B90D61B6C5AAD00F4D341 /* hldb.temp_caseinsensitive_rename-iOSTests.xctest */,
 			);
 			name = Products;
@@ -146,7 +147,6 @@
 			children = (
 				1935D67C1B6ABF4D00864C31 /* HLDB.swift */,
 				463B91041B6C5BA900F4D341 /* Supporting Files */,
-				460D048F1B6AD8C400BF1DE2 /* HLDB-Bridging-Header.h */,
 			);
 			name = HLDB;
 			sourceTree = "<group>";
@@ -222,6 +222,7 @@
 		463B91041B6C5BA900F4D341 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				46E66C761B6FFCDE00A8E32E /* hldb-iOS-Bridging-Header.h */,
 				463B91051B6C5BDB00F4D341 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -246,6 +247,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46E66C771B6FFCDE00A8E32E /* hldb-iOS-Bridging-Header.h in Headers */,
 				463B90FC1B6C5B5C00F4D341 /* fts3_tokenizer.h in Headers */,
 				463B90FA1B6C5B5C00F4D341 /* FMTokenizers.h in Headers */,
 				463B90F81B6C5B5C00F4D341 /* FMDatabase+FTS3.h in Headers */,
@@ -271,7 +273,7 @@
 			);
 			name = "hldb-iOS";
 			productName = "HLDB-iOS";
-			productReference = 463B90CC1B6C5AAD00F4D341 /* hldb.temp_caseinsensitive_rename-iOS.framework */;
+			productReference = 463B90CC1B6C5AAD00F4D341 /* hldb-iOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		463B90D51B6C5AAD00F4D341 /* hldb-iOSTests */ = {
@@ -483,8 +485,9 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "hldb.temp_caseinsensitive_rename-iOS";
+				PRODUCT_NAME = "hldb-iOS";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PRODUCT_NAME)-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -506,8 +509,9 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "hldb.temp_caseinsensitive_rename-iOS";
+				PRODUCT_NAME = "hldb-iOS";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PRODUCT_NAME)-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
