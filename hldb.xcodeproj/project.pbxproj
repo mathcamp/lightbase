@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		463B90D71B6C5AAD00F4D341 /* hldb-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90CC1B6C5AAD00F4D341 /* hldb-iOS.framework */; };
+		463B90D71B6C5AAD00F4D341 /* hldb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90CC1B6C5AAD00F4D341 /* hldb.framework */; };
 		463B90E61B6C5AE700F4D341 /* hldb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935D67C1B6ABF4D00864C31 /* hldb.swift */; };
 		463B90E71B6C5AE800F4D341 /* hldb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935D67C1B6ABF4D00864C31 /* hldb.swift */; };
 		463B90E81B6C5B3900F4D341 /* Box.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90BB1B6C5A2700F4D341 /* Box.framework */; };
@@ -82,7 +82,7 @@
 		463B90BB1B6C5A2700F4D341 /* Box.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Box.framework; path = Carthage/Build/iOS/Box.framework; sourceTree = "<group>"; };
 		463B90BC1B6C5A2700F4D341 /* BrightFutures.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BrightFutures.framework; path = Carthage/Build/iOS/BrightFutures.framework; sourceTree = "<group>"; };
 		463B90BD1B6C5A2700F4D341 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
-		463B90CC1B6C5AAD00F4D341 /* hldb-iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "hldb-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		463B90CC1B6C5AAD00F4D341 /* hldb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = hldb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		463B90D61B6C5AAD00F4D341 /* hldb-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "hldb-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46E66C831B6FFF7300A8E32E /* hldbTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = hldbTests.swift; path = "hldb-iOSTests/hldbTests.swift"; sourceTree = SOURCE_ROOT; };
 		46E66C851B6FFF7900A8E32E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "hldb-iOSTests/Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -110,7 +110,7 @@
 				463B90EC1B6C5B3900F4D341 /* BrightFutures.framework in Frameworks */,
 				463B90EF1B6C5B3E00F4D341 /* libsqlite3.0.dylib in Frameworks */,
 				463B90EB1B6C5B3900F4D341 /* Box.framework in Frameworks */,
-				463B90D71B6C5AAD00F4D341 /* hldb-iOS.framework in Frameworks */,
+				463B90D71B6C5AAD00F4D341 /* hldb.framework in Frameworks */,
 				463B90ED1B6C5B3900F4D341 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,7 +131,7 @@
 		1935D6571B6AADD500864C31 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				463B90CC1B6C5AAD00F4D341 /* hldb-iOS.framework */,
+				463B90CC1B6C5AAD00F4D341 /* hldb.framework */,
 				463B90D61B6C5AAD00F4D341 /* hldb-iOSTests.xctest */,
 			);
 			name = Products;
@@ -293,7 +293,7 @@
 			);
 			name = "hldb-iOS";
 			productName = "HLDB-iOS";
-			productReference = 463B90CC1B6C5AAD00F4D341 /* hldb-iOS.framework */;
+			productReference = 463B90CC1B6C5AAD00F4D341 /* hldb.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		463B90D51B6C5AAD00F4D341 /* hldb-iOSTests */ = {
@@ -510,7 +510,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/hldb/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "hldb-iOS";
+				PRODUCT_NAME = hldb;
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "hldb/Supporting Files/$(PRODUCT_NAME)-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -534,7 +534,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/hldb/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "hldb-iOS";
+				PRODUCT_NAME = hldb;
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "hldb/Supporting Files/$(PRODUCT_NAME)-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
