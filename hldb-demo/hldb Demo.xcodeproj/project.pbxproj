@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		462AEB441B702101003B0579 /* hldb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 462AEB411B701FDC003B0579 /* hldb.framework */; };
+		462AEB451B702111003B0579 /* hldb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 462AEB411B701FDC003B0579 /* hldb.framework */; };
+		462AEB461B702111003B0579 /* hldb.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 462AEB411B701FDC003B0579 /* hldb.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		462AEB4B1B702195003B0579 /* Box.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 462AEB481B702195003B0579 /* Box.framework */; };
+		462AEB4C1B702195003B0579 /* Box.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 462AEB481B702195003B0579 /* Box.framework */; };
+		462AEB4D1B702195003B0579 /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 462AEB491B702195003B0579 /* BrightFutures.framework */; };
+		462AEB4E1B702195003B0579 /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 462AEB491B702195003B0579 /* BrightFutures.framework */; };
+		462AEB4F1B702195003B0579 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 462AEB4A1B702195003B0579 /* Result.framework */; };
+		462AEB501B702195003B0579 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 462AEB4A1B702195003B0579 /* Result.framework */; };
 		463B91161B6C5D2100F4D341 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463B91151B6C5D2100F4D341 /* AppDelegate.swift */; };
 		463B91181B6C5D2100F4D341 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463B91171B6C5D2100F4D341 /* ViewController.swift */; };
 		463B911B1B6C5D2100F4D341 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 463B91191B6C5D2100F4D341 /* Main.storyboard */; };
@@ -25,7 +34,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		462AEB471B702112003B0579 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				462AEB461B702111003B0579 /* hldb.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		462AEB411B701FDC003B0579 /* hldb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = hldb.framework; sourceTree = "<group>"; };
+		462AEB481B702195003B0579 /* Box.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Box.framework; sourceTree = "<group>"; };
+		462AEB491B702195003B0579 /* BrightFutures.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BrightFutures.framework; sourceTree = "<group>"; };
+		462AEB4A1B702195003B0579 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Result.framework; sourceTree = "<group>"; };
 		463B91101B6C5D2100F4D341 /* hldb Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hldb Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		463B91141B6C5D2100F4D341 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		463B91151B6C5D2100F4D341 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +70,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				462AEB4D1B702195003B0579 /* BrightFutures.framework in Frameworks */,
+				462AEB4B1B702195003B0579 /* Box.framework in Frameworks */,
+				462AEB451B702111003B0579 /* hldb.framework in Frameworks */,
+				462AEB4F1B702195003B0579 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,15 +81,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				462AEB4E1B702195003B0579 /* BrightFutures.framework in Frameworks */,
+				462AEB4C1B702195003B0579 /* Box.framework in Frameworks */,
+				462AEB441B702101003B0579 /* hldb.framework in Frameworks */,
+				462AEB501B702195003B0579 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		462AEB431B701FF8003B0579 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				462AEB481B702195003B0579 /* Box.framework */,
+				462AEB491B702195003B0579 /* BrightFutures.framework */,
+				462AEB4A1B702195003B0579 /* Result.framework */,
+				462AEB411B701FDC003B0579 /* hldb.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		463B91071B6C5D2000F4D341 = {
 			isa = PBXGroup;
 			children = (
+				462AEB431B701FF8003B0579 /* Frameworks */,
 				463B91121B6C5D2100F4D341 /* HLDB-Demo */,
 				463B91281B6C5D2100F4D341 /* HLDB-DemoTests */,
 				463B91111B6C5D2100F4D341 /* Products */,
@@ -122,6 +169,7 @@
 				463B910C1B6C5D2100F4D341 /* Sources */,
 				463B910D1B6C5D2100F4D341 /* Frameworks */,
 				463B910E1B6C5D2100F4D341 /* Resources */,
+				462AEB471B702112003B0579 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -342,6 +390,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "HLDB-Demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "hldb Demo";
@@ -352,6 +404,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "HLDB-Demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "hldb Demo";
@@ -365,6 +421,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -384,6 +441,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "HLDB-DemoTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
