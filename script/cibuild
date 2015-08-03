@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x #echo on
 
 export SCRIPT_DIR=$(dirname "$0")
 
@@ -81,6 +82,7 @@ main ()
 
         while read scheme
         do
+            echo $scheme
             build_scheme "$scheme" || status=1
         done
 
