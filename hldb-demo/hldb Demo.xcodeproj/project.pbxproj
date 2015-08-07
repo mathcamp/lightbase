@@ -7,32 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		462AEB441B702101003B0579 /* hldb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 462AEB411B701FDC003B0579 /* hldb.framework */; };
 		462AEB451B702111003B0579 /* hldb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 462AEB411B701FDC003B0579 /* hldb.framework */; };
 		462AEB461B702111003B0579 /* hldb.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 462AEB411B701FDC003B0579 /* hldb.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		462AEB4B1B702195003B0579 /* Box.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 462AEB481B702195003B0579 /* Box.framework */; };
-		462AEB4C1B702195003B0579 /* Box.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 462AEB481B702195003B0579 /* Box.framework */; };
 		462AEB4D1B702195003B0579 /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 462AEB491B702195003B0579 /* BrightFutures.framework */; };
-		462AEB4E1B702195003B0579 /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 462AEB491B702195003B0579 /* BrightFutures.framework */; };
 		462AEB4F1B702195003B0579 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 462AEB4A1B702195003B0579 /* Result.framework */; };
-		462AEB501B702195003B0579 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 462AEB4A1B702195003B0579 /* Result.framework */; };
 		463B91161B6C5D2100F4D341 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463B91151B6C5D2100F4D341 /* AppDelegate.swift */; };
 		463B91181B6C5D2100F4D341 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463B91171B6C5D2100F4D341 /* ViewController.swift */; };
 		463B911B1B6C5D2100F4D341 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 463B91191B6C5D2100F4D341 /* Main.storyboard */; };
 		463B911D1B6C5D2100F4D341 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 463B911C1B6C5D2100F4D341 /* Images.xcassets */; };
 		463B91201B6C5D2100F4D341 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 463B911E1B6C5D2100F4D341 /* LaunchScreen.xib */; };
-		463B912C1B6C5D2100F4D341 /* HLDB_DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463B912B1B6C5D2100F4D341 /* HLDB_DemoTests.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		463B91261B6C5D2100F4D341 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 463B91081B6C5D2000F4D341 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 463B910F1B6C5D2100F4D341;
-			remoteInfo = "HLDB-Demo";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		462AEB471B702112003B0579 /* Embed Frameworks */ = {
@@ -53,6 +38,7 @@
 		462AEB481B702195003B0579 /* Box.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Box.framework; sourceTree = "<group>"; };
 		462AEB491B702195003B0579 /* BrightFutures.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BrightFutures.framework; sourceTree = "<group>"; };
 		462AEB4A1B702195003B0579 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Result.framework; sourceTree = "<group>"; };
+		462AEB7F1B702875003B0579 /* HLDB-Demo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "HLDB-Demo-Bridging-Header.h"; path = "../../hldb-demo/HLDB-Demo/HLDB-Demo-Bridging-Header.h"; sourceTree = "<group>"; };
 		463B91101B6C5D2100F4D341 /* hldb Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hldb Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		463B91141B6C5D2100F4D341 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		463B91151B6C5D2100F4D341 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,9 +46,6 @@
 		463B911A1B6C5D2100F4D341 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		463B911C1B6C5D2100F4D341 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		463B911F1B6C5D2100F4D341 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		463B91251B6C5D2100F4D341 /* hldb DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "hldb DemoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		463B912A1B6C5D2100F4D341 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		463B912B1B6C5D2100F4D341 /* HLDB_DemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HLDB_DemoTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,17 +57,6 @@
 				462AEB4B1B702195003B0579 /* Box.framework in Frameworks */,
 				462AEB451B702111003B0579 /* hldb.framework in Frameworks */,
 				462AEB4F1B702195003B0579 /* Result.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		463B91221B6C5D2100F4D341 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				462AEB4E1B702195003B0579 /* BrightFutures.framework in Frameworks */,
-				462AEB4C1B702195003B0579 /* Box.framework in Frameworks */,
-				462AEB441B702101003B0579 /* hldb.framework in Frameworks */,
-				462AEB501B702195003B0579 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,7 +79,6 @@
 			children = (
 				462AEB431B701FF8003B0579 /* Frameworks */,
 				463B91121B6C5D2100F4D341 /* HLDB-Demo */,
-				463B91281B6C5D2100F4D341 /* HLDB-DemoTests */,
 				463B91111B6C5D2100F4D341 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -116,7 +87,6 @@
 			isa = PBXGroup;
 			children = (
 				463B91101B6C5D2100F4D341 /* hldb Demo.app */,
-				463B91251B6C5D2100F4D341 /* hldb DemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -138,23 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				463B91141B6C5D2100F4D341 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		463B91281B6C5D2100F4D341 /* HLDB-DemoTests */ = {
-			isa = PBXGroup;
-			children = (
-				463B912B1B6C5D2100F4D341 /* HLDB_DemoTests.swift */,
-				463B91291B6C5D2100F4D341 /* Supporting Files */,
-			);
-			path = "HLDB-DemoTests";
-			sourceTree = "<group>";
-		};
-		463B91291B6C5D2100F4D341 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				463B912A1B6C5D2100F4D341 /* Info.plist */,
+				462AEB7F1B702875003B0579 /* HLDB-Demo-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -180,24 +134,6 @@
 			productReference = 463B91101B6C5D2100F4D341 /* hldb Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		463B91241B6C5D2100F4D341 /* hldb DemoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 463B91321B6C5D2100F4D341 /* Build configuration list for PBXNativeTarget "hldb DemoTests" */;
-			buildPhases = (
-				463B91211B6C5D2100F4D341 /* Sources */,
-				463B91221B6C5D2100F4D341 /* Frameworks */,
-				463B91231B6C5D2100F4D341 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				463B91271B6C5D2100F4D341 /* PBXTargetDependency */,
-			);
-			name = "hldb DemoTests";
-			productName = "HLDB-DemoTests";
-			productReference = 463B91251B6C5D2100F4D341 /* hldb DemoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -209,10 +145,6 @@
 				TargetAttributes = {
 					463B910F1B6C5D2100F4D341 = {
 						CreatedOnToolsVersion = 6.4;
-					};
-					463B91241B6C5D2100F4D341 = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = 463B910F1B6C5D2100F4D341;
 					};
 				};
 			};
@@ -230,7 +162,6 @@
 			projectRoot = "";
 			targets = (
 				463B910F1B6C5D2100F4D341 /* hldb Demo */,
-				463B91241B6C5D2100F4D341 /* hldb DemoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -246,13 +177,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		463B91231B6C5D2100F4D341 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -265,23 +189,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		463B91211B6C5D2100F4D341 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				463B912C1B6C5D2100F4D341 /* HLDB_DemoTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		463B91271B6C5D2100F4D341 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 463B910F1B6C5D2100F4D341 /* hldb Demo */;
-			targetProxy = 463B91261B6C5D2100F4D341 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		463B91191B6C5D2100F4D341 /* Main.storyboard */ = {
@@ -397,6 +305,7 @@
 				INFOPLIST_FILE = "HLDB-Demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "hldb Demo";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PRODUCT_NAME)/$(PRODUCT_NAME)-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -411,42 +320,7 @@
 				INFOPLIST_FILE = "HLDB-Demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "hldb Demo";
-			};
-			name = Release;
-		};
-		463B91331B6C5D2100F4D341 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "HLDB-DemoTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "hldb DemoTests";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HLDB-Demo.app/HLDB-Demo";
-			};
-			name = Debug;
-		};
-		463B91341B6C5D2100F4D341 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
-				INFOPLIST_FILE = "HLDB-DemoTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "hldb DemoTests";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HLDB-Demo.app/HLDB-Demo";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PRODUCT_NAME)/$(PRODUCT_NAME)-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -467,15 +341,6 @@
 			buildConfigurations = (
 				463B91301B6C5D2100F4D341 /* Debug */,
 				463B91311B6C5D2100F4D341 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		463B91321B6C5D2100F4D341 /* Build configuration list for PBXNativeTarget "hldb DemoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				463B91331B6C5D2100F4D341 /* Debug */,
-				463B91341B6C5D2100F4D341 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

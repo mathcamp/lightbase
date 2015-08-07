@@ -8,6 +8,7 @@ Pod::Spec.new do |s|
   s.authors = { 'Ben Garret' => 'bag@highlig.ht', "Andrew Breckenridge" => "asbreckenridge@me.com" }
   s.source = { :git => 'https://github.com/mathcamp/hldb.git', :tag => "v#{s.version}" }
 
+  s.platform = :ios
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'hldb/*.swift'
