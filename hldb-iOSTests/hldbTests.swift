@@ -109,7 +109,7 @@ class HLDBTests: XCTestCase {
       XCTAssertNil(error, "Error")
     }
   }
-  
+
   func testDelete() {
     let finishedExpectation = expectationWithDescription("finished")
     
@@ -554,4 +554,165 @@ class HLDBTests: XCTestCase {
     
   }
   
+  
+  func tableWithIndices(db: HLDB.DB, name: String) -> HLDB.Table {
+    let fields = [ HLDB.Table.Field(name: "id", type: .Text, index: .PrimaryKey, defaultValue: .NonNull),
+      HLDB.Table.Field(name: "a", type: .Text, index: .None, defaultValue: .NonNull),
+      HLDB.Table.Field(name: "b", type: .Integer, index: .Unique, defaultValue: .NonNull),
+      HLDB.Table.Field(name: "c", type: .Text, index: .Index, defaultValue: .NonNull),
+      HLDB.Table.Field(name: "d", type: .Integer, index: .Index, defaultValue: .NonNull)]
+    return HLDB.Table(db: db, name: name, fields: fields)
+  }
+  
+  func testCreateIndices() {
+    let finishedExpectation = expectationWithDescription("finished")
+    
+    let fileName = "dbfile"
+    let db = HLDB.DB(fileName: fileName)
+    let tableName = "IndexTable"
+    let table = tableWithIndices(db, name: tableName)
+    table.create()
+    
+    db.query("select name from sqlite_master where type='table'").onSuccess { result in
+      switch result {
+      case .Success:
+        XCTAssert(false, "Tables query returned success rather than the tables")
+      case .Error(let code, let message):
+        XCTAssert(false, "Tables query returned error \(code) \(message)")
+      case .Items(let arr):
+        if arr.count != 1 {
+          XCTAssert(false, "Expected one table")
+        }
+        let firstItem = arr[0]
+        if let t = firstItem["name"] as? String {
+          if t != tableName {
+            XCTAssert(false, "Expected found table name to match")
+          }
+        } else {
+          XCTAssert(false, "Expected table name to be a string")
+        }
+      }
+      
+      // inserting some rows
+      let row1 = HLDB.Table.Row(fields: ["id" : "monkeyid",
+        "a"  : "a1",
+        "b" : 1,
+        "c" : "c1",
+        "d" : 1])
+      let row2 = HLDB.Table.Row(fields: ["id" : "monkeyid",
+        "a"  : "a2",
+        "b" : 2,
+        "c" : "c2",
+        "d" : 1])
+      let row3 = HLDB.Table.Row(fields: ["id" : "monkeyid",
+        "a"  : "a3",
+        "b" : 3,
+        "c" : "c3",
+        "d" : 2])
+      let row4 = HLDB.Table.Row(fields: ["id" : "monkeyid",
+        "a"  : "a4",
+        "b" : 1,
+        "c" : "c4",
+        "d" : 2])
+      let row5 = HLDB.Table.Row(fields: ["id" : "monkeyid",
+        "a"  : "a5",
+        "b" : 2,
+        "c" : "c5",
+        "d" : 3])
+      let row6 = HLDB.Table.Row(fields: ["id" : "monkeyid",
+        "a"  : "a6",
+        "b" : 3,
+        "c" : "c6",
+        "d" : 3])
+      table.insert([row1, row2, row3, row4, row5, row6]).onSuccess { result in
+        
+        switch result {
+        case .Success:
+          break
+        case .Error(let code, let message):
+          XCTAssert(false, "Insert query returned error \(code) \(message)")
+        case .Items(let items):
+          XCTAssert(false, "Insert query returned items rather than success")
+        }
+        
+        // query to see if we can find those items
+        table.select().onSuccess { result in
+          switch result {
+          case .Success:
+            XCTAssert(false, "Insert query returned success rather than items")
+          case .Error(let code, let message):
+            XCTAssert(false, "Insert query returned error \(code) \(message)")
+          case .Items(let items):
+            
+            if items.count != 6 {
+              XCTAssert(false, "Expected six items!")
+            }
+          }
+        }
+        
+        table.select(whereStr: "c='c3'").onSuccess { result in
+          switch result {
+          case .Success:
+            XCTAssert(false, "Insert query returned success rather than items")
+          case .Error(let code, let message):
+            XCTAssert(false, "Insert query returned error \(code) \(message)")
+          case .Items(let items):
+            
+            if items.count != 1 {
+              XCTAssert(false, "Expected one item!")
+            }
+          }
+        }
+        
+        table.select(whereStr: "d=3").onSuccess { result in
+          switch result {
+          case .Success:
+            XCTAssert(false, "Insert query returned success rather than items")
+          case .Error(let code, let message):
+            XCTAssert(false, "Insert query returned error \(code) \(message)")
+          case .Items(let items):
+            
+            if items.count != 2 {
+              XCTAssert(false, "Expected two items!")
+            }
+          }
+        }
+        
+        table.select(whereStr: "d=2 AND c='c3'").onSuccess { result in
+          switch result {
+          case .Success:
+            XCTAssert(false, "Insert query returned success rather than items")
+          case .Error(let code, let message):
+            XCTAssert(false, "Insert query returned error \(code) \(message)")
+          case .Items(let items):
+            
+            if items.count != 1 {
+              XCTAssert(false, "Expected one item!")
+            }
+          }
+        }
+        
+        table.drop()
+        db.query("select name from sqlite_master where type='table'").onSuccess { result in
+          switch result {
+          case .Success:
+            XCTAssert(false, "Tables query returned success rather than the tables")
+          case .Error(let code, let message):
+            XCTAssert(false, "Tables query returned error \(code) \(message)")
+          case .Items(let arr):
+            if arr.count != 0 {
+              XCTAssert(false, "Expected zero tables")
+            }
+            
+            finishedExpectation.fulfill()
+          }
+        }
+      }
+      
+      // Loop until the expectation is fulfilled
+      self.waitForExpectationsWithTimeout(1) { error in
+        XCTAssertNil(error, "Error")
+      }
+    }
+  }
 }
