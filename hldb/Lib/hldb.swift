@@ -383,7 +383,7 @@ public class HLDB {
       }
     }
     
-    func drop() {
+    public func drop() {
       db.updateWithoutTx("DROP TABLE \(name)")
     }
     
