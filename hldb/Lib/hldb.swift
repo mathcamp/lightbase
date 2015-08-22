@@ -375,7 +375,6 @@ public class HLDB {
         switch result {
         case .Success:
           for statement in self.indicesToBeCreated {
-            println(statement)
             self.db.updateWithoutTx(statement)
           }
         default:

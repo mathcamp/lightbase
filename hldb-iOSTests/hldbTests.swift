@@ -593,6 +593,26 @@ class HLDBTests: XCTestCase {
         }
       }
       
+      db.query("select * from sqlite_master where type='index'").onSuccess { result in
+        switch result {
+        case .Success:
+          XCTAssert(false, "Indices query returned success rather than the indices")
+        case .Error(let code, let message):
+          XCTAssert(false, "Indices query returned error \(code) \(message)")
+        case .Items(let arr):
+          //we expect 5 because there should be two auto indices and three that we made
+          if arr.count != 5 {
+            XCTAssert(false, "Expected three indices, got \(arr.count)")
+          }
+          let path = HLDB.DB.pathForDBFile("dbfile")
+          println("DB PATH: \(path)")
+          for var i = 0; i < arr.count; i++ {
+            let index = arr[i]
+            println("INDEX \(i+1): \(index)")
+          }
+        }
+      }
+      
       // inserting some rows
       let row1 = HLDB.Table.Row(fields: ["id" : "row1",
         "a"  : "a1",
@@ -691,6 +711,24 @@ class HLDBTests: XCTestCase {
             }
           }
         }
+        
+        //prove column b is unique
+        let row7 = HLDB.Table.Row(fields: ["id" : "row7",
+          "a"  : "a1",
+          "b" : 1,
+          "c" : "c1",
+          "d" : 1])
+        table.insert([row7]).onSuccess { result in
+          switch result {
+          case .Success:
+            break
+          case .Error(let code, let message):
+            XCTAssert(true, "Insert query returned error \(code) \(message)")
+          case .Items(let items):
+            XCTAssert(false, "Insert query returned items rather than success")
+          }
+        }
+
         
         table.drop()
         db.query("select name from sqlite_master where type='table'").onSuccess { result in
