@@ -44,6 +44,11 @@
 		46E66C821B6FFF2100A8E32E /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 460D04AF1B6AE2C200BF1DE2 /* FMResultSet.m */; };
 		46E66C841B6FFF7300A8E32E /* hldbTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E66C831B6FFF7300A8E32E /* hldbTests.swift */; };
 		46E66C8A1B70010800A8E32E /* hldb-iOS-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 46E66C881B70010800A8E32E /* hldb-iOS-Bridging-Header.h */; };
+		9743C6231B87DC3200CF5F09 /* Box.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 463B90BB1B6C5A2700F4D341 /* Box.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9743C6241B87DC3200CF5F09 /* BrightFutures.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 463B90BC1B6C5A2700F4D341 /* BrightFutures.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9743C6251B87DC3200CF5F09 /* Result.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 463B90BD1B6C5A2700F4D341 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		974A6C7B1B86BF7000A970D5 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974A6C7A1B86BF7000A970D5 /* Entity.swift */; };
+		974A6C7F1B87901700A970D5 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974A6C7A1B86BF7000A970D5 /* Entity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +60,21 @@
 			remoteInfo = "HLDB-iOS";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9743C6221B87DC2200CF5F09 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9743C6231B87DC3200CF5F09 /* Box.framework in CopyFiles */,
+				9743C6241B87DC3200CF5F09 /* BrightFutures.framework in CopyFiles */,
+				9743C6251B87DC3200CF5F09 /* Result.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1935D67C1B6ABF4D00864C31 /* hldb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = hldb.swift; path = HLDB/Lib/hldb.swift; sourceTree = "<group>"; };
@@ -89,6 +109,7 @@
 		46E66C871B6FFFFD00A8E32E /* hldb-iOSTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "hldb-iOSTests-Bridging-Header.h"; path = "hldb-iOSTests/hldb-iOSTests-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		46E66C881B70010800A8E32E /* hldb-iOS-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "hldb-iOS-Bridging-Header.h"; path = "hldb/Supporting Files/hldb-iOS-Bridging-Header.h"; sourceTree = "<group>"; };
 		46E66C891B70010800A8E32E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "hldb/Supporting Files/Info.plist"; sourceTree = "<group>"; };
+		974A6C7A1B86BF7000A970D5 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +182,7 @@
 			children = (
 				1935D67C1B6ABF4D00864C31 /* hldb.swift */,
 				463B91041B6C5BA900F4D341 /* Supporting Files */,
+				974A6C7A1B86BF7000A970D5 /* Entity.swift */,
 			);
 			name = hldb;
 			sourceTree = "<group>";
@@ -303,6 +325,7 @@
 				463B90D21B6C5AAD00F4D341 /* Sources */,
 				463B90D31B6C5AAD00F4D341 /* Frameworks */,
 				463B90D41B6C5AAD00F4D341 /* Resources */,
+				9743C6221B87DC2200CF5F09 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -380,6 +403,7 @@
 				46E66C7F1B6FFF2100A8E32E /* FMDatabaseQueue.m in Sources */,
 				463B90F71B6C5B5500F4D341 /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
 				463B90FB1B6C5B5C00F4D341 /* FMTokenizers.m in Sources */,
+				974A6C7B1B86BF7000A970D5 /* Entity.swift in Sources */,
 				46E66C821B6FFF2100A8E32E /* FMResultSet.m in Sources */,
 				463B90F91B6C5B5C00F4D341 /* FMDatabase+FTS3.m in Sources */,
 				46E66C7B1B6FFF2100A8E32E /* FMDatabaseAdditions.m in Sources */,
@@ -392,6 +416,7 @@
 			files = (
 				463B90F41B6C5B4F00F4D341 /* FMDatabaseAdditionsVariadic.swift in Sources */,
 				46E66C841B6FFF7300A8E32E /* hldbTests.swift in Sources */,
+				974A6C7F1B87901700A970D5 /* Entity.swift in Sources */,
 				463B90E71B6C5AE800F4D341 /* hldb.swift in Sources */,
 				463B90F51B6C5B4F00F4D341 /* FMDatabaseVariadic.swift in Sources */,
 				463B90FF1B6C5B6100F4D341 /* FMDatabase+FTS3.m in Sources */,
