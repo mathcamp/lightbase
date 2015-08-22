@@ -604,12 +604,6 @@ class HLDBTests: XCTestCase {
           if arr.count != 5 {
             XCTAssert(false, "Expected three indices, got \(arr.count)")
           }
-          let path = HLDB.DB.pathForDBFile("dbfile")
-          println("DB PATH: \(path)")
-          for var i = 0; i < arr.count; i++ {
-            let index = arr[i]
-            println("INDEX \(i+1): \(index)")
-          }
         }
       }
       
