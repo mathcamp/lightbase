@@ -715,28 +715,27 @@ class HLDBTests: XCTestCase {
         table.insert([row7]).onSuccess { result in
           switch result {
           case .Success:
-            break
+            XCTAssert(false, "Insert query succeeded when inserting duplicate value in unique column")
           case .Error(let code, let message):
             XCTAssert(true, "Insert query returned error \(code) \(message)")
           case .Items(let items):
             XCTAssert(false, "Insert query returned items rather than success")
           }
-        }
 
-        
-        table.drop()
-        db.query("select name from sqlite_master where type='table'").onSuccess { result in
-          switch result {
-          case .Success:
-            XCTAssert(false, "Tables query returned success rather than the tables")
-          case .Error(let code, let message):
-            XCTAssert(false, "Tables query returned error \(code) \(message)")
-          case .Items(let arr):
-            if arr.count != 0 {
-              XCTAssert(false, "Expected zero tables, got \(arr.count)")
+          table.drop()
+          db.query("select name from sqlite_master where type='table'").onSuccess { result in
+            switch result {
+            case .Success:
+              XCTAssert(false, "Tables query returned success rather than the tables")
+            case .Error(let code, let message):
+              XCTAssert(false, "Tables query returned error \(code) \(message)")
+            case .Items(let arr):
+              if arr.count != 0 {
+                XCTAssert(false, "Expected zero tables, got \(arr.count)")
+              }
+              
+              finishedExpectation.fulfill()
             }
-            
-            finishedExpectation.fulfill()
           }
         }
       }
