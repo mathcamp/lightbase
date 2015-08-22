@@ -594,34 +594,34 @@ class HLDBTests: XCTestCase {
       }
       
       // inserting some rows
-      let row1 = HLDB.Table.Row(fields: ["id" : "monkeyid",
+      let row1 = HLDB.Table.Row(fields: ["id" : "row1",
         "a"  : "a1",
         "b" : 1,
         "c" : "c1",
         "d" : 1])
-      let row2 = HLDB.Table.Row(fields: ["id" : "monkeyid",
+      let row2 = HLDB.Table.Row(fields: ["id" : "row2",
         "a"  : "a2",
         "b" : 2,
         "c" : "c2",
         "d" : 1])
-      let row3 = HLDB.Table.Row(fields: ["id" : "monkeyid",
+      let row3 = HLDB.Table.Row(fields: ["id" : "row3",
         "a"  : "a3",
         "b" : 3,
         "c" : "c3",
         "d" : 2])
-      let row4 = HLDB.Table.Row(fields: ["id" : "monkeyid",
+      let row4 = HLDB.Table.Row(fields: ["id" : "row4",
         "a"  : "a4",
-        "b" : 1,
+        "b" : 4,
         "c" : "c4",
         "d" : 2])
-      let row5 = HLDB.Table.Row(fields: ["id" : "monkeyid",
+      let row5 = HLDB.Table.Row(fields: ["id" : "row5",
         "a"  : "a5",
-        "b" : 2,
+        "b" : 5,
         "c" : "c5",
         "d" : 3])
-      let row6 = HLDB.Table.Row(fields: ["id" : "monkeyid",
+      let row6 = HLDB.Table.Row(fields: ["id" : "row6",
         "a"  : "a6",
-        "b" : 3,
+        "b" : 6,
         "c" : "c6",
         "d" : 3])
       table.insert([row1, row2, row3, row4, row5, row6]).onSuccess { result in
@@ -645,7 +645,7 @@ class HLDBTests: XCTestCase {
           case .Items(let items):
             
             if items.count != 6 {
-              XCTAssert(false, "Expected six items!")
+              XCTAssert(false, "Expected six items, got \(items.count)")
             }
           }
         }
@@ -673,7 +673,7 @@ class HLDBTests: XCTestCase {
           case .Items(let items):
             
             if items.count != 2 {
-              XCTAssert(false, "Expected two items!")
+              XCTAssert(false, "Expected two items, got \(items.count)")
             }
           }
         }
@@ -687,7 +687,7 @@ class HLDBTests: XCTestCase {
           case .Items(let items):
             
             if items.count != 1 {
-              XCTAssert(false, "Expected one item!")
+              XCTAssert(false, "Expected one item, got \(items.count)")
             }
           }
         }
@@ -701,18 +701,17 @@ class HLDBTests: XCTestCase {
             XCTAssert(false, "Tables query returned error \(code) \(message)")
           case .Items(let arr):
             if arr.count != 0 {
-              XCTAssert(false, "Expected zero tables")
+              XCTAssert(false, "Expected zero tables, got \(arr.count)")
             }
             
             finishedExpectation.fulfill()
           }
         }
       }
-      
-      // Loop until the expectation is fulfilled
-      self.waitForExpectationsWithTimeout(1) { error in
-        XCTAssertNil(error, "Error")
-      }
+    }
+    // Loop until the expectation is fulfilled
+    self.waitForExpectationsWithTimeout(1) { error in
+      XCTAssertNil(error, "Error")
     }
   }
 }

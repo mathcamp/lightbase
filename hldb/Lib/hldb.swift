@@ -323,21 +323,22 @@ public class HLDB {
       self.definition = def
     }
     
-    var indicesToBeCreated: String {
+    var indicesToBeCreated: [String] {
       var statements: [String] = []
       for (name, field) in definition {
         var constraintStr = ""
         switch field.index {
         case .Unique:
           constraintStr = " UNIQUE"
+          statements.append("CREATE UNIQUE INDEX IF NOT EXISTS \(self.name)_\(field.name) ON \(self.name)(\(field.name));")
         case .Index:
           constraintStr = " INDEX"
+          statements.append("CREATE INDEX IF NOT EXISTS \(self.name)_\(field.name) ON \(self.name)(\(field.name));")
         default:
           break
         }
-        statements.append("CREATE INDEX IF NOT EXISTS \(self.name)_\(field.name) ON \(self.name)(\(field.name))")
       }
-      return ";".join(statements)
+      return statements
     }
     
     var createTableQueryString: String {
@@ -370,11 +371,20 @@ public class HLDB {
     
     public func create() {
       //NSLog("Create table query string =\(createTableQueryString)")
-      db.updateWithoutTx(createTableQueryString)
-      db.updateWithoutTx(indicesToBeCreated)
+      db.updateWithoutTx(createTableQueryString).onSuccess { result in
+        switch result {
+        case .Success:
+          for statement in self.indicesToBeCreated {
+            println(statement)
+            self.db.updateWithoutTx(statement)
+          }
+        default:
+          break
+        }
+      }
     }
     
-    public func drop() {
+    func drop() {
       db.updateWithoutTx("DROP TABLE \(name)")
     }
     
@@ -439,7 +449,7 @@ public class HLDB {
       return fieldStrArr
     }
     
-    func insertAndUpdate(insertRows: [Row], updateRows: [Row]) -> Future<DB.Result, NoError> {
+    public func insertAndUpdate(insertRows: [Row], updateRows: [Row]) -> Future<DB.Result, NoError> {
       var queries: [DB.QueryArgs] = []
       if insertRows.count > 0 {
         let query = "INSERT INTO \(name) (\(fieldNamesStr)) values (\(fieldNamesPlaceholderStr))"
@@ -550,7 +560,7 @@ public class HLDB {
       if count(finalWhereString) > 0 {
         finalWhereString = " WHERE \(whereStr)"
       }
-      let query = "SELECT * FROM \(name)\(whereStr)"
+      let query = "SELECT * FROM \(name)\(finalWhereString)"
       return db.query(query)
     }
     
