@@ -7,3 +7,4 @@
 //
 
 #import "FMDB.h"
+#import <CommonCrypto/CommonCrypto.h>

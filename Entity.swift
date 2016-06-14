@@ -1,27 +1,29 @@
 //
 //  Entity.swift
-//  hldb
+//  Roll
 //
-//  Created by Alison Kohl on 8/20/15.
+//  Created by Highlight on 8/18/15.
 //  Copyright (c) 2015 Mathcamp. All rights reserved.
 //
 
 import Foundation
+import BrightFutures
 
 public class Entity {
   let fields: NSDictionary
-  var cacheStatus: HLDB.EntityCache.Status = .Unknown
   
-  public init(obj: AnyObject?) {
+  public required init(obj: AnyObject?) {
     var f = NSMutableDictionary()
     if let obj: AnyObject = obj {
       if let fields = obj as? NSMutableDictionary {
         f = fields
       } else if let json = obj as? String {
-        var error: NSError? = nil
         if let detailsData = (json as NSString).dataUsingEncoding(NSUTF8StringEncoding) {
-          if let jsonObject: NSMutableDictionary = NSJSONSerialization.JSONObjectWithData(detailsData, options: nil, error:&error) as? NSMutableDictionary {
+          do {
+            let jsonObject: NSMutableDictionary = try NSJSONSerialization.JSONObjectWithData(detailsData, options: []) as! NSMutableDictionary
             f = jsonObject
+          } catch _ {
+            // do nothing
           }
         }
       }
@@ -29,7 +31,7 @@ public class Entity {
     self.fields = NSDictionary(dictionary: f)
   }
   
-  public init(fields: NSDictionary = [:]) {
+  public required init(fields: NSDictionary = [:]) {
     self.fields = fields
   }
   
@@ -38,27 +40,66 @@ public class Entity {
     return [:]
   }
   
+  public func rawString() -> String? {
+    guard let data = data() else { return nil }
+    return String(data: data, encoding: NSUTF8StringEncoding)
+  }
+  
+  public func data() -> NSData? {
+    return toJSON().dataUsingEncoding(NSUTF8StringEncoding)
+  }
+  
+  public func md5() -> String {
+    guard let data = data() else { return "FAIL" }
+    
+    let digestLength = Int(CC_MD5_DIGEST_LENGTH)
+    let md5Buffer = UnsafeMutablePointer<CUnsignedChar>.alloc(digestLength)
+    
+    CC_MD5(data.bytes, CC_LONG(data.length), md5Buffer)
+    let output = NSMutableString(capacity: Int(CC_MD5_DIGEST_LENGTH * 2))
+    for i in 0..<digestLength {
+      output.appendFormat("%02x", md5Buffer[i])
+    }
+    return NSString(format: output) as String
+  }
+  
+  func toRowFields() -> NSMutableDictionary? {
+    return nil
+  }
+  
+  func toRow() -> HLDB.Table.Row {
+    if let fields = toRowFields() {
+      return HLDB.Table.Row(fields: fields)
+    }
+    return HLDB.Table.Row(fields: toFields())
+  }
+  
   public func toJSON() -> String {
     return serializeToJSON(toFields())
   }
   
   func serializeToJSON(obj: AnyObject) -> String {
-    var error: NSError? = nil
-    if let data = NSJSONSerialization.dataWithJSONObject(obj, options: NSJSONWritingOptions(0), error: &error) {
+    do {
+      let data = try NSJSONSerialization.dataWithJSONObject(obj, options: NSJSONWritingOptions(rawValue: 0))
       if let s = NSString(data: data, encoding: NSUTF8StringEncoding) {
         return s as String
       }
+    } catch _ {
+      // do nothing
     }
     return ""
   }
   
   func deserializeFromJSON(json: String) -> AnyObject? {
-    var error: NSError? = nil
     if let detailsData = (json as NSString).dataUsingEncoding(NSUTF8StringEncoding) {
-      if let jsonObject: AnyObject = NSJSONSerialization.JSONObjectWithData(detailsData, options: nil, error:&error) {
+      do {
+        let jsonObject: AnyObject = try NSJSONSerialization.JSONObjectWithData(detailsData, options: NSJSONReadingOptions.AllowFragments)
         return jsonObject
+      } catch _ {
+        // do nothing
       }
     }
+    print("Entity: Failed to parse JSON '\(json)'!!")
     return nil
   }
   
@@ -91,6 +132,10 @@ public class Entity {
     var outValue = defaultValue
     if let v = fields[fieldName] as? Bool {
       outValue = v
+    } else if let v = fields[fieldName] as? String {
+      if v == "true" { outValue = true }
+      else if v == "1" { outValue = true }
+      else { outValue = false }
     }
     return outValue
   }
@@ -127,10 +172,22 @@ public class Entity {
     return outValue
   }
   
+  func nsdataValue(fieldName: String, defaultValue: NSData = NSData()) -> NSData {
+    var outValue = defaultValue
+    if let v = fields[fieldName] as? String {
+      outValue = NSData(base64EncodedString: v, options: [])!
+    }
+    
+    if let v = fields[fieldName] as? NSData {
+      outValue = v
+    }
+    return outValue
+  }
+  
   func arrayValue(fieldName: String, defaultValue: [AnyObject] = []) -> [AnyObject] {
     var outValue = defaultValue
     // if this is a string then decode json
-    if let v = fields[fieldName] as? String {
+    if let _ = fields[fieldName] as? String {
       if let array = deserializeJSONFieldAsArray(fieldName) {
         return array
       }
@@ -145,7 +202,7 @@ public class Entity {
   func dictValue(fieldName: String, defaultValue: NSMutableDictionary = [:]) -> NSMutableDictionary {
     var outValue = defaultValue
     // if this is a string then decode json
-    if let v = fields[fieldName] as? String {
+    if let _ = fields[fieldName] as? String {
       if let dict = deserializeJSONFieldAsDictionary(fieldName) {
         return dict
       }
@@ -153,6 +210,9 @@ public class Entity {
     // if it's a dictionary, then just return the dict
     if let v = fields[fieldName] as? NSMutableDictionary {
       outValue = v
+    }
+    else if let v = fields[fieldName] as? NSDictionary {
+      outValue = NSMutableDictionary(dictionary: v)
     }
     return outValue
   }

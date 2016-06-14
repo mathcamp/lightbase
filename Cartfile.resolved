@@ -1,3 +1,2 @@
-github "robrix/Box" "1.2.2"
-github "antitypical/Result" "0.4.4"
-github "Thomvis/BrightFutures" "v2.0.1"
+github "antitypical/Result" "2.1.0"
+github "Thomvis/BrightFutures" "v4.1.0"

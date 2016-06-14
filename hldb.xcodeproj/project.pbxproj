@@ -7,21 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		463B90D71B6C5AAD00F4D341 /* hldb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90CC1B6C5AAD00F4D341 /* hldb.framework */; };
+		19B09D041D107EF000E68633 /* hldbTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B09D031D107EF000E68633 /* hldbTests.swift */; };
+		19B09D061D107EF000E68633 /* hldb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90CC1B6C5AAD00F4D341 /* hldb.framework */; };
+		19B09D0D1D1082A600E68633 /* DBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B09D0C1D1082A600E68633 /* DBModel.swift */; };
+		19B09D131D10835A00E68633 /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90BC1B6C5A2700F4D341 /* BrightFutures.framework */; };
+		19B09D141D10835B00E68633 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90BD1B6C5A2700F4D341 /* Result.framework */; };
 		463B90E61B6C5AE700F4D341 /* hldb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935D67C1B6ABF4D00864C31 /* hldb.swift */; };
-		463B90E71B6C5AE800F4D341 /* hldb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935D67C1B6ABF4D00864C31 /* hldb.swift */; };
-		463B90E81B6C5B3900F4D341 /* Box.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90BB1B6C5A2700F4D341 /* Box.framework */; };
 		463B90E91B6C5B3900F4D341 /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90BC1B6C5A2700F4D341 /* BrightFutures.framework */; };
 		463B90EA1B6C5B3900F4D341 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90BD1B6C5A2700F4D341 /* Result.framework */; };
-		463B90EB1B6C5B3900F4D341 /* Box.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90BB1B6C5A2700F4D341 /* Box.framework */; };
-		463B90EC1B6C5B3900F4D341 /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90BC1B6C5A2700F4D341 /* BrightFutures.framework */; };
-		463B90ED1B6C5B3900F4D341 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90BD1B6C5A2700F4D341 /* Result.framework */; };
 		463B90EE1B6C5B3D00F4D341 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 460D04BE1B6AE41200BF1DE2 /* libsqlite3.0.dylib */; };
-		463B90EF1B6C5B3E00F4D341 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 460D04BE1B6AE41200BF1DE2 /* libsqlite3.0.dylib */; };
 		463B90F21B6C5B4F00F4D341 /* FMDatabaseAdditionsVariadic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D04A21B6AE2C200BF1DE2 /* FMDatabaseAdditionsVariadic.swift */; };
 		463B90F31B6C5B4F00F4D341 /* FMDatabaseVariadic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D04A31B6AE2C200BF1DE2 /* FMDatabaseVariadic.swift */; };
-		463B90F41B6C5B4F00F4D341 /* FMDatabaseAdditionsVariadic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D04A21B6AE2C200BF1DE2 /* FMDatabaseAdditionsVariadic.swift */; };
-		463B90F51B6C5B4F00F4D341 /* FMDatabaseVariadic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D04A31B6AE2C200BF1DE2 /* FMDatabaseVariadic.swift */; };
 		463B90F61B6C5B5500F4D341 /* FMDatabase+InMemoryOnDiskIO.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D049F1B6AE2C200BF1DE2 /* FMDatabase+InMemoryOnDiskIO.h */; };
 		463B90F71B6C5B5500F4D341 /* FMDatabase+InMemoryOnDiskIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 460D04A01B6AE2C200BF1DE2 /* FMDatabase+InMemoryOnDiskIO.m */; };
 		463B90F81B6C5B5C00F4D341 /* FMDatabase+FTS3.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D04991B6AE2C200BF1DE2 /* FMDatabase+FTS3.h */; };
@@ -29,8 +25,6 @@
 		463B90FA1B6C5B5C00F4D341 /* FMTokenizers.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D049B1B6AE2C200BF1DE2 /* FMTokenizers.h */; };
 		463B90FB1B6C5B5C00F4D341 /* FMTokenizers.m in Sources */ = {isa = PBXBuildFile; fileRef = 460D049C1B6AE2C200BF1DE2 /* FMTokenizers.m */; };
 		463B90FC1B6C5B5C00F4D341 /* fts3_tokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D049D1B6AE2C200BF1DE2 /* fts3_tokenizer.h */; };
-		463B90FF1B6C5B6100F4D341 /* FMDatabase+FTS3.m in Sources */ = {isa = PBXBuildFile; fileRef = 460D049A1B6AE2C200BF1DE2 /* FMDatabase+FTS3.m */; };
-		463B91001B6C5B6100F4D341 /* FMTokenizers.m in Sources */ = {isa = PBXBuildFile; fileRef = 460D049C1B6AE2C200BF1DE2 /* FMTokenizers.m */; };
 		46E66C781B6FFF2100A8E32E /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D04A51B6AE2C200BF1DE2 /* FMDatabase.h */; };
 		46E66C791B6FFF2100A8E32E /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 460D04A61B6AE2C200BF1DE2 /* FMDatabase.m */; };
 		46E66C7A1B6FFF2100A8E32E /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D04A71B6AE2C200BF1DE2 /* FMDatabaseAdditions.h */; };
@@ -42,42 +36,26 @@
 		46E66C801B6FFF2100A8E32E /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D04AD1B6AE2C200BF1DE2 /* FMDB.h */; };
 		46E66C811B6FFF2100A8E32E /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D04AE1B6AE2C200BF1DE2 /* FMResultSet.h */; };
 		46E66C821B6FFF2100A8E32E /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 460D04AF1B6AE2C200BF1DE2 /* FMResultSet.m */; };
-		46E66C841B6FFF7300A8E32E /* hldbTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E66C831B6FFF7300A8E32E /* hldbTests.swift */; };
-		46E66C8A1B70010800A8E32E /* hldb-iOS-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 46E66C881B70010800A8E32E /* hldb-iOS-Bridging-Header.h */; };
-		9743C6231B87DC3200CF5F09 /* Box.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 463B90BB1B6C5A2700F4D341 /* Box.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		9743C6241B87DC3200CF5F09 /* BrightFutures.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 463B90BC1B6C5A2700F4D341 /* BrightFutures.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		9743C6251B87DC3200CF5F09 /* Result.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 463B90BD1B6C5A2700F4D341 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		46E66C8A1B70010800A8E32E /* hldb-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 46E66C881B70010800A8E32E /* hldb-Bridging-Header.h */; };
 		974A6C7B1B86BF7000A970D5 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974A6C7A1B86BF7000A970D5 /* Entity.swift */; };
-		974A6C7F1B87901700A970D5 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974A6C7A1B86BF7000A970D5 /* Entity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		463B90D81B6C5AAD00F4D341 /* PBXContainerItemProxy */ = {
+		19B09D071D107EF000E68633 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1935D64E1B6AADD500864C31 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 463B90CB1B6C5AAD00F4D341;
-			remoteInfo = "HLDB-iOS";
+			remoteInfo = "hldb-iOS";
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		9743C6221B87DC2200CF5F09 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				9743C6231B87DC3200CF5F09 /* Box.framework in CopyFiles */,
-				9743C6241B87DC3200CF5F09 /* BrightFutures.framework in CopyFiles */,
-				9743C6251B87DC3200CF5F09 /* Result.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		1935D67C1B6ABF4D00864C31 /* hldb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = hldb.swift; path = HLDB/Lib/hldb.swift; sourceTree = "<group>"; };
+		19B09D011D107EF000E68633 /* hldbTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hldbTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		19B09D031D107EF000E68633 /* hldbTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hldbTests.swift; sourceTree = "<group>"; };
+		19B09D051D107EF000E68633 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		19B09D0C1D1082A600E68633 /* DBModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DBModel.swift; path = HLDB/Lib/DBModel.swift; sourceTree = "<group>"; };
 		460D04991B6AE2C200BF1DE2 /* FMDatabase+FTS3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDatabase+FTS3.h"; sourceTree = "<group>"; };
 		460D049A1B6AE2C200BF1DE2 /* FMDatabase+FTS3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FMDatabase+FTS3.m"; sourceTree = "<group>"; };
 		460D049B1B6AE2C200BF1DE2 /* FMTokenizers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMTokenizers.h; sourceTree = "<group>"; };
@@ -99,40 +77,35 @@
 		460D04AE1B6AE2C200BF1DE2 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		460D04AF1B6AE2C200BF1DE2 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		460D04BE1B6AE41200BF1DE2 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
-		463B90BB1B6C5A2700F4D341 /* Box.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Box.framework; path = Carthage/Build/iOS/Box.framework; sourceTree = "<group>"; };
 		463B90BC1B6C5A2700F4D341 /* BrightFutures.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BrightFutures.framework; path = Carthage/Build/iOS/BrightFutures.framework; sourceTree = "<group>"; };
 		463B90BD1B6C5A2700F4D341 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		463B90CC1B6C5AAD00F4D341 /* hldb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = hldb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		463B90D61B6C5AAD00F4D341 /* hldb-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "hldb-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46E66C831B6FFF7300A8E32E /* hldbTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = hldbTests.swift; path = "hldb-iOSTests/hldbTests.swift"; sourceTree = SOURCE_ROOT; };
 		46E66C851B6FFF7900A8E32E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "hldb-iOSTests/Info.plist"; sourceTree = SOURCE_ROOT; };
 		46E66C871B6FFFFD00A8E32E /* hldb-iOSTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "hldb-iOSTests-Bridging-Header.h"; path = "hldb-iOSTests/hldb-iOSTests-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
-		46E66C881B70010800A8E32E /* hldb-iOS-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "hldb-iOS-Bridging-Header.h"; path = "hldb/Supporting Files/hldb-iOS-Bridging-Header.h"; sourceTree = "<group>"; };
+		46E66C881B70010800A8E32E /* hldb-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "hldb-Bridging-Header.h"; path = "hldb/Supporting Files/hldb-Bridging-Header.h"; sourceTree = "<group>"; };
 		46E66C891B70010800A8E32E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "hldb/Supporting Files/Info.plist"; sourceTree = "<group>"; };
 		974A6C7A1B86BF7000A970D5 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		19B09CFE1D107EF000E68633 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19B09D131D10835A00E68633 /* BrightFutures.framework in Frameworks */,
+				19B09D141D10835B00E68633 /* Result.framework in Frameworks */,
+				19B09D061D107EF000E68633 /* hldb.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		463B90C81B6C5AAD00F4D341 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				463B90EA1B6C5B3900F4D341 /* Result.framework in Frameworks */,
-				463B90E81B6C5B3900F4D341 /* Box.framework in Frameworks */,
 				463B90EE1B6C5B3D00F4D341 /* libsqlite3.0.dylib in Frameworks */,
 				463B90E91B6C5B3900F4D341 /* BrightFutures.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		463B90D31B6C5AAD00F4D341 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				463B90EC1B6C5B3900F4D341 /* BrightFutures.framework in Frameworks */,
-				463B90EF1B6C5B3E00F4D341 /* libsqlite3.0.dylib in Frameworks */,
-				463B90EB1B6C5B3900F4D341 /* Box.framework in Frameworks */,
-				463B90D71B6C5AAD00F4D341 /* hldb.framework in Frameworks */,
-				463B90ED1B6C5B3900F4D341 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +115,7 @@
 		1935D64D1B6AADD500864C31 = {
 			isa = PBXGroup;
 			children = (
+				19B09D021D107EF000E68633 /* hldbTests */,
 				B3C9BC0597733AC50396B0D9 /* Frameworks */,
 				1935D67B1B6ABF3000864C31 /* hldb */,
 				1935D66E1B6AADD500864C31 /* hldbTests */,
@@ -153,7 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				463B90CC1B6C5AAD00F4D341 /* hldb.framework */,
-				463B90D61B6C5AAD00F4D341 /* hldb-iOSTests.xctest */,
+				19B09D011D107EF000E68633 /* hldbTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -180,11 +154,21 @@
 		1935D67B1B6ABF3000864C31 /* hldb */ = {
 			isa = PBXGroup;
 			children = (
+				19B09D0C1D1082A600E68633 /* DBModel.swift */,
 				1935D67C1B6ABF4D00864C31 /* hldb.swift */,
-				463B91041B6C5BA900F4D341 /* Supporting Files */,
 				974A6C7A1B86BF7000A970D5 /* Entity.swift */,
+				463B91041B6C5BA900F4D341 /* Supporting Files */,
 			);
 			name = hldb;
+			sourceTree = "<group>";
+		};
+		19B09D021D107EF000E68633 /* hldbTests */ = {
+			isa = PBXGroup;
+			children = (
+				19B09D031D107EF000E68633 /* hldbTests.swift */,
+				19B09D051D107EF000E68633 /* Info.plist */,
+			);
+			path = hldbTests;
 			sourceTree = "<group>";
 		};
 		460D04961B6AE2C200BF1DE2 /* FMDB */ = {
@@ -258,7 +242,7 @@
 		463B91041B6C5BA900F4D341 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				46E66C881B70010800A8E32E /* hldb-iOS-Bridging-Header.h */,
+				46E66C881B70010800A8E32E /* hldb-Bridging-Header.h */,
 				46E66C891B70010800A8E32E /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -267,7 +251,6 @@
 		B3C9BC0597733AC50396B0D9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				463B90BB1B6C5A2700F4D341 /* Box.framework */,
 				463B90BC1B6C5A2700F4D341 /* BrightFutures.framework */,
 				463B90BD1B6C5A2700F4D341 /* Result.framework */,
 				460D04961B6AE2C200BF1DE2 /* FMDB */,
@@ -283,7 +266,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46E66C8A1B70010800A8E32E /* hldb-iOS-Bridging-Header.h in Headers */,
+				46E66C8A1B70010800A8E32E /* hldb-Bridging-Header.h in Headers */,
 				46E66C7C1B6FFF2100A8E32E /* FMDatabasePool.h in Headers */,
 				463B90FC1B6C5B5C00F4D341 /* fts3_tokenizer.h in Headers */,
 				46E66C7A1B6FFF2100A8E32E /* FMDatabaseAdditions.h in Headers */,
@@ -300,6 +283,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		19B09D001D107EF000E68633 /* hldbTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 19B09D091D107EF000E68633 /* Build configuration list for PBXNativeTarget "hldbTests" */;
+			buildPhases = (
+				19B09CFD1D107EF000E68633 /* Sources */,
+				19B09CFE1D107EF000E68633 /* Frameworks */,
+				19B09CFF1D107EF000E68633 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				19B09D081D107EF000E68633 /* PBXTargetDependency */,
+			);
+			name = hldbTests;
+			productName = hldbTests;
+			productReference = 19B09D011D107EF000E68633 /* hldbTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		463B90CB1B6C5AAD00F4D341 /* hldb-iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 463B90DF1B6C5AAD00F4D341 /* Build configuration list for PBXNativeTarget "hldb-iOS" */;
@@ -318,43 +319,25 @@
 			productReference = 463B90CC1B6C5AAD00F4D341 /* hldb.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		463B90D51B6C5AAD00F4D341 /* hldb-iOSTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 463B90E21B6C5AAD00F4D341 /* Build configuration list for PBXNativeTarget "hldb-iOSTests" */;
-			buildPhases = (
-				463B90D21B6C5AAD00F4D341 /* Sources */,
-				463B90D31B6C5AAD00F4D341 /* Frameworks */,
-				463B90D41B6C5AAD00F4D341 /* Resources */,
-				9743C6221B87DC2200CF5F09 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				463B90D91B6C5AAD00F4D341 /* PBXTargetDependency */,
-			);
-			name = "hldb-iOSTests";
-			productName = "HLDB-iOSTests";
-			productReference = 463B90D61B6C5AAD00F4D341 /* hldb-iOSTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		1935D64E1B6AADD500864C31 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = Mathcamp;
 				TargetAttributes = {
-					463B90CB1B6C5AAD00F4D341 = {
-						CreatedOnToolsVersion = 6.4;
+					19B09D001D107EF000E68633 = {
+						CreatedOnToolsVersion = 7.3.1;
 					};
-					463B90D51B6C5AAD00F4D341 = {
+					463B90CB1B6C5AAD00F4D341 = {
 						CreatedOnToolsVersion = 6.4;
 					};
 				};
 			};
-			buildConfigurationList = 1935D6511B6AADD500864C31 /* Build configuration list for PBXProject "hldb" */;
+			buildConfigurationList = 1935D6511B6AADD500864C31 /* Build configuration list for PBXProject "HLDB" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -368,20 +351,20 @@
 			projectRoot = "";
 			targets = (
 				463B90CB1B6C5AAD00F4D341 /* hldb-iOS */,
-				463B90D51B6C5AAD00F4D341 /* hldb-iOSTests */,
+				19B09D001D107EF000E68633 /* hldbTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		463B90CA1B6C5AAD00F4D341 /* Resources */ = {
+		19B09CFF1D107EF000E68633 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		463B90D41B6C5AAD00F4D341 /* Resources */ = {
+		463B90CA1B6C5AAD00F4D341 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -391,12 +374,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		19B09CFD1D107EF000E68633 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19B09D041D107EF000E68633 /* hldbTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		463B90C71B6C5AAD00F4D341 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				463B90F21B6C5B4F00F4D341 /* FMDatabaseAdditionsVariadic.swift in Sources */,
 				463B90E61B6C5AE700F4D341 /* hldb.swift in Sources */,
+				19B09D0D1D1082A600E68633 /* DBModel.swift in Sources */,
 				463B90F31B6C5B4F00F4D341 /* FMDatabaseVariadic.swift in Sources */,
 				46E66C791B6FFF2100A8E32E /* FMDatabase.m in Sources */,
 				46E66C7D1B6FFF2100A8E32E /* FMDatabasePool.m in Sources */,
@@ -410,27 +402,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		463B90D21B6C5AAD00F4D341 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				463B90F41B6C5B4F00F4D341 /* FMDatabaseAdditionsVariadic.swift in Sources */,
-				46E66C841B6FFF7300A8E32E /* hldbTests.swift in Sources */,
-				974A6C7F1B87901700A970D5 /* Entity.swift in Sources */,
-				463B90E71B6C5AE800F4D341 /* hldb.swift in Sources */,
-				463B90F51B6C5B4F00F4D341 /* FMDatabaseVariadic.swift in Sources */,
-				463B90FF1B6C5B6100F4D341 /* FMDatabase+FTS3.m in Sources */,
-				463B91001B6C5B6100F4D341 /* FMTokenizers.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		463B90D91B6C5AAD00F4D341 /* PBXTargetDependency */ = {
+		19B09D081D107EF000E68633 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 463B90CB1B6C5AAD00F4D341 /* hldb-iOS */;
-			targetProxy = 463B90D81B6C5AAD00F4D341 /* PBXContainerItemProxy */;
+			targetProxy = 19B09D071D107EF000E68633 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -516,6 +494,40 @@
 			};
 			name = Release;
 		};
+		19B09D0A1D107EF000E68633 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = hldbTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mathcamp.hldbTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		19B09D0B1D107EF000E68633 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = hldbTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mathcamp.hldbTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		463B90E01B6C5AAD00F4D341 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -568,44 +580,10 @@
 			};
 			name = Release;
 		};
-		463B90E31B6C5AAD00F4D341 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "HLDB-iOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "hldb-iOSTests";
-				SWIFT_OBJC_BRIDGING_HEADER = "$(PRODUCT_NAME)/$(PRODUCT_NAME)-Bridging-Header.h";
-			};
-			name = Debug;
-		};
-		463B90E41B6C5AAD00F4D341 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				INFOPLIST_FILE = "HLDB-iOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "hldb-iOSTests";
-				SWIFT_OBJC_BRIDGING_HEADER = "$(PRODUCT_NAME)/$(PRODUCT_NAME)-Bridging-Header.h";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1935D6511B6AADD500864C31 /* Build configuration list for PBXProject "hldb" */ = {
+		1935D6511B6AADD500864C31 /* Build configuration list for PBXProject "HLDB" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1935D6731B6AADD500864C31 /* Debug */,
@@ -614,20 +592,19 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		19B09D091D107EF000E68633 /* Build configuration list for PBXNativeTarget "hldbTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				19B09D0A1D107EF000E68633 /* Debug */,
+				19B09D0B1D107EF000E68633 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		463B90DF1B6C5AAD00F4D341 /* Build configuration list for PBXNativeTarget "hldb-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				463B90E01B6C5AAD00F4D341 /* Debug */,
 				463B90E11B6C5AAD00F4D341 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		463B90E21B6C5AAD00F4D341 /* Build configuration list for PBXNativeTarget "hldb-iOSTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				463B90E31B6C5AAD00F4D341 /* Debug */,
-				463B90E41B6C5AAD00F4D341 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
