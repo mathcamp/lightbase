@@ -12,6 +12,8 @@
 		19B09D0D1D1082A600E68633 /* DBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B09D0C1D1082A600E68633 /* DBModel.swift */; };
 		19B09D131D10835A00E68633 /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90BC1B6C5A2700F4D341 /* BrightFutures.framework */; };
 		19B09D141D10835B00E68633 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90BD1B6C5A2700F4D341 /* Result.framework */; };
+		19B09D151D109BED00E68633 /* BrightFutures.framework in Resources */ = {isa = PBXBuildFile; fileRef = 463B90BC1B6C5A2700F4D341 /* BrightFutures.framework */; };
+		19B09D161D109BED00E68633 /* Result.framework in Resources */ = {isa = PBXBuildFile; fileRef = 463B90BD1B6C5A2700F4D341 /* Result.framework */; };
 		463B90E61B6C5AE700F4D341 /* hldb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935D67C1B6ABF4D00864C31 /* hldb.swift */; };
 		463B90E91B6C5B3900F4D341 /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90BC1B6C5A2700F4D341 /* BrightFutures.framework */; };
 		463B90EA1B6C5B3900F4D341 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90BD1B6C5A2700F4D341 /* Result.framework */; };
@@ -361,6 +363,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19B09D151D109BED00E68633 /* BrightFutures.framework in Resources */,
+				19B09D161D109BED00E68633 /* Result.framework in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,7 +510,7 @@
 				);
 				INFOPLIST_FILE = hldbTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/Carthage/Build/iOS";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mathcamp.hldbTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -522,7 +526,7 @@
 				);
 				INFOPLIST_FILE = hldbTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/Carthage/Build/iOS";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mathcamp.hldbTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
