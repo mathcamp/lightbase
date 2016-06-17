@@ -63,11 +63,11 @@ public class Entity {
     return NSString(format: output) as String
   }
   
-  func toRowFields() -> NSMutableDictionary? {
+  public func toRowFields() -> NSMutableDictionary? {
     return nil
   }
   
-  func toRow() -> HLDB.Table.Row {
+  public func toRow() -> HLDB.Table.Row {
     if let fields = toRowFields() {
       return HLDB.Table.Row(fields: fields)
     }
@@ -128,7 +128,7 @@ public class Entity {
     return fields[fieldName]
   }
   
-  func boolValue(fieldName: String, defaultValue: Bool = false) -> Bool {
+  public func boolValue(fieldName: String, defaultValue: Bool = false) -> Bool {
     var outValue = defaultValue
     if let v = fields[fieldName] as? Bool {
       outValue = v
@@ -140,7 +140,7 @@ public class Entity {
     return outValue
   }
   
-  func intValue(fieldName: String, defaultValue: Int = 0) -> Int {
+  public func intValue(fieldName: String, defaultValue: Int = 0) -> Int {
     var outValue = defaultValue
     if let v = fields[fieldName] as? Int {
       outValue = v
@@ -148,7 +148,7 @@ public class Entity {
     return outValue
   }
   
-  func floatValue(fieldName: String, defaultValue: Float = 0) -> Float {
+  public func floatValue(fieldName: String, defaultValue: Float = 0) -> Float {
     var outValue = defaultValue
     if let v = fields[fieldName] as? Float {
       outValue = v
@@ -156,7 +156,7 @@ public class Entity {
     return outValue
   }
   
-  func doubleValue(fieldName: String, defaultValue: Double = 0) -> Double {
+  public func doubleValue(fieldName: String, defaultValue: Double = 0) -> Double {
     var outValue = defaultValue
     if let v = fields[fieldName] as? Double {
       outValue = v
@@ -164,7 +164,7 @@ public class Entity {
     return outValue
   }
   
-  func stringValue(fieldName: String, defaultValue: String = "") -> String {
+  public func stringValue(fieldName: String, defaultValue: String = "") -> String {
     var outValue = defaultValue
     if let v = fields[fieldName] as? String {
       outValue = v
@@ -172,7 +172,7 @@ public class Entity {
     return outValue
   }
   
-  func nsdataValue(fieldName: String, defaultValue: NSData = NSData()) -> NSData {
+  public func nsdataValue(fieldName: String, defaultValue: NSData = NSData()) -> NSData {
     var outValue = defaultValue
     if let v = fields[fieldName] as? String {
       outValue = NSData(base64EncodedString: v, options: [])!
@@ -184,7 +184,7 @@ public class Entity {
     return outValue
   }
   
-  func arrayValue(fieldName: String, defaultValue: [AnyObject] = []) -> [AnyObject] {
+  public func arrayValue(fieldName: String, defaultValue: [AnyObject] = []) -> [AnyObject] {
     var outValue = defaultValue
     // if this is a string then decode json
     if let _ = fields[fieldName] as? String {
@@ -199,7 +199,7 @@ public class Entity {
     return outValue
   }
   
-  func dictValue(fieldName: String, defaultValue: NSMutableDictionary = [:]) -> NSMutableDictionary {
+  public func dictValue(fieldName: String, defaultValue: NSMutableDictionary = [:]) -> NSMutableDictionary {
     var outValue = defaultValue
     // if this is a string then decode json
     if let _ = fields[fieldName] as? String {

@@ -13,23 +13,25 @@ import BrightFutures
 public class DBModel {
   public let dbFileName = "hldb"
   public let db: HLDB.DB
-  public var tables: [HLDB.Table] = []
+  public var tables = Dictionary<String, HLDB.Table>()
   
   public init() {
     db = HLDB.DB(fileName: dbFileName)
   }
   
   public func resetAll() {
-    for table in tables { table.dropAndCreate() }
+    for (_, table) in tables { table.dropAndCreate() }
   }
   
   public func registerTable(t: HLDB.Table) {
-    tables.append(t)
+    if tables[t.name] == nil {
+      tables[t.name] = t
+    }
   }
   
   public func dropTable(name: String) -> Future<(), NoError> {
-    if let idx = (tables.map{ $0.name }.indexOf(name)) {
-      let zombieTable = tables.removeAtIndex(idx)
+    if let zombieTable = tables[name] {
+      tables[name] = nil
       return zombieTable.drop()
     } else {
       return Future(value: ())
@@ -38,8 +40,8 @@ public class DBModel {
   
   public func getTable(name: String, fields: [NSDictionary]) -> HLDB.Table {
     //see if table exists first
-    for table in tables {
-      if table.name == name { return table }
+    if let table = tables[name] {
+      return table
     }
     
     //otherwise create it

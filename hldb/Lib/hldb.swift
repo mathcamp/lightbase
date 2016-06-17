@@ -10,6 +10,7 @@ import Foundation
 import BrightFutures
 import Result
 
+// Allows two Rows in a HLDB.Table to be compared using ==
 public func ==(lhs: HLDB.Table.Row, rhs: HLDB.Table.Row) -> Bool {
   var leftKeys: [String] = lhs.fields.allKeys as! [String]
   var rightKeys: [String] = rhs.fields.allKeys as! [String]
@@ -55,6 +56,8 @@ public func ==(lhs: HLDB.Table.Row, rhs: HLDB.Table.Row) -> Bool {
   
   return true
 }
+
+
 
 public class HLDB {
   
@@ -231,14 +234,14 @@ public class HLDB {
       let index: Index
       let defaultValue: Default
       
-      init(name: String, type: Type, index: Index, defaultValue: Default) {
+      public init(name: String, type: Type, index: Index, defaultValue: Default) {
         self.name = name
         self.type = type
         self.index = index
         self.defaultValue = defaultValue
       }
       
-      init(fromDict: NSDictionary) {
+      public init(fromDict: NSDictionary) {
         defaultValue = .NonNull
         
         if let name = fromDict["name"] as? String {
@@ -268,7 +271,7 @@ public class HLDB {
         }
       }
       
-      func toDictionary() -> NSDictionary {
+      public func toDictionary() -> NSDictionary {
         let outDict = NSMutableDictionary()
         outDict["name"] = name
         outDict["type"] = type.rawValue
@@ -280,7 +283,7 @@ public class HLDB {
     public struct Row: Equatable {
       let fields: NSMutableDictionary
       
-      init(fields: NSMutableDictionary) {
+      public init(fields: NSMutableDictionary) {
         self.fields = fields
       }
     }
@@ -291,8 +294,8 @@ public class HLDB {
     public let db: DB
     public var debug: Bool = false
     
-    lazy var fieldNames: [String] = Array(self.definition.keys)
-    lazy var fieldNamesPlaceholderStr: String = {
+    public lazy var fieldNames: [String] = Array(self.definition.keys)
+    public lazy var fieldNamesPlaceholderStr: String = {
       var holders: [String] = []
       for field in self.fieldNames {
         holders.append("?")
@@ -300,7 +303,7 @@ public class HLDB {
       return holders.joinWithSeparator(",")
     }()
     
-    lazy var fieldNamesStr: String = self.fieldNames.joinWithSeparator(",")
+    public lazy var fieldNamesStr: String = self.fieldNames.joinWithSeparator(",")
     
     public init(db: DB, name: String, fields:[Field]) {
       self.db = db
