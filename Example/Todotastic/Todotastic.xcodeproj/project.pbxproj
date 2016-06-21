@@ -12,6 +12,7 @@
 		19B09D2D1D1472FA00E68633 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19B09D2C1D1472FA00E68633 /* Assets.xcassets */; };
 		19B09D301D1472FA00E68633 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B09D2E1D1472FA00E68633 /* LaunchScreen.storyboard */; };
 		19B09D381D1473CF00E68633 /* TodoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B09D371D1473CF00E68633 /* TodoTableViewController.swift */; };
+		CDEA11721D149E6C00762043 /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA11711D149E6C00762043 /* TodoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		19B09D2F1D1472FA00E68633 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		19B09D311D1472FA00E68633 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19B09D371D1473CF00E68633 /* TodoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoTableViewController.swift; sourceTree = "<group>"; };
+		CDEA11711D149E6C00762043 /* TodoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				19B09D2E1D1472FA00E68633 /* LaunchScreen.storyboard */,
 				19B09D311D1472FA00E68633 /* Info.plist */,
 				19B09D371D1473CF00E68633 /* TodoTableViewController.swift */,
+				CDEA11711D149E6C00762043 /* TodoTableViewCell.swift */,
 			);
 			path = Todotastic;
 			sourceTree = "<group>";
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDEA11721D149E6C00762043 /* TodoTableViewCell.swift in Sources */,
 				19B09D261D1472FA00E68633 /* AppDelegate.swift in Sources */,
 				19B09D381D1473CF00E68633 /* TodoTableViewController.swift in Sources */,
 			);
@@ -286,6 +290,7 @@
 				19B09D361D1472FA00E68633 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
