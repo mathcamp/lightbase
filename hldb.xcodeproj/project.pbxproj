@@ -481,7 +481,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1935D6511B6AADD500864C31 /* Build configuration list for PBXProject "hldb" */;
+			buildConfigurationList = 1935D6511B6AADD500864C31 /* Build configuration list for PBXProject "HLDB" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -654,12 +654,12 @@
 				463B90E61B6C5AE700F4D341 /* hldb.swift in Sources */,
 				19B09D0D1D1082A600E68633 /* DBModel.swift in Sources */,
 				463B90F31B6C5B4F00F4D341 /* FMDatabaseVariadic.swift in Sources */,
+				974A6C7B1B86BF7000A970D5 /* Entity.swift in Sources */,
 				46E66C791B6FFF2100A8E32E /* FMDatabase.m in Sources */,
 				46E66C7D1B6FFF2100A8E32E /* FMDatabasePool.m in Sources */,
 				46E66C7F1B6FFF2100A8E32E /* FMDatabaseQueue.m in Sources */,
 				463B90F71B6C5B5500F4D341 /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
 				463B90FB1B6C5B5C00F4D341 /* FMTokenizers.m in Sources */,
-				974A6C7B1B86BF7000A970D5 /* Entity.swift in Sources */,
 				46E66C821B6FFF2100A8E32E /* FMResultSet.m in Sources */,
 				463B90F91B6C5B5C00F4D341 /* FMDatabase+FTS3.m in Sources */,
 				46E66C7B1B6FFF2100A8E32E /* FMDatabaseAdditions.m in Sources */,
@@ -852,7 +852,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1935D6511B6AADD500864C31 /* Build configuration list for PBXProject "hldb" */ = {
+		1935D6511B6AADD500864C31 /* Build configuration list for PBXProject "HLDB" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1935D6731B6AADD500864C31 /* Debug */,

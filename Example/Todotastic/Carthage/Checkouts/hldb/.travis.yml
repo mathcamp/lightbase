@@ -1,0 +1,8 @@
+language: objective-c
+osx_image: xcode6.4
+xcode_workspace: hldb.xcworkspace
+xcode_scheme: hldb-iOS
+script: script/cibuild
+notifications:
+  email: false
+  slack: highlight:11oKW6MmGkCG9jqmysuu3R4k
