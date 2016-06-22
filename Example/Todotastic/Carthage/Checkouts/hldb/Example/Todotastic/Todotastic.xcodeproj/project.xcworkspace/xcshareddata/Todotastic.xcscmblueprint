@@ -1,0 +1,32 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "989FBE187A4AF470135822A5DE12CD846A784C04",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "e9be9b72-b3e6-4f37-9d6e-35f2130026b9" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "989FBE187A4AF470135822A5DE12CD846A784C04" : 0,
+    "e9be9b72-b3e6-4f37-9d6e-35f2130026b9" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "FB6953CF-C9D3-4DA7-B1A7-2F7A5FFDC7EE",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "989FBE187A4AF470135822A5DE12CD846A784C04" : "hldb\/",
+    "e9be9b72-b3e6-4f37-9d6e-35f2130026b9" : ".."
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Todotastic",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Example\/Todotastic\/Todotastic.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:mathcamp\/hldb.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "989FBE187A4AF470135822A5DE12CD846A784C04"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn+ssh:\/\/dakara.local\/Library\/Subversion\/Repository\/projects",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "e9be9b72-b3e6-4f37-9d6e-35f2130026b9"
+    }
+  ]
+}

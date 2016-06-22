@@ -7,15 +7,69 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		193ADD951D1B10C6003941FE /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193ADD931D1B10C6003941FE /* BrightFutures.framework */; };
+		193ADDA31D1B1127003941FE /* FMDatabase+FTS3.m in Sources */ = {isa = PBXBuildFile; fileRef = 193ADD9F1D1B1127003941FE /* FMDatabase+FTS3.m */; };
+		193ADDA41D1B1127003941FE /* FMTokenizers.m in Sources */ = {isa = PBXBuildFile; fileRef = 193ADDA11D1B1127003941FE /* FMTokenizers.m */; };
+		193ADDA71D1B112B003941FE /* FMDatabase+InMemoryOnDiskIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 193ADDA61D1B112B003941FE /* FMDatabase+InMemoryOnDiskIO.m */; };
+		193ADDAA1D1B1132003941FE /* FMDatabaseAdditionsVariadic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193ADDA81D1B1132003941FE /* FMDatabaseAdditionsVariadic.swift */; };
+		193ADDAB1D1B1132003941FE /* FMDatabaseVariadic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193ADDA91D1B1132003941FE /* FMDatabaseVariadic.swift */; };
+		193ADDB71D1B113B003941FE /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 193ADDAD1D1B113B003941FE /* FMDatabase.m */; };
+		193ADDB81D1B113B003941FE /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 193ADDAF1D1B113B003941FE /* FMDatabaseAdditions.m */; };
+		193ADDB91D1B113B003941FE /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 193ADDB11D1B113B003941FE /* FMDatabasePool.m */; };
+		193ADDBA1D1B113B003941FE /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 193ADDB31D1B113B003941FE /* FMDatabaseQueue.m */; };
+		193ADDBB1D1B113B003941FE /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 193ADDB61D1B113B003941FE /* FMResultSet.m */; };
+		193ADDBD1D1B1E98003941FE /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193ADDBC1D1B1E98003941FE /* Result.framework */; };
+		193ADDBF1D1B23F0003941FE /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 193ADDBE1D1B23F0003941FE /* libsqlite3.0.tbd */; };
+		193ADDCF1D1B24C1003941FE /* BrightFutures.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 193ADD931D1B10C6003941FE /* BrightFutures.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		193ADDD01D1B24C3003941FE /* Result.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 193ADDBC1D1B1E98003941FE /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		19B09D261D1472FA00E68633 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B09D251D1472FA00E68633 /* AppDelegate.swift */; };
 		19B09D2B1D1472FA00E68633 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B09D291D1472FA00E68633 /* Main.storyboard */; };
 		19B09D2D1D1472FA00E68633 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19B09D2C1D1472FA00E68633 /* Assets.xcassets */; };
 		19B09D301D1472FA00E68633 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B09D2E1D1472FA00E68633 /* LaunchScreen.storyboard */; };
 		19B09D381D1473CF00E68633 /* TodoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B09D371D1473CF00E68633 /* TodoTableViewController.swift */; };
+		19B09D751D19E0F100E68633 /* TodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B09D741D19E0F100E68633 /* TodoModel.swift */; };
 		CDEA11721D149E6C00762043 /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA11711D149E6C00762043 /* TodoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		193ADDCE1D1B24B0003941FE /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				193ADDCF1D1B24C1003941FE /* BrightFutures.framework in CopyFiles */,
+				193ADDD01D1B24C3003941FE /* Result.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		193ADD931D1B10C6003941FE /* BrightFutures.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BrightFutures.framework; path = ../../Carthage/Build/iOS/BrightFutures.framework; sourceTree = "<group>"; };
+		193ADD9D1D1B1126003941FE /* Todotastic-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Todotastic-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		193ADD9E1D1B1127003941FE /* FMDatabase+FTS3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "FMDatabase+FTS3.h"; path = "../../fmdb/src/extra/fts3/FMDatabase+FTS3.h"; sourceTree = "<group>"; };
+		193ADD9F1D1B1127003941FE /* FMDatabase+FTS3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "FMDatabase+FTS3.m"; path = "../../fmdb/src/extra/fts3/FMDatabase+FTS3.m"; sourceTree = "<group>"; };
+		193ADDA01D1B1127003941FE /* FMTokenizers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMTokenizers.h; path = ../../fmdb/src/extra/fts3/FMTokenizers.h; sourceTree = "<group>"; };
+		193ADDA11D1B1127003941FE /* FMTokenizers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMTokenizers.m; path = ../../fmdb/src/extra/fts3/FMTokenizers.m; sourceTree = "<group>"; };
+		193ADDA21D1B1127003941FE /* fts3_tokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fts3_tokenizer.h; path = ../../fmdb/src/extra/fts3/fts3_tokenizer.h; sourceTree = "<group>"; };
+		193ADDA51D1B112B003941FE /* FMDatabase+InMemoryOnDiskIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "FMDatabase+InMemoryOnDiskIO.h"; path = "../../fmdb/src/extra/InMemoryOnDiskIO/FMDatabase+InMemoryOnDiskIO.h"; sourceTree = "<group>"; };
+		193ADDA61D1B112B003941FE /* FMDatabase+InMemoryOnDiskIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "FMDatabase+InMemoryOnDiskIO.m"; path = "../../fmdb/src/extra/InMemoryOnDiskIO/FMDatabase+InMemoryOnDiskIO.m"; sourceTree = "<group>"; };
+		193ADDA81D1B1132003941FE /* FMDatabaseAdditionsVariadic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FMDatabaseAdditionsVariadic.swift; path = "../../fmdb/src/extra/Swift extensions/FMDatabaseAdditionsVariadic.swift"; sourceTree = "<group>"; };
+		193ADDA91D1B1132003941FE /* FMDatabaseVariadic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FMDatabaseVariadic.swift; path = "../../fmdb/src/extra/Swift extensions/FMDatabaseVariadic.swift"; sourceTree = "<group>"; };
+		193ADDAC1D1B113B003941FE /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = ../../fmdb/src/fmdb/FMDatabase.h; sourceTree = "<group>"; };
+		193ADDAD1D1B113B003941FE /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = ../../fmdb/src/fmdb/FMDatabase.m; sourceTree = "<group>"; };
+		193ADDAE1D1B113B003941FE /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = ../../fmdb/src/fmdb/FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		193ADDAF1D1B113B003941FE /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = ../../fmdb/src/fmdb/FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		193ADDB01D1B113B003941FE /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = ../../fmdb/src/fmdb/FMDatabasePool.h; sourceTree = "<group>"; };
+		193ADDB11D1B113B003941FE /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = ../../fmdb/src/fmdb/FMDatabasePool.m; sourceTree = "<group>"; };
+		193ADDB21D1B113B003941FE /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseQueue.h; path = ../../fmdb/src/fmdb/FMDatabaseQueue.h; sourceTree = "<group>"; };
+		193ADDB31D1B113B003941FE /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseQueue.m; path = ../../fmdb/src/fmdb/FMDatabaseQueue.m; sourceTree = "<group>"; };
+		193ADDB41D1B113B003941FE /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDB.h; path = ../../fmdb/src/fmdb/FMDB.h; sourceTree = "<group>"; };
+		193ADDB51D1B113B003941FE /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = ../../fmdb/src/fmdb/FMResultSet.h; sourceTree = "<group>"; };
+		193ADDB61D1B113B003941FE /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = ../../fmdb/src/fmdb/FMResultSet.m; sourceTree = "<group>"; };
+		193ADDBC1D1B1E98003941FE /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = ../../Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
+		193ADDBE1D1B23F0003941FE /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		19B09D221D1472FA00E68633 /* Todotastic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todotastic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B09D251D1472FA00E68633 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19B09D2A1D1472FA00E68633 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -23,6 +77,7 @@
 		19B09D2F1D1472FA00E68633 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		19B09D311D1472FA00E68633 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19B09D371D1473CF00E68633 /* TodoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoTableViewController.swift; sourceTree = "<group>"; };
+		19B09D741D19E0F100E68633 /* TodoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoModel.swift; sourceTree = "<group>"; };
 		CDEA11711D149E6C00762043 /* TodoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -31,15 +86,97 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				193ADDBF1D1B23F0003941FE /* libsqlite3.0.tbd in Frameworks */,
+				193ADDBD1D1B1E98003941FE /* Result.framework in Frameworks */,
+				193ADD951D1B10C6003941FE /* BrightFutures.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		193ADD921D1B10AA003941FE /* HLDB */ = {
+			isa = PBXGroup;
+			children = (
+				193ADD971D1B10CF003941FE /* FMDB */,
+				193ADD931D1B10C6003941FE /* BrightFutures.framework */,
+				193ADDBC1D1B1E98003941FE /* Result.framework */,
+			);
+			name = HLDB;
+			sourceTree = "<group>";
+		};
+		193ADD971D1B10CF003941FE /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				193ADD9A1D1B1104003941FE /* extra */,
+				193ADD981D1B10EF003941FE /* FMDB */,
+			);
+			name = FMDB;
+			sourceTree = "<group>";
+		};
+		193ADD981D1B10EF003941FE /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				193ADDAC1D1B113B003941FE /* FMDatabase.h */,
+				193ADDAD1D1B113B003941FE /* FMDatabase.m */,
+				193ADDAE1D1B113B003941FE /* FMDatabaseAdditions.h */,
+				193ADDAF1D1B113B003941FE /* FMDatabaseAdditions.m */,
+				193ADDB01D1B113B003941FE /* FMDatabasePool.h */,
+				193ADDB11D1B113B003941FE /* FMDatabasePool.m */,
+				193ADDB21D1B113B003941FE /* FMDatabaseQueue.h */,
+				193ADDB31D1B113B003941FE /* FMDatabaseQueue.m */,
+				193ADDB41D1B113B003941FE /* FMDB.h */,
+				193ADDB51D1B113B003941FE /* FMResultSet.h */,
+				193ADDB61D1B113B003941FE /* FMResultSet.m */,
+			);
+			name = FMDB;
+			sourceTree = "<group>";
+		};
+		193ADD991D1B10FF003941FE /* ft3 */ = {
+			isa = PBXGroup;
+			children = (
+				193ADD9E1D1B1127003941FE /* FMDatabase+FTS3.h */,
+				193ADD9F1D1B1127003941FE /* FMDatabase+FTS3.m */,
+				193ADDA01D1B1127003941FE /* FMTokenizers.h */,
+				193ADDA11D1B1127003941FE /* FMTokenizers.m */,
+				193ADDA21D1B1127003941FE /* fts3_tokenizer.h */,
+			);
+			name = ft3;
+			sourceTree = "<group>";
+		};
+		193ADD9A1D1B1104003941FE /* extra */ = {
+			isa = PBXGroup;
+			children = (
+				193ADD9C1D1B1118003941FE /* Swift extensions */,
+				193ADD9B1D1B110D003941FE /* InMemoryOnDiskIO */,
+				193ADD991D1B10FF003941FE /* ft3 */,
+			);
+			name = extra;
+			sourceTree = "<group>";
+		};
+		193ADD9B1D1B110D003941FE /* InMemoryOnDiskIO */ = {
+			isa = PBXGroup;
+			children = (
+				193ADDA51D1B112B003941FE /* FMDatabase+InMemoryOnDiskIO.h */,
+				193ADDA61D1B112B003941FE /* FMDatabase+InMemoryOnDiskIO.m */,
+			);
+			name = InMemoryOnDiskIO;
+			sourceTree = "<group>";
+		};
+		193ADD9C1D1B1118003941FE /* Swift extensions */ = {
+			isa = PBXGroup;
+			children = (
+				193ADDA81D1B1132003941FE /* FMDatabaseAdditionsVariadic.swift */,
+				193ADDA91D1B1132003941FE /* FMDatabaseVariadic.swift */,
+			);
+			name = "Swift extensions";
+			sourceTree = "<group>";
+		};
 		19B09D191D1472FA00E68633 = {
 			isa = PBXGroup;
 			children = (
+				193ADDBE1D1B23F0003941FE /* libsqlite3.0.tbd */,
+				193ADD921D1B10AA003941FE /* HLDB */,
 				19B09D241D1472FA00E68633 /* Todotastic */,
 				19B09D231D1472FA00E68633 /* Products */,
 			);
@@ -56,6 +193,7 @@
 		19B09D241D1472FA00E68633 /* Todotastic */ = {
 			isa = PBXGroup;
 			children = (
+				193ADD9D1D1B1126003941FE /* Todotastic-Bridging-Header.h */,
 				19B09D251D1472FA00E68633 /* AppDelegate.swift */,
 				19B09D291D1472FA00E68633 /* Main.storyboard */,
 				19B09D2C1D1472FA00E68633 /* Assets.xcassets */,
@@ -63,6 +201,7 @@
 				19B09D311D1472FA00E68633 /* Info.plist */,
 				19B09D371D1473CF00E68633 /* TodoTableViewController.swift */,
 				CDEA11711D149E6C00762043 /* TodoTableViewCell.swift */,
+				19B09D741D19E0F100E68633 /* TodoModel.swift */,
 			);
 			path = Todotastic;
 			sourceTree = "<group>";
@@ -77,6 +216,7 @@
 				19B09D1E1D1472FA00E68633 /* Sources */,
 				19B09D1F1D1472FA00E68633 /* Frameworks */,
 				19B09D201D1472FA00E68633 /* Resources */,
+				193ADDCE1D1B24B0003941FE /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -139,8 +279,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDEA11721D149E6C00762043 /* TodoTableViewCell.swift in Sources */,
+				193ADDB91D1B113B003941FE /* FMDatabasePool.m in Sources */,
+				193ADDBB1D1B113B003941FE /* FMResultSet.m in Sources */,
+				19B09D751D19E0F100E68633 /* TodoModel.swift in Sources */,
+				193ADDAA1D1B1132003941FE /* FMDatabaseAdditionsVariadic.swift in Sources */,
+				193ADDBA1D1B113B003941FE /* FMDatabaseQueue.m in Sources */,
+				193ADDB71D1B113B003941FE /* FMDatabase.m in Sources */,
 				19B09D261D1472FA00E68633 /* AppDelegate.swift in Sources */,
+				193ADDA71D1B112B003941FE /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
 				19B09D381D1473CF00E68633 /* TodoTableViewController.swift in Sources */,
+				193ADDB81D1B113B003941FE /* FMDatabaseAdditions.m in Sources */,
+				193ADDA41D1B1127003941FE /* FMTokenizers.m in Sources */,
+				193ADDA31D1B1127003941FE /* FMDatabase+FTS3.m in Sources */,
+				193ADDAB1D1B1132003941FE /* FMDatabaseVariadic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +340,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -234,6 +386,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -253,10 +406,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/../../Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Todotastic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mathcamp.Todotastic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Todotastic-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -264,10 +424,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Todotastic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mathcamp.Todotastic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Todotastic-Bridging-Header.h";
 			};
 			name = Release;
 		};
