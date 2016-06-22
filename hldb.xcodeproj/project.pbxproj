@@ -20,25 +20,24 @@
 		463B90EE1B6C5B3D00F4D341 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 460D04BE1B6AE41200BF1DE2 /* libsqlite3.0.dylib */; };
 		463B90F21B6C5B4F00F4D341 /* FMDatabaseAdditionsVariadic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D04A21B6AE2C200BF1DE2 /* FMDatabaseAdditionsVariadic.swift */; };
 		463B90F31B6C5B4F00F4D341 /* FMDatabaseVariadic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D04A31B6AE2C200BF1DE2 /* FMDatabaseVariadic.swift */; };
-		463B90F61B6C5B5500F4D341 /* FMDatabase+InMemoryOnDiskIO.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D049F1B6AE2C200BF1DE2 /* FMDatabase+InMemoryOnDiskIO.h */; };
+		463B90F61B6C5B5500F4D341 /* FMDatabase+InMemoryOnDiskIO.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D049F1B6AE2C200BF1DE2 /* FMDatabase+InMemoryOnDiskIO.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		463B90F71B6C5B5500F4D341 /* FMDatabase+InMemoryOnDiskIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 460D04A01B6AE2C200BF1DE2 /* FMDatabase+InMemoryOnDiskIO.m */; };
-		463B90F81B6C5B5C00F4D341 /* FMDatabase+FTS3.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D04991B6AE2C200BF1DE2 /* FMDatabase+FTS3.h */; };
+		463B90F81B6C5B5C00F4D341 /* FMDatabase+FTS3.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D04991B6AE2C200BF1DE2 /* FMDatabase+FTS3.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		463B90F91B6C5B5C00F4D341 /* FMDatabase+FTS3.m in Sources */ = {isa = PBXBuildFile; fileRef = 460D049A1B6AE2C200BF1DE2 /* FMDatabase+FTS3.m */; };
-		463B90FA1B6C5B5C00F4D341 /* FMTokenizers.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D049B1B6AE2C200BF1DE2 /* FMTokenizers.h */; };
+		463B90FA1B6C5B5C00F4D341 /* FMTokenizers.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D049B1B6AE2C200BF1DE2 /* FMTokenizers.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		463B90FB1B6C5B5C00F4D341 /* FMTokenizers.m in Sources */ = {isa = PBXBuildFile; fileRef = 460D049C1B6AE2C200BF1DE2 /* FMTokenizers.m */; };
-		463B90FC1B6C5B5C00F4D341 /* fts3_tokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D049D1B6AE2C200BF1DE2 /* fts3_tokenizer.h */; };
-		46E66C781B6FFF2100A8E32E /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D04A51B6AE2C200BF1DE2 /* FMDatabase.h */; };
+		463B90FC1B6C5B5C00F4D341 /* fts3_tokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D049D1B6AE2C200BF1DE2 /* fts3_tokenizer.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		46E66C781B6FFF2100A8E32E /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D04A51B6AE2C200BF1DE2 /* FMDatabase.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		46E66C791B6FFF2100A8E32E /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 460D04A61B6AE2C200BF1DE2 /* FMDatabase.m */; };
-		46E66C7A1B6FFF2100A8E32E /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D04A71B6AE2C200BF1DE2 /* FMDatabaseAdditions.h */; };
+		46E66C7A1B6FFF2100A8E32E /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D04A71B6AE2C200BF1DE2 /* FMDatabaseAdditions.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		46E66C7B1B6FFF2100A8E32E /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 460D04A81B6AE2C200BF1DE2 /* FMDatabaseAdditions.m */; };
-		46E66C7C1B6FFF2100A8E32E /* FMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D04A91B6AE2C200BF1DE2 /* FMDatabasePool.h */; };
+		46E66C7C1B6FFF2100A8E32E /* FMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D04A91B6AE2C200BF1DE2 /* FMDatabasePool.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		46E66C7D1B6FFF2100A8E32E /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 460D04AA1B6AE2C200BF1DE2 /* FMDatabasePool.m */; };
-		46E66C7E1B6FFF2100A8E32E /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D04AB1B6AE2C200BF1DE2 /* FMDatabaseQueue.h */; };
+		46E66C7E1B6FFF2100A8E32E /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D04AB1B6AE2C200BF1DE2 /* FMDatabaseQueue.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		46E66C7F1B6FFF2100A8E32E /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 460D04AC1B6AE2C200BF1DE2 /* FMDatabaseQueue.m */; };
-		46E66C801B6FFF2100A8E32E /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D04AD1B6AE2C200BF1DE2 /* FMDB.h */; };
-		46E66C811B6FFF2100A8E32E /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D04AE1B6AE2C200BF1DE2 /* FMResultSet.h */; };
+		46E66C801B6FFF2100A8E32E /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D04AD1B6AE2C200BF1DE2 /* FMDB.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		46E66C811B6FFF2100A8E32E /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D04AE1B6AE2C200BF1DE2 /* FMResultSet.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		46E66C821B6FFF2100A8E32E /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 460D04AF1B6AE2C200BF1DE2 /* FMResultSet.m */; };
-		46E66C8A1B70010800A8E32E /* hldb-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 46E66C881B70010800A8E32E /* hldb-Bridging-Header.h */; };
 		974A6C7B1B86BF7000A970D5 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974A6C7A1B86BF7000A970D5 /* Entity.swift */; };
 		CDEA114F1D133FD900762043 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDEA11441D133F5A00762043 /* Nimble.framework */; };
 		CDEA11701D13511000762043 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDEA11651D13510000762043 /* Quick.framework */; };
@@ -410,12 +409,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46E66C8A1B70010800A8E32E /* hldb-Bridging-Header.h in Headers */,
+				46E66C801B6FFF2100A8E32E /* FMDB.h in Headers */,
 				46E66C7C1B6FFF2100A8E32E /* FMDatabasePool.h in Headers */,
 				463B90FC1B6C5B5C00F4D341 /* fts3_tokenizer.h in Headers */,
 				46E66C7A1B6FFF2100A8E32E /* FMDatabaseAdditions.h in Headers */,
 				46E66C781B6FFF2100A8E32E /* FMDatabase.h in Headers */,
-				46E66C801B6FFF2100A8E32E /* FMDB.h in Headers */,
 				46E66C7E1B6FFF2100A8E32E /* FMDatabaseQueue.h in Headers */,
 				46E66C811B6FFF2100A8E32E /* FMResultSet.h in Headers */,
 				463B90FA1B6C5B5C00F4D341 /* FMTokenizers.h in Headers */,
@@ -681,6 +679,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -726,6 +725,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
