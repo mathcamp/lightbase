@@ -25,7 +25,9 @@ class TodoTableViewCell: UITableViewCell {
     doubleTap.numberOfTapsRequired = 2
     self.addGestureRecognizer(doubleTap)
     
-    self.selectionStyle = .Blue
+    let bgColorView = UIView()
+    bgColorView.backgroundColor = UIColor(red:0.5,green:0,blue:0.5,alpha:1)
+    self.selectedBackgroundView = bgColorView
 
     
     self.textField.userInteractionEnabled = false
@@ -44,7 +46,15 @@ class TodoTableViewCell: UITableViewCell {
 }
 
 extension TodoTableViewCell: UITextFieldDelegate {
+  
+  func textFieldShouldReturn(textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
+    textField.userInteractionEnabled = false
+    return false
+  }
+  
   func textFieldDidEndEditing(textField: UITextField) {
     delegate?.saveUpdatedText(self)
   }
+  
 }

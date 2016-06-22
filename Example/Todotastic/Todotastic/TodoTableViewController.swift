@@ -16,25 +16,27 @@ enum EditState {
 
 struct TodoItem {
   var label: String = "Unlabeled"
-  var done: Bool = false
+  var checked: Bool = false
 }
 
 class TodoTableViewController: UITableViewController {
   
   var editState: EditState = .NotEditing
-  var todoList: [TodoItem] = [TodoItem(label: "Meet w/ Jennifer for breakfast", done: false),TodoItem(label: "Present at beach", done: false),TodoItem(label: "Build something beautiful", done: false)]
+  var todoList: [TodoItem] = [TodoItem(label: "Meet w/ Jennifer for breakfast", checked: false),
+                              TodoItem(label: "Present at beach", checked: false),
+                              TodoItem(label: "Build something beautiful", checked: false)]
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(newButtonTapped))
+    //navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(newButtonTapped))
     
     let longpress = UILongPressGestureRecognizer(target: self, action: #selector(TodoTableViewController.longPressGestureRecognized(_:)))
     tableView.addGestureRecognizer(longpress)
     
-    var refreshControl = UIRefreshControl()
+    let refreshControl = UIRefreshControl()
     refreshControl.addTarget(self, action: #selector(newButtonTapped), forControlEvents: UIControlEvents.ValueChanged)
-    refreshControl.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)
+    refreshControl.backgroundColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
     self.refreshControl = refreshControl
     
     
@@ -43,25 +45,22 @@ class TodoTableViewController: UITableViewController {
   }
   
   
-  override func tableView(_ tableView: UITableView,
+  override func tableView(tableView: UITableView,
                             editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
     
-    let more = UITableViewRowAction(style: .Normal, title: "More") { action, index in
+    let more = UITableViewRowAction(style: .Normal, title: "Check") { action, index in
       print("more button tapped")
     }
-    more.backgroundColor = UIColor.lightGrayColor()
+    more.backgroundColor = UIColor(red:0.75, green: 0, blue:0.5, alpha:1.0)
     
-    let favorite = UITableViewRowAction(style: .Normal, title: "Favorite") { action, index in
-      print("favorite button tapped")
+    let deleteButton = UITableViewRowAction(style: .Normal, title: "Delete") { action, index in
+      self.todoList.removeAtIndex(indexPath.row);
+      self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic);
+    
     }
-    favorite.backgroundColor = UIColor.orangeColor()
+    deleteButton.backgroundColor = UIColor.blueColor()
     
-    let share = UITableViewRowAction(style: .Normal, title: "Share") { action, index in
-      print("share button tapped")
-    }
-    share.backgroundColor = UIColor.blueColor()
-    
-    return [share, favorite, more]
+    return [deleteButton, more]
   }
   
 }
@@ -159,34 +158,32 @@ extension TodoTableViewController {
   
   
   func newButtonTapped(item: UIBarButtonItem) {
-    print("NEW!")
     
-    var addTextField: UITextField?
-    let alertController = UIAlertController(title: "Ttle", message: "A standard alert", preferredStyle: .Alert)
-    
-    let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action:UIAlertAction!) in
-      print("you have pressed the Cancel button");
+    switch(self.editState) {
+    case .Editing(let cell):
+      cell.textField.resignFirstResponder()
+      cell.textField.userInteractionEnabled = false
+    case .NotEditing:
+      break
     }
-    let addAction = UIAlertAction(title: "Add New", style: .Default) { (action:UIAlertAction!) in
-      print("you have pressed OK button");
-      var item = TodoItem()
-      item.label = (addTextField?.text)!
+    
+
+    var item = TodoItem()
+    item.label = ""//(addTextField?.text)!
       
-      self.todoList.append(item)
+    self.todoList.insert(item, atIndex: 0)
       
-      self.tableView.reloadData()
-    }
+    self.tableView.reloadData()
     
-    alertController.addTextFieldWithConfigurationHandler { (textField) in
-      addTextField = textField
-      addTextField?.placeholder = "Add a Task Label"
-    }
+    let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+
+    let cell = tableView.cellForRowAtIndexPath(indexPath) as! TodoTableViewCell
     
-    alertController.addAction(cancelAction)
-    alertController.addAction(addAction)
+    cell.textField?.userInteractionEnabled = true
+    cell.textField.becomeFirstResponder()
     
     refreshControl?.endRefreshing()
-    self.presentViewController(alertController, animated: true, completion:nil)
+   
     
   }
 }
@@ -208,39 +205,6 @@ extension TodoTableViewController {
   }
   
   
-  
-  /*override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]?  {
-    // 1
-    var shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Share" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
-      // 2
-      let shareMenu = UIAlertController(title: nil, message: "Share using", preferredStyle: .ActionSheet)
-      
-      let twitterAction = UIAlertAction(title: "Twitter", style: UIAlertActionStyle.Default, handler: nil)
-      let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
-      
-      shareMenu.addAction(twitterAction)
-      shareMenu.addAction(cancelAction)
-      
-      
-      self.presentViewController(shareMenu, animated: true, completion: nil)
-    })
-    // 3
-    var rateAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Rate" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
-      // 4
-      let rateMenu = UIAlertController(title: nil, message: "Rate this App", preferredStyle: .ActionSheet)
-      
-      let appRateAction = UIAlertAction(title: "Rate", style: UIAlertActionStyle.Default, handler: nil)
-      let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
-      
-      rateMenu.addAction(appRateAction)
-      rateMenu.addAction(cancelAction)
-      
-      
-      self.presentViewController(rateMenu, animated: true, completion: nil)
-    })
-    // 5
-    return [shareAction,rateAction]
-  }*/
   
 }
 
