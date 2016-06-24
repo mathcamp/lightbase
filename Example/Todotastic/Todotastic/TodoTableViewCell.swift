@@ -10,8 +10,10 @@ import Foundation
 import UIKit
 
 protocol TodoCellDelegate {
-  func cellDoubleTapped(cell: TodoTableViewCell)
   func saveUpdatedText(cell: TodoTableViewCell)
+  func stopEditingCell(cell: TodoTableViewCell)
+  func stopIfEditingCell() -> Bool
+  func startEditingCell(cell: TodoTableViewCell)
 }
 
 class TodoTableViewCell: UITableViewCell {
@@ -38,9 +40,7 @@ class TodoTableViewCell: UITableViewCell {
   }
   
   func doubleTapped() {
-    delegate?.cellDoubleTapped(self)
-    textField.userInteractionEnabled = true
-    textField.becomeFirstResponder()
+    delegate?.startEditingCell(self)
   }
   
 }
@@ -48,8 +48,7 @@ class TodoTableViewCell: UITableViewCell {
 extension TodoTableViewCell: UITextFieldDelegate {
   
   func textFieldShouldReturn(textField: UITextField) -> Bool {
-    textField.resignFirstResponder()
-    textField.userInteractionEnabled = false
+    delegate?.stopEditingCell(self)
     return false
   }
   

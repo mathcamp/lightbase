@@ -9,27 +9,12 @@
 import Foundation
 import UIKit
 
-enum EditState {
-  case NotEditing
-  case Editing(TodoTableViewCell)
-}
-
-struct TodoItem {
-  var label: String = "Unlabeled"
-  var checked: Bool = false
-}
-
 class TodoTableViewController: UITableViewController {
   
-  var editState: EditState = .NotEditing
-  var todoList: [TodoItem] = [TodoItem(label: "Meet w/ Jennifer for breakfast", checked: false),
-                              TodoItem(label: "Present at beach", checked: false),
-                              TodoItem(label: "Build something beautiful", checked: false)]
+  let todoModel = TodoModel()
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    //navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(newButtonTapped))
     
     let longpress = UILongPressGestureRecognizer(target: self, action: #selector(TodoTableViewController.longPressGestureRecognized(_:)))
     tableView.addGestureRecognizer(longpress)
@@ -39,37 +24,30 @@ class TodoTableViewController: UITableViewController {
     refreshControl.backgroundColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
     self.refreshControl = refreshControl
     
+    let view = UIView()
+    view.backgroundColor = UIColor.redColor()
+    
+    view.frame = CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: 70)
+    
+    /*let plusImage = UIImage(named: "plus.png")
+    let plusView = UIImageView(image: plusImage)
+    view.addSubview(plusView)*/
     
     
+    let gestureRec = UITapGestureRecognizer(target: self, action: #selector(self.newButtonTapped(_:)))
     
-  }
-  
-  
-  override func tableView(tableView: UITableView,
-                            editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+    view.addGestureRecognizer(gestureRec)
     
-    let more = UITableViewRowAction(style: .Normal, title: "Check") { action, index in
-      print("more button tapped")
-    }
-    more.backgroundColor = UIColor(red:0.75, green: 0, blue:0.5, alpha:1.0)
+    self.tableView.tableFooterView = view
     
-    let deleteButton = UITableViewRowAction(style: .Normal, title: "Delete") { action, index in
-      self.todoList.removeAtIndex(indexPath.row);
-      self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic);
+    self.todoModel.loadItems().onSuccess{result in self.tableView.reloadData()}
     
-    }
-    deleteButton.backgroundColor = UIColor.blueColor()
-    
-    return [deleteButton, more]
   }
   
 }
 
 
 extension TodoTableViewController {
-  
-  
-  
   
   func snapshopOfCell(inputView: UIView) -> UIView {
     UIGraphicsBeginImageContextWithOptions(inputView.bounds.size, false, 0.0)
@@ -129,7 +107,7 @@ extension TodoTableViewController {
       center.y = locationInView.y
       My.cellSnapshot!.center = center
       if ((indexPath != nil) && (indexPath != Path.initialIndexPath)) {
-        swap(&todoList[indexPath!.row], &todoList[Path.initialIndexPath!.row])
+        self.todoModel.swapTodoItems(indexPath!.row, index2: Path.initialIndexPath!.row)
         tableView.moveRowAtIndexPath(Path.initialIndexPath!, toIndexPath: indexPath!)
         Path.initialIndexPath = indexPath
       }
@@ -158,97 +136,124 @@ extension TodoTableViewController {
   
   
   func newButtonTapped(item: UIBarButtonItem) {
+    stopIfEditingCell()
+    let item = TodoItem(label: "")
+    self.todoModel.addTodoItem(item)
     
-    switch(self.editState) {
-    case .Editing(let cell):
-      cell.textField.resignFirstResponder()
-      cell.textField.userInteractionEnabled = false
-    case .NotEditing:
-      break
-    }
     
-
-    var item = TodoItem()
-    item.label = ""//(addTextField?.text)!
-      
-    self.todoList.insert(item, atIndex: 0)
-      
+    
     self.tableView.reloadData()
     
-    let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-
-    let cell = tableView.cellForRowAtIndexPath(indexPath) as! TodoTableViewCell
+    /*let rowsHeight: CGFloat = CGFloat(self.todoModel.count())*70.0
     
-    cell.textField?.userInteractionEnabled = true
-    cell.textField.becomeFirstResponder()
-    
-    refreshControl?.endRefreshing()
+    self.tableView.tableFooterView?.frame = CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: UIScreen.mainScreen().bounds.height-rowsHeight)
+    print(UIScreen.mainScreen().bounds.height)*/
    
     
-  }
-}
-
-extension TodoTableViewController {
-
-  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    switch editState {
-    case .NotEditing:
-      break
-    case .Editing(let cell):
-      cell.textField.userInteractionEnabled = false
-      cell.textField.resignFirstResponder()
-    }
-  }
-  
-  override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+    let cell = tableView.cellForRowAtIndexPath(indexPath) as! TodoTableViewCell
+    startEditingCell(cell)
     
+    refreshControl?.endRefreshing()
   }
   
+  override func tableView(tableView: UITableView,
+                          editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+    
+    let more = UITableViewRowAction(style: .Normal, title: "Check") { action, index in
+      self.todoModel.switchCheckedAtIndex(indexPath.row)
+      self.tableView.reloadData()
+    }
+    more.backgroundColor = UIColor(red:0.75, green: 0, blue:0.5, alpha:1.0)
+    
+    let deleteButton = UITableViewRowAction(style: .Normal, title: "Delete") { action, index in
+      self.todoModel.removeTodoItemAtIndex(indexPath.row);
+      self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic);
+    }
+    deleteButton.backgroundColor = UIColor.blueColor()
+    
+    return [deleteButton, more]
+  }
+  
+
   
   
 }
 
 extension TodoTableViewController {
-  
-  
-  
   
   override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     return 1
   }
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return self.todoList.count
+    return self.todoModel.count()
   }
 
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let tableViewCell = tableView.dequeueReusableCellWithIdentifier("TodoTableViewCell", forIndexPath: indexPath)
     
     if let todoCell = tableViewCell as? TodoTableViewCell {
+      let cellModel = self.todoModel.atIndex(indexPath.row)
       todoCell.start()
-      todoCell.textField.text = self.todoList[indexPath.row].label
+      todoCell.textField.text = self.todoModel.atIndex(indexPath.row).label
       todoCell.delegate = self
+      if cellModel.checked {
+        tableViewCell.backgroundColor = UIColor(red: 0.75, green: 0, blue: 0.5, alpha: 1)
+      } else {
+        tableViewCell.backgroundColor = UIColor(red: 0.349, green: 0.255, blue: 0.639, alpha: 1)
+      }
     }
     
+    
+    
     return tableViewCell
+  }
+  
+  override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    return 70
+  }
+  
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    stopIfEditingCell()
+  }
+  
+  override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    
   }
   
 }
 
 
 extension TodoTableViewController: TodoCellDelegate {
-  func cellDoubleTapped(cell: TodoTableViewCell) {
-    editState = .Editing(cell)
+  
+  func stopEditingCell(cell: TodoTableViewCell) {
+    cell.textField.resignFirstResponder()
+    cell.textField.userInteractionEnabled = false
+    self.todoModel.editState = .NotEditing
+  }
+  
+  func stopIfEditingCell() -> Bool {
+    switch(self.todoModel.editState) {
+    case .Editing(let cell):
+      stopEditingCell(cell)
+      return true
+    case .NotEditing:
+      return false
+    }
+  }
+  
+  func startEditingCell(cell: TodoTableViewCell) {
+    stopIfEditingCell()
+    cell.textField?.userInteractionEnabled = true
+    cell.textField.becomeFirstResponder()
+    self.todoModel.editState = .Editing(cell)
   }
   
   func saveUpdatedText(cell: TodoTableViewCell) {
     if let indexPath = self.tableView.indexPathForCell(cell) {
-      self.todoList[indexPath.row].label = cell.textField.text!
+      self.todoModel.setLabelAtIndex(indexPath.row, label: cell.textField.text!)
     }
-  }
-  
-  override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-    return 70
   }
   
 }

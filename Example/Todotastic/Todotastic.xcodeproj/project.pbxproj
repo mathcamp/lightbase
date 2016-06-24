@@ -29,6 +29,10 @@
 		19B09D381D1473CF00E68633 /* TodoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B09D371D1473CF00E68633 /* TodoTableViewController.swift */; };
 		19B09D751D19E0F100E68633 /* TodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B09D741D19E0F100E68633 /* TodoModel.swift */; };
 		CDEA11721D149E6C00762043 /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA11711D149E6C00762043 /* TodoTableViewCell.swift */; };
+		CDF1CB141D1B390100AC1506 /* DBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1CB0F1D1B390100AC1506 /* DBModel.swift */; };
+		CDF1CB151D1B390100AC1506 /* hldb.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1CB101D1B390100AC1506 /* hldb.swift */; };
+		CDF1CB161D1B390100AC1506 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF1CB111D1B390100AC1506 /* Entity.swift */; };
+		CDF1CB171D1B390100AC1506 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDF1CB131D1B390100AC1506 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -79,6 +83,11 @@
 		19B09D371D1473CF00E68633 /* TodoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoTableViewController.swift; sourceTree = "<group>"; };
 		19B09D741D19E0F100E68633 /* TodoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoModel.swift; sourceTree = "<group>"; };
 		CDEA11711D149E6C00762043 /* TodoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
+		CDF1CB0F1D1B390100AC1506 /* DBModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBModel.swift; sourceTree = "<group>"; };
+		CDF1CB101D1B390100AC1506 /* hldb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hldb.swift; sourceTree = "<group>"; };
+		CDF1CB111D1B390100AC1506 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		CDF1CB121D1B390100AC1506 /* hldb-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "hldb-Bridging-Header.h"; sourceTree = "<group>"; };
+		CDF1CB131D1B390100AC1506 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,9 +107,8 @@
 		193ADD921D1B10AA003941FE /* HLDB */ = {
 			isa = PBXGroup;
 			children = (
-				193ADD971D1B10CF003941FE /* FMDB */,
-				193ADD931D1B10C6003941FE /* BrightFutures.framework */,
-				193ADDBC1D1B1E98003941FE /* Result.framework */,
+				CDF1CB0E1D1B38E000AC1506 /* hldb */,
+				CDF1CB0D1D1B38BE00AC1506 /* Frameworks */,
 			);
 			name = HLDB;
 			sourceTree = "<group>";
@@ -206,6 +214,28 @@
 			path = Todotastic;
 			sourceTree = "<group>";
 		};
+		CDF1CB0D1D1B38BE00AC1506 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				193ADD971D1B10CF003941FE /* FMDB */,
+				193ADD931D1B10C6003941FE /* BrightFutures.framework */,
+				193ADDBC1D1B1E98003941FE /* Result.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CDF1CB0E1D1B38E000AC1506 /* hldb */ = {
+			isa = PBXGroup;
+			children = (
+				CDF1CB0F1D1B390100AC1506 /* DBModel.swift */,
+				CDF1CB101D1B390100AC1506 /* hldb.swift */,
+				CDF1CB111D1B390100AC1506 /* Entity.swift */,
+				CDF1CB121D1B390100AC1506 /* hldb-Bridging-Header.h */,
+				CDF1CB131D1B390100AC1506 /* Info.plist */,
+			);
+			name = hldb;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -265,6 +295,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDF1CB171D1B390100AC1506 /* Info.plist in Resources */,
 				19B09D301D1472FA00E68633 /* LaunchScreen.storyboard in Resources */,
 				19B09D2D1D1472FA00E68633 /* Assets.xcassets in Resources */,
 				19B09D2B1D1472FA00E68633 /* Main.storyboard in Resources */,
@@ -278,6 +309,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDF1CB141D1B390100AC1506 /* DBModel.swift in Sources */,
+				CDF1CB161D1B390100AC1506 /* Entity.swift in Sources */,
+				CDF1CB151D1B390100AC1506 /* hldb.swift in Sources */,
 				CDEA11721D149E6C00762043 /* TodoTableViewCell.swift in Sources */,
 				193ADDB91D1B113B003941FE /* FMDatabasePool.m in Sources */,
 				193ADDBB1D1B113B003941FE /* FMResultSet.m in Sources */,
