@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		192FD22C1D1DF02000F6DA2F /* AbstractDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192FD22B1D1DF02000F6DA2F /* AbstractDB.swift */; };
 		19B09D041D107EF000E68633 /* hldbTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B09D031D107EF000E68633 /* hldbTests.swift */; };
 		19B09D061D107EF000E68633 /* hldb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463B90CC1B6C5AAD00F4D341 /* hldb.framework */; };
 		19B09D0D1D1082A600E68633 /* DBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B09D0C1D1082A600E68633 /* DBModel.swift */; };
@@ -159,6 +160,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		192FD22B1D1DF02000F6DA2F /* AbstractDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AbstractDB.swift; path = HLDB/Lib/AbstractDB.swift; sourceTree = "<group>"; };
 		1935D67C1B6ABF4D00864C31 /* hldb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = hldb.swift; path = HLDB/Lib/hldb.swift; sourceTree = "<group>"; };
 		19B09D011D107EF000E68633 /* hldbTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hldbTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B09D031D107EF000E68633 /* hldbTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hldbTests.swift; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 				1935D67C1B6ABF4D00864C31 /* hldb.swift */,
 				974A6C7A1B86BF7000A970D5 /* Entity.swift */,
 				463B91041B6C5BA900F4D341 /* Supporting Files */,
+				192FD22B1D1DF02000F6DA2F /* AbstractDB.swift */,
 			);
 			name = hldb;
 			sourceTree = "<group>";
@@ -655,6 +658,7 @@
 				974A6C7B1B86BF7000A970D5 /* Entity.swift in Sources */,
 				46E66C791B6FFF2100A8E32E /* FMDatabase.m in Sources */,
 				46E66C7D1B6FFF2100A8E32E /* FMDatabasePool.m in Sources */,
+				192FD22C1D1DF02000F6DA2F /* AbstractDB.swift in Sources */,
 				46E66C7F1B6FFF2100A8E32E /* FMDatabaseQueue.m in Sources */,
 				463B90F71B6C5B5500F4D341 /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
 				463B90FB1B6C5B5C00F4D341 /* FMTokenizers.m in Sources */,

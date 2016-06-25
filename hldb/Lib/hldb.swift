@@ -62,7 +62,7 @@ public func ==(lhs: HLDB.Table.Row, rhs: HLDB.Table.Row) -> Bool {
 public class HLDB {
   
   public class DB {
-    public var queue: FMDatabaseQueue?
+    public var queue: AbstractDBQueue?
     public let fileName: String
     public let dbPath: String
     
@@ -102,9 +102,9 @@ public class HLDB {
       return error
     }
     
-    public func getQueue() -> FMDatabaseQueue? {
+    public func getQueue() -> AbstractDBQueue? {
       if queue == nil {
-        queue = FMDatabaseQueue(path: self.dbPath)
+        queue = FMAbstractDBQueue(dbPath: self.dbPath)
       }
       return queue
     }
@@ -112,7 +112,7 @@ public class HLDB {
     // do a query that does not return results without using a transaction
     public func updateWithoutTx(query: String, args:[AnyObject] = []) -> Future<Result, NoError> {
       let p = Promise<Result, NoError>()
-      getQueue()?.inDatabase() { db in
+      getQueue()?.execInDatabase { db in
         if !db.executeUpdate(query, withArgumentsInArray:args as [AnyObject]) {
           print("DB Query \(self.fileName) failed: \(db.lastErrorMessage())")
           p.success(Result.Error(Int(db.lastErrorCode()), db.lastErrorMessage()))
@@ -127,11 +127,11 @@ public class HLDB {
     // do a query that does not return result using a transaction and rollback upon failure
     public func update(queries: [QueryArgs]) -> Future<Result, NoError> {
       let p = Promise<Result, NoError>()
-      getQueue()?.inTransaction() { db, rollback in
+      getQueue()?.execInTransaction() { db, rollback in
         for query in queries {
           //          NSLog("Running query=\(query.query) argCount=\(query.args.count) args=\(query.args)")
           if !db.executeUpdate(query.query, withArgumentsInArray:query.args as [AnyObject]) {
-            rollback.initialize(true)
+            rollback = true
             print("DB Query \(self.fileName) failed: \(db.lastErrorMessage())")
             p.success(Result.Error(Int(db.lastErrorCode()), db.lastErrorMessage()))
             return
@@ -146,7 +146,7 @@ public class HLDB {
     // do a select style query that returns result
     public func query(query: String, args:[AnyObject] = []) -> Future<Result, NoError> {
       let p = Promise<Result, NoError>()
-      getQueue()?.inDatabase() {
+      getQueue()?.execInDatabase() {
         db in
         
         if let rs = db.executeQuery(query, withArgumentsInArray:args as [AnyObject]) {
@@ -165,7 +165,7 @@ public class HLDB {
     }
     
     // only use within txBlock
-    public func txUpdate(db: FMDatabase, queries: [QueryArgs]) -> Result {
+    public func txUpdate(db: AbstractDB, queries: [QueryArgs]) -> Result {
       for query in queries {
         if !db.executeUpdate(query.query, withArgumentsInArray:query.args as [AnyObject]) {
           print("DB Query \(self.fileName) failed: \(db.lastErrorMessage())")
@@ -176,7 +176,7 @@ public class HLDB {
     }
     
     // only use within txBlock
-    public func txQuery(db: FMDatabase, query: String, args:[AnyObject] = []) -> Result  {
+    public func txQuery(db: AbstractDB, query: String, args:[AnyObject] = []) -> Result  {
       if let rs = db.executeQuery(query, withArgumentsInArray:args as [AnyObject]) {
         var items = [NSDictionary]()
         while rs.next() {
@@ -189,12 +189,12 @@ public class HLDB {
       }
     }
     
-    public func txBlock(block: (FMDatabase) -> (Result)) -> Future<Result, NoError> {
+    public func txBlock(block: (AbstractDB) -> (Result)) -> Future<Result, NoError> {
       let p = Promise<Result, NoError>()
-      getQueue()?.inTransaction() { db, rollback in
+      getQueue()?.execInTransaction() { db, rollback in
         let result = block(db)
         switch result {
-        case .Error: rollback.initialize(true)
+        case .Error: rollback = true
         default: break
         }
         p.success(result)
@@ -721,7 +721,7 @@ public class HLDB {
       return db.update(queries)
     }
     
-    private func insertAndUpdateWithinTx(fmdb: FMDatabase, insertRows: [Row], updateRows: [Row]) -> DB.Result {
+    private func insertAndUpdateWithinTx(abdb: AbstractDB, insertRows: [Row], updateRows: [Row]) -> DB.Result {
       var queries: [DB.QueryArgs] = []
       if insertRows.count > 0 {
         let query = "INSERT INTO \(name) (\(fieldNamesStr)) values (\(fieldNamesPlaceholderStr))"
@@ -753,15 +753,15 @@ public class HLDB {
         }
       }
       
-      return db.txUpdate(fmdb, queries: queries)
+      return db.txUpdate(abdb, queries: queries)
     }
     
-    public func insertWithinTx(fmdb: FMDatabase, rows: [Row]) -> DB.Result {
-      return insertAndUpdateWithinTx(fmdb, insertRows: rows, updateRows: [])
+    public func insertWithinTx(abdb: AbstractDB, rows: [Row]) -> DB.Result {
+      return insertAndUpdateWithinTx(abdb, insertRows: rows, updateRows: [])
     }
     
-    public func updateWithinTx(fmdb: FMDatabase, rows: [Row]) -> DB.Result {
-      return insertAndUpdateWithinTx(fmdb, insertRows: [], updateRows: rows)
+    public func updateWithinTx(abdb: AbstractDB, rows: [Row]) -> DB.Result {
+      return insertAndUpdateWithinTx(abdb, insertRows: [], updateRows: rows)
     }
   }
   
