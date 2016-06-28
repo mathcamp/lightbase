@@ -42,6 +42,7 @@
 		974A6C7B1B86BF7000A970D5 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974A6C7A1B86BF7000A970D5 /* Entity.swift */; };
 		CDEA114F1D133FD900762043 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDEA11441D133F5A00762043 /* Nimble.framework */; };
 		CDEA11701D13511000762043 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDEA11651D13510000762043 /* Quick.framework */; };
+		CDF6E5E51D21BBFC00ED03E0 /* FMDBConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF6E5E41D21BBFC00ED03E0 /* FMDBConnector.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -198,6 +199,7 @@
 		974A6C7A1B86BF7000A970D5 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		CDEA113A1D133F5900762043 /* Nimble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nimble.xcodeproj; path = Nimble/Nimble.xcodeproj; sourceTree = SOURCE_ROOT; };
 		CDEA11521D1350FF00762043 /* Quick.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quick.xcodeproj; path = Quick/Quick.xcodeproj; sourceTree = SOURCE_ROOT; };
+		CDF6E5E41D21BBFC00ED03E0 /* FMDBConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FMDBConnector.swift; path = hldb/Lib/FMDBConnector.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,6 +275,7 @@
 				974A6C7A1B86BF7000A970D5 /* Entity.swift */,
 				463B91041B6C5BA900F4D341 /* Supporting Files */,
 				192FD22B1D1DF02000F6DA2F /* AbstractDB.swift */,
+				CDF6E5E41D21BBFC00ED03E0 /* FMDBConnector.swift */,
 			);
 			name = hldb;
 			sourceTree = "<group>";
@@ -482,7 +485,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1935D6511B6AADD500864C31 /* Build configuration list for PBXProject "HLDB" */;
+			buildConfigurationList = 1935D6511B6AADD500864C31 /* Build configuration list for PBXProject "hldb" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -665,6 +668,7 @@
 				46E66C821B6FFF2100A8E32E /* FMResultSet.m in Sources */,
 				463B90F91B6C5B5C00F4D341 /* FMDatabase+FTS3.m in Sources */,
 				46E66C7B1B6FFF2100A8E32E /* FMDatabaseAdditions.m in Sources */,
+				CDF6E5E51D21BBFC00ED03E0 /* FMDBConnector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -856,7 +860,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1935D6511B6AADD500864C31 /* Build configuration list for PBXProject "HLDB" */ = {
+		1935D6511B6AADD500864C31 /* Build configuration list for PBXProject "hldb" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1935D6731B6AADD500864C31 /* Debug */,

@@ -27,7 +27,10 @@ public class TestEntity: Entity {
 
 
 class hldbTests: XCTestCase {
-    
+  
+  let tableName : String = "mytable"
+  let dbModel : DBModel<FMAbstractDB, FMAbstractDBQueue> = DBModel()
+  
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -42,24 +45,20 @@ class hldbTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
       
         // given
-        let fields: [HLDB.Table.Field] = [
-          HLDB.Table.Field(name: "id",       type: .Text, index: .PrimaryKey, defaultValue: .NonNull),
-          HLDB.Table.Field(name: "ts",       type: .Real, index: .Index, defaultValue: .NonNull),
-          HLDB.Table.Field(name: "kind",     type: .Text, index: .None, defaultValue: .NonNull)
+        let fields: [TableField] = [
+          TableField(name: "id",       type: .Text, index: .PrimaryKey, defaultValue: .NonNull),
+          TableField(name: "ts",       type: .Real, index: .Index, defaultValue: .NonNull),
+          TableField(name: "kind",     type: .Text, index: .None, defaultValue: .NonNull)
         ]
-      
-        let tableName = "mytable"
-        let dbModel = DBModel()
-      
-      
+    
         // when
-        let table = HLDB.Table(db: dbModel.db, name: tableName, fields: fields)
+        let table = Table(db: dbModel.db, name: tableName, fields: fields)
         table.create()
         dbModel.registerTable(table)
       
       
         // then
-        expect(dbModel.tables.count).to(equal(1))
+        expect(self.dbModel.tables.count).to(equal(1))
         let tableCheck = dbModel.getTable(tableName, fields: [])
         
         expect(table.fieldNames).to(equal(tableCheck.fieldNames))
@@ -69,7 +68,7 @@ class hldbTests: XCTestCase {
       
       
         //then
-        expect(dbModel.tables.count).to(equal(0))
+        expect(self.dbModel.tables.count).to(equal(0))
  
       
       
@@ -80,38 +79,36 @@ class hldbTests: XCTestCase {
     // Use XCTAssert and related functions to verify your tests produce the correct results.
     
     // given
-    let fields: [HLDB.Table.Field] = [
-      HLDB.Table.Field(name: "id",       type: .Text, index: .PrimaryKey, defaultValue: .NonNull),
-      HLDB.Table.Field(name: "ts",       type: .Real, index: .Index, defaultValue: .NonNull),
-      HLDB.Table.Field(name: "kind",     type: .Text, index: .None, defaultValue: .NonNull)
+    let fields: [TableField] = [
+      TableField(name: "id",       type: .Text, index: .PrimaryKey, defaultValue: .NonNull),
+      TableField(name: "ts",       type: .Real, index: .Index, defaultValue: .NonNull),
+      TableField(name: "kind",     type: .Text, index: .None, defaultValue: .NonNull)
     ]
     
-    let fields2: [HLDB.Table.Field] = [
-      HLDB.Table.Field(name: "id",       type: .Text, index: .PrimaryKey, defaultValue: .NonNull),
-      HLDB.Table.Field(name: "ts2",       type: .Real, index: .Index, defaultValue: .NonNull),
-      HLDB.Table.Field(name: "kind2",     type: .Text, index: .None, defaultValue: .NonNull)
+    let fields2: [TableField] = [
+      TableField(name: "id",       type: .Text, index: .PrimaryKey, defaultValue: .NonNull),
+      TableField(name: "ts2",       type: .Real, index: .Index, defaultValue: .NonNull),
+      TableField(name: "kind2",     type: .Text, index: .None, defaultValue: .NonNull)
     ]
     
-    let tableName = "mytable"
-    let dbModel = DBModel()
+    
     
     
     // when
-    let table = HLDB.Table(db: dbModel.db, name: tableName, fields: fields)
+    let table = Table(db: dbModel.db, name: tableName, fields: fields)
     table.create()
     dbModel.registerTable(table)
     
-    let tableDup = HLDB.Table(db: dbModel.db, name: tableName, fields: fields)
+    let tableDup = Table(db: dbModel.db, name: tableName, fields: fields)
     tableDup.create()
     dbModel.registerTable(tableDup)
     
-    let table2 = HLDB.Table(db: dbModel.db, name: tableName, fields: fields2)
+    let table2 = Table(db: dbModel.db, name: tableName, fields: fields2)
     table2.create()
     dbModel.registerTable(table2)
-
     
     // then
-    expect(dbModel.tables.count).to(be(1)) // "dbModel tables length incorrect"
+    expect(self.dbModel.tables.count).to(be(1)) // "dbModel tables length incorrect"
     let tableCheck = dbModel.getTable(tableName, fields: [])
     
     expect(table.fieldNames).to(equal(tableCheck.fieldNames))
@@ -124,32 +121,29 @@ class hldbTests: XCTestCase {
     // Use XCTAssert and related functions to verify your tests produce the correct results.
 
     // given
-    let fields: [HLDB.Table.Field] = [
-      HLDB.Table.Field(name: "id",     type: .Text, index: .PrimaryKey, defaultValue: .NonNull),
-      HLDB.Table.Field(name: "count",  type: .Real, index: .Index, defaultValue: .NonNull),
-      HLDB.Table.Field(name: "type",   type: .Text, index: .None, defaultValue: .NonNull)
+    let fields: [TableField] = [
+      TableField(name: "id",     type: .Text, index: .PrimaryKey, defaultValue: .NonNull),
+      TableField(name: "count",  type: .Real, index: .Index, defaultValue: .NonNull),
+      TableField(name: "type",   type: .Text, index: .None, defaultValue: .NonNull)
     ]
     
-    let tableName = "mytable"
-    let dbModel = DBModel()
-    
-    let table = HLDB.Table(db: dbModel.db, name: tableName, fields: fields)
+    let table = Table(db: dbModel.db, name: tableName, fields: fields)
     table.create()
     dbModel.registerTable(table)
     
-    
     // when
-    let rows: [HLDB.Table.Row] = [
-      HLDB.Table.Row(fields: ["id": "new", "count": 35, "type": "book"]),
-      HLDB.Table.Row(fields: ["id": "new2", "count": -1035, "type": "movie"]),
-      HLDB.Table.Row(fields: ["id": "new3", "count": -5, "type": "cash"])
+    let rows: [TableRow] = [
+      TableRow(fields: ["id": "new", "count": 35, "type": "book"]),
+      TableRow(fields: ["id": "new2", "count": -1035, "type": "movie"]),
+      TableRow(fields: ["id": "new3", "count": -5, "type": "cash"])
     ]
     
     table.insert(rows)
     
     
     // then
-    table.select("WHERE count >= 0").onSuccess{ (result: HLDB.DB.Result) in
+    // Future<DBResult<NSDictionary>>
+    table.select("WHERE count >= 0").onSuccess{ (result: DBResult) in
       switch(result) {
       
       case .Items(let items):
@@ -174,7 +168,7 @@ class hldbTests: XCTestCase {
     
     
     // then
-    table.select("WHERE count >= 0").onSuccess{ (result: HLDB.DB.Result) in
+    table.select("WHERE count >= 0").onSuccess{ (result: DBResult) in
       switch(result) {
         
       case .Items(let items):
@@ -198,32 +192,29 @@ class hldbTests: XCTestCase {
     // Use XCTAssert and related functions to verify your tests produce the correct results.
 
     // given
-    let fields: [HLDB.Table.Field] = [
-      HLDB.Table.Field(name: "id",     type: .Text, index: .PrimaryKey, defaultValue: .NonNull),
-      HLDB.Table.Field(name: "count",  type: .Real, index: .Index, defaultValue: .NonNull),
-      HLDB.Table.Field(name: "type",   type: .Text, index: .None, defaultValue: .NonNull)
+    let fields: [TableField] = [
+      TableField(name: "id",     type: .Text, index: .PrimaryKey, defaultValue: .NonNull),
+      TableField(name: "count",  type: .Real, index: .Index, defaultValue: .NonNull),
+      TableField(name: "type",   type: .Text, index: .None, defaultValue: .NonNull)
     ]
     
-    let tableName = "mytable"
-    let dbModel = DBModel()
-    
-    let table = HLDB.Table(db: dbModel.db, name: tableName, fields: fields)
+    let table = Table(db: dbModel.db, name: tableName, fields: fields)
     table.create()
     dbModel.registerTable(table)
     
     
     // when
-    let rows: [HLDB.Table.Row] = [
-      HLDB.Table.Row(fields: ["id": "new", "count": 35, "type": "book"]),
-      HLDB.Table.Row(fields: ["id": "new2", "count": -1035, "type": "movie"]),
-      HLDB.Table.Row(fields: ["id": "new3", "count": -5, "type": "cash"])
+    let rows: [TableRow] = [
+      TableRow(fields: ["id": "new", "count": 35, "type": "book"]),
+      TableRow(fields: ["id": "new2", "count": -1035, "type": "movie"]),
+      TableRow(fields: ["id": "new3", "count": -5, "type": "cash"])
     ]
     
     table.insert(rows)
     
     
     // then
-    table.select("WHERE count >= 0").onSuccess{ (result: HLDB.DB.Result) in
+    table.select("WHERE count >= 0").onSuccess{ (result: DBResult) in
       switch(result) {
         
       case .Items(let items):
@@ -244,17 +235,17 @@ class hldbTests: XCTestCase {
     
     
     // when
-    let newRows: [HLDB.Table.Row] = [
-      HLDB.Table.Row(fields: ["id": "new", "count": 36, "type": "comic book"]),
-      HLDB.Table.Row(fields: ["id": "new2", "count": -2, "type": "action movie"]),
-      HLDB.Table.Row(fields: ["id": "new3", "count": -10, "type": "cash money"])
+    let newRows: [TableRow] = [
+      TableRow(fields: ["id": "new", "count": 36, "type": "comic book"]),
+      TableRow(fields: ["id": "new2", "count": -2, "type": "action movie"]),
+      TableRow(fields: ["id": "new3", "count": -10, "type": "cash money"])
     ]
     
     table.update(newRows)
     
     
     // then
-    table.select("WHERE count >= 0").onSuccess{ (result: HLDB.DB.Result) in
+    table.select("WHERE count >= 0").onSuccess{ (result: DBResult) in
       switch(result) {
         
       case .Items(let items):
@@ -283,10 +274,10 @@ class hldbTests: XCTestCase {
     // Use XCTAssert and related functions to verify your tests produce the correct results.
     
     // given
-    let fields: [HLDB.Table.Field] = [
-      HLDB.Table.Field(name: "id",     type: .Text, index: .PrimaryKey, defaultValue: .NonNull),
-      HLDB.Table.Field(name: "info",   type: .Text, index: .None, defaultValue: .NonNull),
-      HLDB.Table.Field(name: "num",  type: .Integer, index: .Index, defaultValue: .NonNull)
+    let fields: [TableField] = [
+      TableField(name: "id",     type: .Text, index: .PrimaryKey, defaultValue: .NonNull),
+      TableField(name: "info",   type: .Text, index: .None, defaultValue: .NonNull),
+      TableField(name: "num",  type: .Integer, index: .Index, defaultValue: .NonNull)
     ]
     
     
@@ -294,11 +285,7 @@ class hldbTests: XCTestCase {
     
     // maybe also test toJSON?
     
-    
-    let tableName = "mytable"
-    let dbModel = DBModel()
-    
-    let table = HLDB.Table(db: dbModel.db, name: tableName, fields: fields)
+    let table = Table(db: dbModel.db, name: tableName, fields: fields)
     table.create()
     dbModel.registerTable(table)
     
@@ -306,14 +293,14 @@ class hldbTests: XCTestCase {
     
     let prevMD5 = entity.md5()
     
-    let tr: HLDB.Table.Row = entity.toRow()
+    let tr: TableRow = entity.toRow()
     
     // when
     table.upsert([tr])
 
     
     // then
-    table.select("").onSuccess{ (result: HLDB.DB.Result) in
+    table.select("").onSuccess{ (result: DBResult) in
       switch(result) {
         
       case .Items(let items):

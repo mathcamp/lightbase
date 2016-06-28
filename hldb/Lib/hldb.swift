@@ -11,7 +11,7 @@ import BrightFutures
 import Result
 
 // Allows two Rows in a HLDB.Table to be compared using ==
-public func ==(lhs: HLDB.Table.Row, rhs: HLDB.Table.Row) -> Bool {
+public func ==(lhs: TableRow, rhs: TableRow) -> Bool {
   var leftKeys: [String] = lhs.fields.allKeys as! [String]
   var rightKeys: [String] = rhs.fields.allKeys as! [String]
   if leftKeys.count != rightKeys.count { return false }
@@ -59,23 +59,23 @@ public func ==(lhs: HLDB.Table.Row, rhs: HLDB.Table.Row) -> Bool {
 
 
 
-public class HLDB {
-  
-  public class DB {
-    public var queue: AbstractDBQueue?
+public enum DBResult {
+  case Success
+  case Items([NSDictionary])
+  case Error(Int, String)
+}
+
+public struct DBQueryArgs {
+  let query: String
+  let args: [AnyObject]
+}
+
+  public class DB <BackDB: AbstractDB, BackDBQueue: AbstractDBQueue where BackDB.Cursor : LazySequenceType, BackDB.Cursor.Generator.Element == NSDictionary, BackDBQueue.DB == BackDB> {
+    public lazy var queue: BackDBQueue = BackDBQueue(dbPath: self.dbPath)
     public let fileName: String
     public let dbPath: String
     
-    public enum Result {
-      case Success
-      case Items([NSDictionary])
-      case Error(Int, String)
-    }
     
-    public struct QueryArgs {
-      let query: String
-      let args: [AnyObject]
-    }
     
     public init(fileName: String) {
       self.fileName = fileName
@@ -102,62 +102,52 @@ public class HLDB {
       return error
     }
     
-    public func getQueue() -> AbstractDBQueue? {
-      if queue == nil {
-        queue = FMAbstractDBQueue(dbPath: self.dbPath)
-      }
-      return queue
-    }
-    
     // do a query that does not return results without using a transaction
-    public func updateWithoutTx(query: String, args:[AnyObject] = []) -> Future<Result, NoError> {
-      let p = Promise<Result, NoError>()
-      getQueue()?.execInDatabase { db in
+    public func updateWithoutTx(query: String, args:[AnyObject] = []) -> Future<DBResult, NoError> {
+      let p = Promise<DBResult, NoError>()
+      queue.execInDatabase { db in
         if !db.executeUpdate(query, withArgumentsInArray:args as [AnyObject]) {
           print("DB Query \(self.fileName) failed: \(db.lastErrorMessage())")
-          p.success(Result.Error(Int(db.lastErrorCode()), db.lastErrorMessage()))
+          p.success(DBResult.Error(Int(db.lastErrorCode()), db.lastErrorMessage()))
           return
         }
-        p.success(Result.Success)
+        p.success(DBResult.Success)
       }
       
       return p.future
     }
     
     // do a query that does not return result using a transaction and rollback upon failure
-    public func update(queries: [QueryArgs]) -> Future<Result, NoError> {
-      let p = Promise<Result, NoError>()
-      getQueue()?.execInTransaction() { db, rollback in
+    public func update(queries: [DBQueryArgs]) -> Future<DBResult, NoError> {
+      let p = Promise<DBResult, NoError>()
+      queue.execInTransaction() { db in
         for query in queries {
           //          NSLog("Running query=\(query.query) argCount=\(query.args.count) args=\(query.args)")
           if !db.executeUpdate(query.query, withArgumentsInArray:query.args as [AnyObject]) {
-            rollback = true
             print("DB Query \(self.fileName) failed: \(db.lastErrorMessage())")
-            p.success(Result.Error(Int(db.lastErrorCode()), db.lastErrorMessage()))
-            return
+            p.success(DBResult.Error(Int(db.lastErrorCode()), db.lastErrorMessage()))
+            return .Rollback
           }
         }
-        p.success(Result.Success)
+        p.success(DBResult.Success)
+        return .Ok
       }
       
       return p.future
     }
     
     // do a select style query that returns result
-    public func query(query: String, args:[AnyObject] = []) -> Future<Result, NoError> {
-      let p = Promise<Result, NoError>()
-      getQueue()?.execInDatabase() {
+    public func query(query: String, args:[AnyObject] = []) -> Future<DBResult, NoError> {
+      let p = Promise<DBResult, NoError>()
+      queue.execInDatabase() {
         db in
         
         if let rs = db.executeQuery(query, withArgumentsInArray:args as [AnyObject]) {
-          var items = [NSDictionary]()
-          while rs.next() {
-            items.append(rs.resultDictionary())
-          }
-          p.success(Result.Items(items))
+          let items = Array(rs)
+          p.success(DBResult.Items(items))
         } else {
           print("DB Query \(self.fileName) failed: \(db.lastErrorMessage()) query: \(query)")
-          p.success(Result.Error(Int(db.lastErrorCode()), db.lastErrorMessage()))
+          p.success(DBResult.Error(Int(db.lastErrorCode()), db.lastErrorMessage()))
         }
       }
       
@@ -165,133 +155,135 @@ public class HLDB {
     }
     
     // only use within txBlock
-    public func txUpdate(db: AbstractDB, queries: [QueryArgs]) -> Result {
+    public func txUpdate(db: BackDB, queries: [DBQueryArgs]) -> DBResult {
       for query in queries {
         if !db.executeUpdate(query.query, withArgumentsInArray:query.args as [AnyObject]) {
           print("DB Query \(self.fileName) failed: \(db.lastErrorMessage())")
-          return Result.Error(Int(db.lastErrorCode()), db.lastErrorMessage())
+          return DBResult.Error(Int(db.lastErrorCode()), db.lastErrorMessage())
         }
       }
-      return Result.Success
+      return DBResult.Success
     }
     
     // only use within txBlock
-    public func txQuery(db: AbstractDB, query: String, args:[AnyObject] = []) -> Result  {
+    public func txQuery(db: BackDB, query: String, args:[AnyObject] = []) -> DBResult  {
       if let rs = db.executeQuery(query, withArgumentsInArray:args as [AnyObject]) {
-        var items = [NSDictionary]()
-        while rs.next() {
-          items.append(rs.resultDictionary())
-        }
-        return Result.Items(items)
+        let items = Array(rs)
+        return DBResult.Items(items)
       } else {
         print("DB Query \(self.fileName) failed: \(db.lastErrorMessage()) query: \(query)")
-        return Result.Error(Int(db.lastErrorCode()), db.lastErrorMessage())
+        return DBResult.Error(Int(db.lastErrorCode()), db.lastErrorMessage())
       }
     }
     
-    public func txBlock(block: (AbstractDB) -> (Result)) -> Future<Result, NoError> {
-      let p = Promise<Result, NoError>()
-      getQueue()?.execInTransaction() { db, rollback in
+    public func txBlock(block: (BackDB) -> (DBResult)) -> Future<DBResult, NoError> {
+      let p = Promise<DBResult, NoError>()
+      queue.execInTransaction() { db in
         let result = block(db)
         switch result {
-        case .Error: rollback = true
+        case .Error:
+          p.success(result)
+          return .Rollback
         default: break
         }
         p.success(result)
+        return .Ok
       }
       return p.future
     }
     
   }
+
+  public struct TableRow: Equatable {
+    let fields: NSMutableDictionary
   
-  public class Table {
-    public enum Type: String {
-      case Integer = "INT"
-      case Real = "REAL"
-      case Text = "TEXT"
-      case Blob = "BLOB"
-      case Bool = "BOOL"
+    public init(fields: NSMutableDictionary) {
+      self.fields = fields
+    }
+  }
+
+public enum TableType: String {
+  case Integer = "INT"
+  case Real = "REAL"
+  case Text = "TEXT"
+  case Blob = "BLOB"
+  case Bool = "BOOL"
+}
+
+public enum TableIndex: String {
+  case None = "none"
+  case PrimaryKey = "primaryKey"
+  case Unique = "unique"
+  case Index = "index"
+  case Packed = "packed"
+  case Private = "private"
+}
+
+public enum TableDefault {
+  case None
+  case NonNull
+  case Value(AnyObject)
+}
+
+public struct TableField {
+  let name: String
+  let type: TableType
+  let index: TableIndex
+  let defaultValue: TableDefault
+  
+  public init(name: String, type: TableType, index: TableIndex, defaultValue: TableDefault) {
+    self.name = name
+    self.type = type
+    self.index = index
+    self.defaultValue = defaultValue
+  }
+  
+  public init(fromDict: NSDictionary) {
+    defaultValue = .NonNull
+    
+    if let name = fromDict["name"] as? String {
+      self.name = name
+    } else {
+      name = ""
     }
     
-    public enum Index: String {
-      case None = "none"
-      case PrimaryKey = "primaryKey"
-      case Unique = "unique"
-      case Index = "index"
-      case Packed = "packed"
-      case Private = "private"
-    }
-    
-    public enum Default {
-      case None
-      case NonNull
-      case Value(AnyObject)
-    }
-    
-    public struct Field {
-      let name: String
-      let type: Type
-      let index: Index
-      let defaultValue: Default
-      
-      public init(name: String, type: Type, index: Index, defaultValue: Default) {
-        self.name = name
+    if let typeValue = fromDict["type"] as? String {
+      if let type = TableType(rawValue: typeValue) {
         self.type = type
-        self.index = index
-        self.defaultValue = defaultValue
+      } else {
+        type = .Text
       }
-      
-      public init(fromDict: NSDictionary) {
-        defaultValue = .NonNull
-        
-        if let name = fromDict["name"] as? String {
-          self.name = name
-        } else {
-          name = ""
-        }
-        
-        if let typeValue = fromDict["type"] as? String {
-          if let type = Type(rawValue: typeValue) {
-            self.type = type
-          } else {
-            type = .Text
-          }
-        } else {
-          type = .Text
-        }
-        
-        if let isPrimaryKey = fromDict["pk"] as? Int {
-          if isPrimaryKey == 1 {
-            self.index = .PrimaryKey
-          } else {
-            index = .None
-          }
-        } else {
-          index = .None
-        }
-      }
-      
-      public func toDictionary() -> NSDictionary {
-        let outDict = NSMutableDictionary()
-        outDict["name"] = name
-        outDict["type"] = type.rawValue
-        outDict["index"] = index.rawValue
-        return outDict
-      }
+    } else {
+      type = .Text
     }
     
-    public struct Row: Equatable {
-      let fields: NSMutableDictionary
-      
-      public init(fields: NSMutableDictionary) {
-        self.fields = fields
+    if let isPrimaryKey = fromDict["pk"] as? Int {
+      if isPrimaryKey == 1 {
+        self.index = .PrimaryKey
+      } else {
+        index = .None
       }
+    } else {
+      index = .None
     }
+  }
+  
+  public func toDictionary() -> NSDictionary {
+    let outDict = NSMutableDictionary()
+    outDict["name"] = name
+    outDict["type"] = type.rawValue
+    outDict["index"] = index.rawValue
+    return outDict
+  }
+}
+
+
+  public class Table <BackDB: AbstractDB, BackDBQueue: AbstractDBQueue where BackDB.Cursor : LazySequenceType, BackDB.Cursor.Generator.Element == NSDictionary, BackDBQueue.DB == BackDB> {
     
     public let name: String
     public let primaryKey: String
-    public let definition: [String: Field]
-    public let db: DB
+    public let definition: [String: TableField]
+    public let db: DB<BackDB, BackDBQueue>
     public var debug: Bool = false
     
     public lazy var fieldNames: [String] = Array(self.definition.keys)
@@ -305,13 +297,13 @@ public class HLDB {
     
     public lazy var fieldNamesStr: String = self.fieldNames.joinWithSeparator(",")
     
-    public init(db: DB, name: String, fields:[Field]) {
+    public init(db: DB<BackDB, BackDBQueue>, name: String, fields:[TableField]) {
       self.db = db
       self.name = name
       
       var foundPrimaryKey = false
       var pKey = ""
-      var def: [String: Field] = [:]
+      var def: [String: TableField] = [:]
       for field in fields {
         def[field.name] = field
         if !foundPrimaryKey && field.index == .PrimaryKey {
@@ -326,7 +318,7 @@ public class HLDB {
       // add a primary key if there wasn't one
       if !foundPrimaryKey {
         pKey = "id"
-        def[pKey] = Field(name: pKey, type: .Text, index: .PrimaryKey, defaultValue: .NonNull)
+        def[pKey] = TableField(name: pKey, type: .Text, index: .PrimaryKey, defaultValue: .NonNull)
       }
       self.primaryKey = pKey
       self.definition = def
@@ -375,19 +367,19 @@ public class HLDB {
       return statements
     }
     
-    public func schema() -> Future<[Field], NoError> {
-      let p = Promise<[Field], NoError>()
+    public func schema() -> Future<[TableField], NoError> {
+      let p = Promise<[TableField], NoError>()
       
       let query = "pragma table_info(\(name))"
       db.txBlock { fmdb in
         return self.db.txQuery(fmdb, query: query)
         }.onSuccess { result in
-          var fields: [Field] = []
+          var fields: [TableField] = []
           
           switch result {
           case .Items(let items):
             for item in items {
-              let f = Field(fromDict: item)
+              let f = TableField(fromDict: item)
               fields.append(f)
             }
             p.success(fields)
@@ -434,7 +426,7 @@ public class HLDB {
       return p.future
     }
     
-    func rowFields(r: Row) -> [String] {
+    func rowFields(r: TableRow) -> [String] {
       // TODO: implement packed
       var fieldStrArr = [String]()
       for (fieldName, field) in definition {
@@ -511,14 +503,14 @@ public class HLDB {
       return fieldStrArr
     }
     
-    func insertAndUpdate(insertRows: [Row], updateRows: [Row]) -> Future<DB.Result, NoError> {
-      var queries: [DB.QueryArgs] = []
+    func insertAndUpdate(insertRows: [TableRow], updateRows: [TableRow]) -> Future<DBResult, NoError> {
+      var queries: [DBQueryArgs] = []
       if insertRows.count > 0 {
         let query = "INSERT INTO \(name) (\(fieldNamesStr)) values (\(fieldNamesPlaceholderStr))"
         for row in insertRows {
           let args = rowFields(row)
           //          log("Q=\(query) Inserting=\(args)")
-          queries.append(DB.QueryArgs(query: query, args: args))
+          queries.append(DBQueryArgs(query: query, args: args))
         }
       }
       if updateRows.count > 0 {
@@ -536,9 +528,9 @@ public class HLDB {
             let pairsStr = pairs.joinWithSeparator(", ")
             let query = "UPDATE \(name) SET \(pairsStr) WHERE \(primaryKey) = ?"
             args.append(primaryKeyVal)
-            queries.append(DB.QueryArgs(query: query, args: args))
+            queries.append(DBQueryArgs(query: query, args: args))
           } else {
-            let p = Promise<DB.Result, NoError>()
+            let p = Promise<DBResult, NoError>()
             p.success(.Error(-1, "Cannot update without primary key!"))
             return p.future
           }
@@ -547,16 +539,16 @@ public class HLDB {
       return db.update(queries)
     }
     
-    public func insert(rows: [Row]) -> Future<DB.Result, NoError> {
+    public func insert(rows: [TableRow]) -> Future<DBResult, NoError> {
       return insertAndUpdate(rows, updateRows: [])
     }
     
-    public func update(rows: [Row]) -> Future<DB.Result, NoError> {
+    public func update(rows: [TableRow]) -> Future<DBResult, NoError> {
       return insertAndUpdate([], updateRows: rows)
     }
     
-    public func upsert(rows: [Row]) -> Future<DB.Result, NoError> {
-      let p = Promise<DB.Result, NoError>()
+    public func upsert(rows: [TableRow]) -> Future<DBResult, NoError> {
+      let p = Promise<DBResult, NoError>()
       
       // bail if you are trying to upsert nothing
       if rows.count == 0 {
@@ -602,8 +594,8 @@ public class HLDB {
           return self.insertWithinTx(fmdb, rows: rows)
         } else {
           // Complex case: mixture of insert and update
-          var insertRows: [Row] = []
-          var updateRows: [Row] = []
+          var insertRows: [TableRow] = []
+          var updateRows: [TableRow] = []
           
           for row in rows {
             if let rowId = row.fields[self.primaryKey] as? String {
@@ -624,8 +616,8 @@ public class HLDB {
       return p.future
     }
     
-    public func upsertNoTx(rows: [Row]) -> Future<DB.Result, NoError> {
-      let p = Promise<DB.Result, NoError>()
+    public func upsertNoTx(rows: [TableRow]) -> Future<DBResult, NoError> {
+      let p = Promise<DBResult, NoError>()
       
       // bail if you are trying to upsert nothing
       if rows.count == 0 {
@@ -670,8 +662,8 @@ public class HLDB {
           }
         } else {
           // Complex case: mixture of insert and update
-          var insertRows: [Row] = []
-          var updateRows: [Row] = []
+          var insertRows: [TableRow] = []
+          var updateRows: [TableRow] = []
           
           for row in rows {
             if let rowId = row.fields[self.primaryKey] as? String {
@@ -693,27 +685,27 @@ public class HLDB {
       return p.future
     }
     
-    public func select(whereStr: String = "") -> Future<DB.Result, NoError> {
+    public func select(whereStr: String = "") -> Future<DBResult, NoError> {
       let finalWhereString = whereStr
       let query = "SELECT * FROM \(name) \(finalWhereString)"
       return db.query(query)
     }
     
-    public func deleteAll() -> Future<DB.Result, NoError> {
-      var queries: [DB.QueryArgs] = []
+    public func deleteAll() -> Future<DBResult, NoError> {
+      var queries: [DBQueryArgs] = []
       let query = "DELETE FROM \(name)"
-      queries.append(DB.QueryArgs(query: query, args: []))
+      queries.append(DBQueryArgs(query: query, args: []))
       return db.update(queries)
     }
     
-    public func delete(rows: [Row]) -> Future<DB.Result, NoError> {
-      var queries: [DB.QueryArgs] = []
+    public func delete(rows: [TableRow]) -> Future<DBResult, NoError> {
+      var queries: [DBQueryArgs] = []
       for row in rows {
         if let primaryKeyValue: AnyObject = row.fields[primaryKey] {
           let query = "DELETE FROM \(name) WHERE \(primaryKey) = ?"
-          queries.append(DB.QueryArgs(query: query, args: [primaryKeyValue]))
+          queries.append(DBQueryArgs(query: query, args: [primaryKeyValue]))
         } else {
-          let p = Promise<DB.Result, NoError>()
+          let p = Promise<DBResult, NoError>()
           p.success(.Error(-1, "Cannot update without primary key!"))
           return p.future
         }
@@ -721,14 +713,14 @@ public class HLDB {
       return db.update(queries)
     }
     
-    private func insertAndUpdateWithinTx(abdb: AbstractDB, insertRows: [Row], updateRows: [Row]) -> DB.Result {
-      var queries: [DB.QueryArgs] = []
+    private func insertAndUpdateWithinTx(abdb: BackDB, insertRows: [TableRow], updateRows: [TableRow]) -> DBResult {
+      var queries: [DBQueryArgs] = []
       if insertRows.count > 0 {
         let query = "INSERT INTO \(name) (\(fieldNamesStr)) values (\(fieldNamesPlaceholderStr))"
         for row in insertRows {
           let args = rowFields(row)
           //          log("Q=\(query) Inserting=\(args)")
-          queries.append(DB.QueryArgs(query: query, args: args))
+          queries.append(DBQueryArgs(query: query, args: args))
         }
       }
       if updateRows.count > 0 {
@@ -746,7 +738,7 @@ public class HLDB {
             let pairsStr = pairs.joinWithSeparator(", ")
             let query = "UPDATE \(name) SET \(pairsStr) WHERE \(primaryKey) = ?"
             args.append(primaryKeyVal)
-            queries.append(DB.QueryArgs(query: query, args: args))
+            queries.append(DBQueryArgs(query: query, args: args))
           } else {
             return .Error(-1, "Cannot update without primary key!")
           }
@@ -756,14 +748,13 @@ public class HLDB {
       return db.txUpdate(abdb, queries: queries)
     }
     
-    public func insertWithinTx(abdb: AbstractDB, rows: [Row]) -> DB.Result {
+    public func insertWithinTx(abdb: BackDB, rows: [TableRow]) -> DBResult {
       return insertAndUpdateWithinTx(abdb, insertRows: rows, updateRows: [])
     }
     
-    public func updateWithinTx(abdb: AbstractDB, rows: [Row]) -> DB.Result {
+    public func updateWithinTx(abdb: BackDB, rows: [TableRow]) -> DBResult {
       return insertAndUpdateWithinTx(abdb, insertRows: [], updateRows: rows)
     }
   }
   
-  
-}
+

@@ -67,11 +67,11 @@ public class Entity {
     return nil
   }
   
-  public func toRow() -> HLDB.Table.Row {
+  public func toRow() -> TableRow {
     if let fields = toRowFields() {
-      return HLDB.Table.Row(fields: fields)
+      return TableRow(fields: fields)
     }
-    return HLDB.Table.Row(fields: toFields())
+    return TableRow(fields: toFields())
   }
   
   public func toJSON() -> String {
