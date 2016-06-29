@@ -1,20 +1,24 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "989FBE187A4AF470135822A5DE12CD846A784C04+++68A901A",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "989FBE187A4AF470135822A5DE12CD846A784C04",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "e9be9b72-b3e6-4f37-9d6e-35f2130026b9" : {
 
+    }
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "989FBE187A4AF470135822A5DE12CD846A784C04+++68A901A" : 0,
-    "95438028B10BBB846574013D29F154A00556A9D1+++3BED29A" : 0,
-    "04101981B66E318109934C9516F88D824BB96459+++6A4847F" : 0,
-    "D0725CAC6FF2D66F2C83C2C48DC12106D42DAA64+++2C1A3A6" : 0
+    "95438028B10BBB846574013D29F154A00556A9D1" : 0,
+    "e9be9b72-b3e6-4f37-9d6e-35f2130026b9" : 0,
+    "D0725CAC6FF2D66F2C83C2C48DC12106D42DAA64" : 0,
+    "04101981B66E318109934C9516F88D824BB96459" : 0,
+    "989FBE187A4AF470135822A5DE12CD846A784C04" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "EB1544FA-84EC-40B7-8C73-6B81613F913E",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "989FBE187A4AF470135822A5DE12CD846A784C04+++68A901A" : "hldb\/",
-    "95438028B10BBB846574013D29F154A00556A9D1+++3BED29A" : "hldb\/Nimble\/",
-    "04101981B66E318109934C9516F88D824BB96459+++6A4847F" : "hldb\/fmdb\/",
-    "D0725CAC6FF2D66F2C83C2C48DC12106D42DAA64+++2C1A3A6" : "hldb\/Quick\/"
+    "95438028B10BBB846574013D29F154A00556A9D1" : "hldb\/Nimble\/",
+    "e9be9b72-b3e6-4f37-9d6e-35f2130026b9" : "..",
+    "D0725CAC6FF2D66F2C83C2C48DC12106D42DAA64" : "hldb\/Quick\/",
+    "04101981B66E318109934C9516F88D824BB96459" : "hldb\/fmdb\/",
+    "989FBE187A4AF470135822A5DE12CD846A784C04" : "hldb\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "hldb",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -23,22 +27,27 @@
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ccgus\/fmdb.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "04101981B66E318109934C9516F88D824BB96459+++6A4847F"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "04101981B66E318109934C9516F88D824BB96459"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:Quick\/Nimble.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "95438028B10BBB846574013D29F154A00556A9D1+++3BED29A"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "95438028B10BBB846574013D29F154A00556A9D1"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/mathcamp\/hldb.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "989FBE187A4AF470135822A5DE12CD846A784C04+++68A901A"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "989FBE187A4AF470135822A5DE12CD846A784C04"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:Quick\/Quick.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D0725CAC6FF2D66F2C83C2C48DC12106D42DAA64+++2C1A3A6"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D0725CAC6FF2D66F2C83C2C48DC12106D42DAA64"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn+ssh:\/\/dakara.local\/Library\/Subversion\/Repository\/projects",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "e9be9b72-b3e6-4f37-9d6e-35f2130026b9"
     }
   ]
 }
