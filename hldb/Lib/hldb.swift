@@ -70,7 +70,7 @@ public struct DBQueryArgs {
   let args: [AnyObject]
 }
 
-  public class DB <BackDB: AbstractDB, BackDBQueue: AbstractDBQueue where BackDB.Cursor : LazySequenceType, BackDB.Cursor.Generator.Element == NSDictionary, BackDBQueue.DB == BackDB> {
+public class DB <BackDB: AbstractDB, BackDBQueue: AbstractDBQueue where BackDB.Cursor : LazySequenceType, BackDB.Cursor.Generator.Element == NSDictionary, BackDBQueue.DB == BackDB> {
     public lazy var queue: BackDBQueue = BackDBQueue(dbPath: self.dbPath)
     public let fileName: String
     public let dbPath: String
@@ -284,7 +284,7 @@ public struct TableField {
     public let primaryKey: String
     public let definition: [String: TableField]
     public let db: DB<BackDB, BackDBQueue>
-    public var debug: Bool = false
+    public var debug: Bool = true
     
     public lazy var fieldNames: [String] = Array(self.definition.keys)
     public lazy var fieldNamesPlaceholderStr: String = {
@@ -371,8 +371,8 @@ public struct TableField {
       let p = Promise<[TableField], NoError>()
       
       let query = "pragma table_info(\(name))"
-      db.txBlock { fmdb in
-        return self.db.txQuery(fmdb, query: query)
+      db.txBlock { db in
+        return self.db.txQuery(db, query: query)
         }.onSuccess { result in
           var fields: [TableField] = []
           
@@ -569,9 +569,9 @@ public struct TableField {
       let selectQuery = "SELECT \(primaryKey) FROM \(name) WHERE \(primaryKey) in (\(placeholderListStr))"
       if debug { NSLog("HLDB: \(name): Upsert idList=\(idList) selectQuery=\(selectQuery)") }
       
-      db.txBlock { fmdb in
+      db.txBlock { db in
         var foundIds: [String: Bool] = [:]
-        let selectResult = self.db.txQuery(fmdb, query: selectQuery, args: idList)
+        let selectResult = self.db.txQuery(db, query: selectQuery, args: idList)
         
         switch selectResult {
         case .Success:
@@ -591,7 +591,7 @@ public struct TableField {
         
         if foundIds.count == 0 {
           // Simple case: everything should be inserted
-          return self.insertWithinTx(fmdb, rows: rows)
+          return self.insertWithinTx(db, rows: rows)
         } else {
           // Complex case: mixture of insert and update
           var insertRows: [TableRow] = []
@@ -607,7 +607,7 @@ public struct TableField {
             }
           }
           if self.debug { NSLog("HLDB: \(self.name): Upsert insertRows=\(insertRows.count) updateRows=\(updateRows.count)") }
-          return self.insertAndUpdateWithinTx(fmdb, insertRows: insertRows, updateRows: updateRows)
+          return self.insertAndUpdateWithinTx(db, insertRows: insertRows, updateRows: updateRows)
         }
         }.onSuccess { result in
           p.success(result)

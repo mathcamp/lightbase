@@ -28,8 +28,8 @@ public class TestEntity: Entity {
 
 class hldbTests: XCTestCase {
   
-  let tableName : String = "mytable"
-  let dbModel : DBModel<FMAbstractDB, FMAbstractDBQueue> = DBModel()
+  let tableName: String = "mytable"
+  let dbModel: DBModel<hldb.DirectDB, hldb.DirectDBQueue> = DBModel() // From FMAbstractDB, FMAbstractDBQueue / hldb.DirectDB, hldb.DirectDBQueue
   
     override func setUp() {
         super.setUp()
@@ -141,6 +141,8 @@ class hldbTests: XCTestCase {
     table.insert(rows)
     
     
+    var expectation = expectationWithDescription("Insert Row Expectation")
+    
     // then
     // Future<DBResult<NSDictionary>>
     table.select("WHERE count >= 0").onSuccess{ (result: DBResult) in
@@ -152,20 +154,23 @@ class hldbTests: XCTestCase {
         expect(item["id"] as? String).to(equal("new"))
         expect(item["count"] as? Int).to(equal(35))
         expect(item["type"] as? String).to(equal("book"))
+        expectation.fulfill()
         
       case .Success:
         XCTAssert(false, "call returned without items")
         
-      case .Error(_, _):
-        XCTAssert(false, "call failed with error")
+      case .Error(let num, let str):
+        XCTAssert(false, "call failed with error \(num): \(str)")
         
       }
     }
     
+    waitForExpectationsWithTimeout(5.0, handler:nil)
     
     // when
     table.delete(rows)
     
+    expectation = expectationWithDescription("Delete Row Expectation")
     
     // then
     table.select("WHERE count >= 0").onSuccess{ (result: DBResult) in
@@ -173,16 +178,18 @@ class hldbTests: XCTestCase {
         
       case .Items(let items):
         expect(items.count).to(equal(0))
+        expectation.fulfill()
         
       case .Success:
         XCTAssert(false, "call returned without items")
         
-      case .Error(_, _):
-        XCTAssert(false, "call failed with error")
+      case .Error(let num, let str):
+        XCTAssert(false, "call failed with error \(num): \(str)")
         
       }
     }
   
+    waitForExpectationsWithTimeout(5.0, handler:nil)
     
     dbModel.dropTable(tableName)
     
@@ -212,6 +219,7 @@ class hldbTests: XCTestCase {
     
     table.insert(rows)
     
+    var expectation = expectationWithDescription("Insert Row Expectation")
     
     // then
     table.select("WHERE count >= 0").onSuccess{ (result: DBResult) in
@@ -223,15 +231,18 @@ class hldbTests: XCTestCase {
         expect(item["id"] as? String).to(equal("new"))
         expect(item["count"] as? Int).to(equal(35))
         expect(item["type"] as? String).to(equal("book"))
+        expectation.fulfill()
         
       case .Success:
         XCTAssert(false, "call returned without items")
         
-      case .Error(_, _):
-        XCTAssert(false, "call failed with error")
+      case .Error(let num, let str):
+        XCTAssert(false, "call failed with error \(num): \(str)")
         
       }
     }
+    
+    waitForExpectationsWithTimeout(5.0, handler:nil)
     
     
     // when
@@ -243,6 +254,7 @@ class hldbTests: XCTestCase {
     
     table.update(newRows)
     
+    expectation = expectationWithDescription("Update Row Expectation")
     
     // then
     table.select("WHERE count >= 0").onSuccess{ (result: DBResult) in
@@ -254,17 +266,18 @@ class hldbTests: XCTestCase {
         expect(item["id"] as? String).to(equal("new"))
         expect(item["count"] as? Int).to(equal(36))
         expect(item["type"] as? String).to(equal("comic book"))
-        
+        expectation.fulfill()
         
       case .Success:
         XCTAssert(false, "call returned without items")
         
-      case .Error(_, _):
-        XCTAssert(false, "call failed with error")
+      case .Error(let num, let str):
+        XCTAssert(false, "call failed with error \(num): \(str)")
         
       }
     }
     
+    waitForExpectationsWithTimeout(5.0, handler:nil)
     
     dbModel.dropTable(tableName)
     
@@ -277,7 +290,7 @@ class hldbTests: XCTestCase {
     let fields: [TableField] = [
       TableField(name: "id",     type: .Text, index: .PrimaryKey, defaultValue: .NonNull),
       TableField(name: "info",   type: .Text, index: .None, defaultValue: .NonNull),
-      TableField(name: "num",  type: .Integer, index: .Index, defaultValue: .NonNull)
+      TableField(name: "num",  type: .Integer, index: .Index, defaultValue: .None)
     ]
     
     
@@ -296,8 +309,9 @@ class hldbTests: XCTestCase {
     let tr: TableRow = entity.toRow()
     
     // when
-    table.upsert([tr])
+    table.insert([tr])
 
+    let expectation = expectationWithDescription("Insert Row Expectation")
     
     // then
     table.select("").onSuccess{ (result: DBResult) in
@@ -316,15 +330,19 @@ class hldbTests: XCTestCase {
         
         expect(prevMD5).to(equal(newMD5))
         expect(newMD5).to(equal(self.md5(compareEntity.toJSON().dataUsingEncoding(NSUTF8StringEncoding))))
+        
+        expectation.fulfill()
+        
       case .Success:
         XCTAssert(false, "call returned without items")
         
-      case .Error(_, _):
-        XCTAssert(false, "call failed with error")
+      case .Error(let num, let str):
+        XCTAssert(false, "call failed with error \(num): \(str)")
         
       }
     }
     
+    waitForExpectationsWithTimeout(5.0, handler:nil)
     
     dbModel.dropTable(tableName)
     

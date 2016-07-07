@@ -63,7 +63,7 @@ public class FMAbstractDBQueue: AbstractDBQueue {
   
   public required init(dbPath: String) {
     self.dbPath = dbPath
-    fmdbQueue = FMDatabaseQueue()
+    fmdbQueue = FMDatabaseQueue.init(path: dbPath)
   }
   
   public func execInDatabase(block: DB -> ()) {

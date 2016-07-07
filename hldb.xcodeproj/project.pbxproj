@@ -46,6 +46,9 @@
 		46E66C811B6FFF2100A8E32E /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 460D04AE1B6AE2C200BF1DE2 /* FMResultSet.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		46E66C821B6FFF2100A8E32E /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 460D04AF1B6AE2C200BF1DE2 /* FMResultSet.m */; };
 		974A6C7B1B86BF7000A970D5 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974A6C7A1B86BF7000A970D5 /* Entity.swift */; };
+		CDAF0CA01D2C5575009E5C93 /* DirectConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DF86411D24853400990B4E /* DirectConnector.swift */; };
+		CDAF0CB01D2C55FC009E5C93 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19DF86221D24816000990B4E /* SQLite.framework */; };
+		CDAF0CB21D2C5979009E5C93 /* Blob.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAF0CB11D2C5979009E5C93 /* Blob.swift */; };
 		CDEA114F1D133FD900762043 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDEA11441D133F5A00762043 /* Nimble.framework */; };
 		CDEA11701D13511000762043 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDEA11651D13510000762043 /* Quick.framework */; };
 		CDF6E5E51D21BBFC00ED03E0 /* FMDBConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF6E5E41D21BBFC00ED03E0 /* FMDBConnector.swift */; };
@@ -214,6 +217,7 @@
 		46E66C881B70010800A8E32E /* hldb-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "hldb-Bridging-Header.h"; path = "hldb/Supporting Files/hldb-Bridging-Header.h"; sourceTree = "<group>"; };
 		46E66C891B70010800A8E32E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "hldb/Supporting Files/Info.plist"; sourceTree = "<group>"; };
 		974A6C7A1B86BF7000A970D5 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		CDAF0CB11D2C5979009E5C93 /* Blob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Blob.swift; sourceTree = "<group>"; };
 		CDEA113A1D133F5900762043 /* Nimble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nimble.xcodeproj; path = Nimble/Nimble.xcodeproj; sourceTree = SOURCE_ROOT; };
 		CDEA11521D1350FF00762043 /* Quick.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quick.xcodeproj; path = Quick/Quick.xcodeproj; sourceTree = SOURCE_ROOT; };
 		CDF6E5E41D21BBFC00ED03E0 /* FMDBConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FMDBConnector.swift; path = hldb/Lib/FMDBConnector.swift; sourceTree = "<group>"; };
@@ -224,11 +228,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDEA11701D13511000762043 /* Quick.framework in Frameworks */,
-				CDEA114F1D133FD900762043 /* Nimble.framework in Frameworks */,
 				19B09D131D10835A00E68633 /* BrightFutures.framework in Frameworks */,
 				19B09D141D10835B00E68633 /* Result.framework in Frameworks */,
 				19B09D061D107EF000E68633 /* hldb.framework in Frameworks */,
+				CDEA11701D13511000762043 /* Quick.framework in Frameworks */,
+				CDEA114F1D133FD900762043 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +256,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDAF0CB01D2C55FC009E5C93 /* SQLite.framework in Frameworks */,
 				463B90EA1B6C5B3900F4D341 /* Result.framework in Frameworks */,
 				463B90EE1B6C5B3D00F4D341 /* libsqlite3.0.dylib in Frameworks */,
 				463B90E91B6C5B3900F4D341 /* BrightFutures.framework in Frameworks */,
@@ -307,6 +312,7 @@
 		1935D67B1B6ABF3000864C31 /* hldb */ = {
 			isa = PBXGroup;
 			children = (
+				CDAF0CB11D2C5979009E5C93 /* Blob.swift */,
 				19B09D0C1D1082A600E68633 /* DBModel.swift */,
 				1935D67C1B6ABF4D00864C31 /* hldb.swift */,
 				974A6C7A1B86BF7000A970D5 /* Entity.swift */,
@@ -804,9 +810,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDAF0CA01D2C5575009E5C93 /* DirectConnector.swift in Sources */,
 				463B90F21B6C5B4F00F4D341 /* FMDatabaseAdditionsVariadic.swift in Sources */,
 				463B90E61B6C5AE700F4D341 /* hldb.swift in Sources */,
 				19B09D0D1D1082A600E68633 /* DBModel.swift in Sources */,
+				CDAF0CB21D2C5979009E5C93 /* Blob.swift in Sources */,
 				463B90F31B6C5B4F00F4D341 /* FMDatabaseVariadic.swift in Sources */,
 				974A6C7B1B86BF7000A970D5 /* Entity.swift in Sources */,
 				46E66C791B6FFF2100A8E32E /* FMDatabase.m in Sources */,
@@ -1130,6 +1138,7 @@
 				19DF86281D24816000990B4E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		19DF86391D2482A200990B4E /* Build configuration list for PBXNativeTarget "SQLiteWrapper" */ = {
 			isa = XCConfigurationList;
@@ -1138,6 +1147,7 @@
 				19DF863B1D2482A200990B4E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		463B90DF1B6C5AAD00F4D341 /* Build configuration list for PBXNativeTarget "hldb-iOS" */ = {
 			isa = XCConfigurationList;
