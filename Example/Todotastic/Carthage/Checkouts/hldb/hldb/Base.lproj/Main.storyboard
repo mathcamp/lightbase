@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IAL-eo-WdH">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="le1-yw-oT1">
+            <objects>
+                <navigationController id="IAL-eo-WdH" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kGY-fg-1Ab">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="IsD-xm-iE0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mb9-5x-sBY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-411" y="317"/>
+        </scene>
+        <!--HLDB Demo-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="vXZ-lx-hvc" customClass="MainViewController" customModule="HLDB" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="oVn-uk-BL1">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="Fa8-fM-djM">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fa8-fM-djM" id="di8-2v-iYw">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="hjQ-ga-XGY"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="rBk-DG-l64"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xx6-rY-mnh">
+                                <rect key="frame" x="16" y="564" width="175" height="30"/>
+                                <state key="normal" title="Insert 1">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="insertObjectsButtonWasHit:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hLV-yu-kmg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nnd-SF-YTx">
+                                <rect key="frame" x="213" y="564" width="174" height="30"/>
+                                <state key="normal" title="Insert 1000">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="insertObjectsButtonWasHit:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="txc-4e-Zqo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLJ-pM-TPj">
+                                <rect key="frame" x="409" y="564" width="175" height="30"/>
+                                <state key="normal" title="Insert 100000">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="insertObjectsButtonWasHit:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="elk-zG-Hbp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oVn-uk-BL1" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="5Y8-bd-Xc5"/>
+                            <constraint firstItem="Nnd-SF-YTx" firstAttribute="centerY" secondItem="Xx6-rY-mnh" secondAttribute="centerY" id="ESp-zF-HAU"/>
+                            <constraint firstAttribute="trailing" secondItem="oVn-uk-BL1" secondAttribute="trailing" id="GhP-2k-Hoi"/>
+                            <constraint firstItem="xLJ-pM-TPj" firstAttribute="leading" secondItem="Nnd-SF-YTx" secondAttribute="trailing" constant="22" id="Hu0-8J-Lae"/>
+                            <constraint firstItem="Nnd-SF-YTx" firstAttribute="width" secondItem="Xx6-rY-mnh" secondAttribute="width" id="Ibk-mu-AOm"/>
+                            <constraint firstItem="Nnd-SF-YTx" firstAttribute="top" secondItem="oVn-uk-BL1" secondAttribute="bottom" constant="8" id="K8k-CQ-1yF"/>
+                            <constraint firstItem="xLJ-pM-TPj" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="QQe-AA-5bb"/>
+                            <constraint firstItem="xLJ-pM-TPj" firstAttribute="centerY" secondItem="Nnd-SF-YTx" secondAttribute="centerY" id="Uce-bk-AdM"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Nnd-SF-YTx" secondAttribute="bottom" constant="6" id="Yzr-jK-XQg"/>
+                            <constraint firstItem="oVn-uk-BL1" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="baN-Dx-vxU"/>
+                            <constraint firstItem="Xx6-rY-mnh" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="c1r-61-MgV"/>
+                            <constraint firstItem="Nnd-SF-YTx" firstAttribute="leading" secondItem="Xx6-rY-mnh" secondAttribute="trailing" constant="22" id="sSg-JC-4Cm"/>
+                            <constraint firstItem="Nnd-SF-YTx" firstAttribute="width" secondItem="xLJ-pM-TPj" secondAttribute="width" id="y8D-J4-dU2"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="HLDB Demo" id="ZuF-Xq-DVn">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="cBp-E9-Xg3"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="oVn-uk-BL1" id="u4k-h7-dp1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="287" y="317"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,0 +1,530 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0643FB9F75CC25438199F01D9477C63F /* FutureUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675E413992B465E907F510E524DE5C61 /* FutureUtils.swift */; };
+		2283EF200993A332B4CA87445A0CAE24 /* Future.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D1A333107D4BFF3A82FEC044CF12E /* Future.swift */; };
+		3F8E95FDABFF67435A6C031359EDC008 /* ExecutionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289FA2D2583DF7EE527490762386174E /* ExecutionContext.swift */; };
+		560518642B29160C05C331E0BA2662FA /* BrightFutures-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F507B39EDEF7D2309A1C6601E9C0C8A7 /* BrightFutures-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		61F10D4A4B22FA4037E3F40AF6B8788C /* InvalidationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456D08AEF3D9F089D29EEDD79C47254A /* InvalidationToken.swift */; };
+		70741E5439108350BA87F2321BCC0B54 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F24201174CEE06D8DADBDCE732BCBB6 /* Result.swift */; };
+		92366110A89F70A44DC40377A1D26C36 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0A3E5F34738A915C7DDEAD778BFE89 /* Pods-dummy.m */; };
+		96EA4B964E8089E589FFCE6C615BE354 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCF1899C6F8B9C0D86182C9FC0F3A26 /* Foundation.framework */; };
+		B1AA3E59CAFD5B9ACE15E0219DA8872D /* Semaphore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC03CD225FB01B4EC63EA0AC91C4AF6 /* Semaphore.swift */; };
+		C4483B35D76E3B30936AE6744A484C80 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCF1899C6F8B9C0D86182C9FC0F3A26 /* Foundation.framework */; };
+		EAB8284A5D9AE1A8B476E226783153F6 /* Pods-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BE0A932B08E238B7C8C01F235F226185 /* Pods-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EB4E9D47F2A89A1933984E07E9C36204 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D750738893A7C5FF23D8E4C8A2E397 /* Queue.swift */; };
+		F063911E9082C3D4655E86CD7C222CD1 /* BrightFutures-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 050FB879E85DEB88E75A5541A38BA1E5 /* BrightFutures-dummy.m */; };
+		F760A8601F95A4C74A9AA2EFF8348C3C /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BA4EE254BA51EC5F10823AA69A2C29 /* Promise.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6DE242CF7AC3A7BC39A5487ADE6071D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ABB248303167D13C57A902267E9A1249;
+			remoteInfo = BrightFutures;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		050FB879E85DEB88E75A5541A38BA1E5 /* BrightFutures-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BrightFutures-dummy.m"; sourceTree = "<group>"; };
+		065AD95E222CE419023744DCDAF0B538 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		107F70944391F26E0DB1F4AC474ABDD7 /* BrightFutures.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = BrightFutures.modulemap; sourceTree = "<group>"; };
+		1DCF1899C6F8B9C0D86182C9FC0F3A26 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		289FA2D2583DF7EE527490762386174E /* ExecutionContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExecutionContext.swift; path = BrightFutures/ExecutionContext.swift; sourceTree = "<group>"; };
+		2ED4F4965FA31A953C55106522831726 /* BrightFutures.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BrightFutures.xcconfig; sourceTree = "<group>"; };
+		456D08AEF3D9F089D29EEDD79C47254A /* InvalidationToken.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InvalidationToken.swift; path = BrightFutures/InvalidationToken.swift; sourceTree = "<group>"; };
+		467D1A333107D4BFF3A82FEC044CF12E /* Future.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Future.swift; path = BrightFutures/Future.swift; sourceTree = "<group>"; };
+		4F24201174CEE06D8DADBDCE732BCBB6 /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = BrightFutures/Result.swift; sourceTree = "<group>"; };
+		5442AE4507E4C84D5C633BD0BB57C526 /* BrightFutures-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BrightFutures-prefix.pch"; sourceTree = "<group>"; };
+		57950368EA9071EAAAB5571C911319E6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		675E413992B465E907F510E524DE5C61 /* FutureUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FutureUtils.swift; path = BrightFutures/FutureUtils.swift; sourceTree = "<group>"; };
+		69F08005EB5495AD990F0EDBDC9C8492 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		7727DAA5A06CD0CB57213426D87088EB /* BrightFutures.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BrightFutures.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		79A9DEDC89FE8336BF5FEDAAF75BF7FC /* Pods.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Pods.modulemap; sourceTree = "<group>"; };
+		8148734BF0D84C8621D18A1AF95D8E0E /* BrightFutures-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "BrightFutures-Private.xcconfig"; sourceTree = "<group>"; };
+		87B213035BAC5F75386F62D3C75D2342 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		8EC03CD225FB01B4EC63EA0AC91C4AF6 /* Semaphore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Semaphore.swift; path = BrightFutures/Semaphore.swift; sourceTree = "<group>"; };
+		B8D750738893A7C5FF23D8E4C8A2E397 /* Queue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Queue.swift; path = BrightFutures/Queue.swift; sourceTree = "<group>"; };
+		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BE0A932B08E238B7C8C01F235F226185 /* Pods-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-umbrella.h"; sourceTree = "<group>"; };
+		CBC0F7C552B739C909B650A0F42F7F38 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
+		CD42E6950D98DD971A26BD4BCF7397B3 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0405803033A2A777B8E4DFA0C1800ED /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
+		D2BA4EE254BA51EC5F10823AA69A2C29 /* Promise.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Promise.swift; path = BrightFutures/Promise.swift; sourceTree = "<group>"; };
+		E7F21354943D9F42A70697D5A5EF72E9 /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
+		E8446514FBAD26C0E18F24A5715AEF67 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F507B39EDEF7D2309A1C6601E9C0C8A7 /* BrightFutures-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BrightFutures-umbrella.h"; sourceTree = "<group>"; };
+		FC0A3E5F34738A915C7DDEAD778BFE89 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		452977399624FF0DF9AF0E0CECC08800 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4483B35D76E3B30936AE6744A484C80 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A007160CF17ABFC9C24569095C88F060 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96EA4B964E8089E589FFCE6C615BE354 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		53F661C0CA7190D2CF05023FB33D61E4 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				1DCF1899C6F8B9C0D86182C9FC0F3A26 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		58633E598E0DFE8B52DC7A5B6352163D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				97C60F2150A5CBB6F39B39D481A8AB16 /* BrightFutures */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		75D98FF52E597A11900E131B6C4E1ADA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E8446514FBAD26C0E18F24A5715AEF67 /* Info.plist */,
+				79A9DEDC89FE8336BF5FEDAAF75BF7FC /* Pods.modulemap */,
+				D0405803033A2A777B8E4DFA0C1800ED /* Pods-acknowledgements.markdown */,
+				87B213035BAC5F75386F62D3C75D2342 /* Pods-acknowledgements.plist */,
+				FC0A3E5F34738A915C7DDEAD778BFE89 /* Pods-dummy.m */,
+				E7F21354943D9F42A70697D5A5EF72E9 /* Pods-frameworks.sh */,
+				CBC0F7C552B739C909B650A0F42F7F38 /* Pods-resources.sh */,
+				BE0A932B08E238B7C8C01F235F226185 /* Pods-umbrella.h */,
+				57950368EA9071EAAAB5571C911319E6 /* Pods.debug.xcconfig */,
+				69F08005EB5495AD990F0EDBDC9C8492 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			path = "Target Support Files/Pods";
+			sourceTree = "<group>";
+		};
+		7D25CAD85B476B02570ECF79EB51D9AA /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				107F70944391F26E0DB1F4AC474ABDD7 /* BrightFutures.modulemap */,
+				2ED4F4965FA31A953C55106522831726 /* BrightFutures.xcconfig */,
+				8148734BF0D84C8621D18A1AF95D8E0E /* BrightFutures-Private.xcconfig */,
+				050FB879E85DEB88E75A5541A38BA1E5 /* BrightFutures-dummy.m */,
+				5442AE4507E4C84D5C633BD0BB57C526 /* BrightFutures-prefix.pch */,
+				F507B39EDEF7D2309A1C6601E9C0C8A7 /* BrightFutures-umbrella.h */,
+				065AD95E222CE419023744DCDAF0B538 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/BrightFutures";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				58633E598E0DFE8B52DC7A5B6352163D /* Pods */,
+				CCA510CFBEA2D207524CDA0D73C3B561 /* Products */,
+				B7B80995527643776607AFFA75B91E24 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		97C60F2150A5CBB6F39B39D481A8AB16 /* BrightFutures */ = {
+			isa = PBXGroup;
+			children = (
+				289FA2D2583DF7EE527490762386174E /* ExecutionContext.swift */,
+				467D1A333107D4BFF3A82FEC044CF12E /* Future.swift */,
+				675E413992B465E907F510E524DE5C61 /* FutureUtils.swift */,
+				456D08AEF3D9F089D29EEDD79C47254A /* InvalidationToken.swift */,
+				D2BA4EE254BA51EC5F10823AA69A2C29 /* Promise.swift */,
+				B8D750738893A7C5FF23D8E4C8A2E397 /* Queue.swift */,
+				4F24201174CEE06D8DADBDCE732BCBB6 /* Result.swift */,
+				8EC03CD225FB01B4EC63EA0AC91C4AF6 /* Semaphore.swift */,
+				7D25CAD85B476B02570ECF79EB51D9AA /* Support Files */,
+			);
+			path = BrightFutures;
+			sourceTree = "<group>";
+		};
+		B7B80995527643776607AFFA75B91E24 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				75D98FF52E597A11900E131B6C4E1ADA /* Pods */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				53F661C0CA7190D2CF05023FB33D61E4 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CCA510CFBEA2D207524CDA0D73C3B561 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7727DAA5A06CD0CB57213426D87088EB /* BrightFutures.framework */,
+				CD42E6950D98DD971A26BD4BCF7397B3 /* Pods.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		40FFF1917B2B965D1E281FB998CF9424 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAB8284A5D9AE1A8B476E226783153F6 /* Pods-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B2ED58A074FFABCA9E115038A691E1A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				560518642B29160C05C331E0BA2662FA /* BrightFutures-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		7D98AC1459E77813A7FD2C37E54B6161 /* Pods */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66DFDCB966A92F96BAF69E806B31B7EC /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildPhases = (
+				937128CCD1BEF7F046A34082D0BAD9A1 /* Sources */,
+				A007160CF17ABFC9C24569095C88F060 /* Frameworks */,
+				40FFF1917B2B965D1E281FB998CF9424 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C8CD67AE0082D68034F9B4D923679993 /* PBXTargetDependency */,
+			);
+			name = Pods;
+			productName = Pods;
+			productReference = CD42E6950D98DD971A26BD4BCF7397B3 /* Pods.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		ABB248303167D13C57A902267E9A1249 /* BrightFutures */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F3E00F0A9C96B838FF56DA2079C495B8 /* Build configuration list for PBXNativeTarget "BrightFutures" */;
+			buildPhases = (
+				59D99062FAA2A487AE091F10169710BD /* Sources */,
+				452977399624FF0DF9AF0E0CECC08800 /* Frameworks */,
+				5B2ED58A074FFABCA9E115038A691E1A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BrightFutures;
+			productName = BrightFutures;
+			productReference = 7727DAA5A06CD0CB57213426D87088EB /* BrightFutures.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = CCA510CFBEA2D207524CDA0D73C3B561 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ABB248303167D13C57A902267E9A1249 /* BrightFutures */,
+				7D98AC1459E77813A7FD2C37E54B6161 /* Pods */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		59D99062FAA2A487AE091F10169710BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F063911E9082C3D4655E86CD7C222CD1 /* BrightFutures-dummy.m in Sources */,
+				3F8E95FDABFF67435A6C031359EDC008 /* ExecutionContext.swift in Sources */,
+				2283EF200993A332B4CA87445A0CAE24 /* Future.swift in Sources */,
+				0643FB9F75CC25438199F01D9477C63F /* FutureUtils.swift in Sources */,
+				61F10D4A4B22FA4037E3F40AF6B8788C /* InvalidationToken.swift in Sources */,
+				F760A8601F95A4C74A9AA2EFF8348C3C /* Promise.swift in Sources */,
+				EB4E9D47F2A89A1933984E07E9C36204 /* Queue.swift in Sources */,
+				70741E5439108350BA87F2321BCC0B54 /* Result.swift in Sources */,
+				B1AA3E59CAFD5B9ACE15E0219DA8872D /* Semaphore.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		937128CCD1BEF7F046A34082D0BAD9A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92366110A89F70A44DC40377A1D26C36 /* Pods-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C8CD67AE0082D68034F9B4D923679993 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BrightFutures;
+			target = ABB248303167D13C57A902267E9A1249 /* BrightFutures */;
+			targetProxy = 6DE242CF7AC3A7BC39A5487ADE6071D6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		A70CDAD61F90AC503C7D04CC22DA2923 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		A88E96A410FA950D0DCBDFB16084C222 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57950368EA9071EAAAB5571C911319E6 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods/Pods.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AE498BDE25F12A1F5605336656CA176A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8148734BF0D84C8621D18A1AF95D8E0E /* BrightFutures-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1.0.1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = "$(CURRENT_PROJECT_VERSION)";
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/BrightFutures/BrightFutures-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BrightFutures/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/BrightFutures/BrightFutures.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = BrightFutures;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DEC633221A363C59CC4457B79E5726B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8148734BF0D84C8621D18A1AF95D8E0E /* BrightFutures-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1.0.1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = "$(CURRENT_PROJECT_VERSION)";
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/BrightFutures/BrightFutures-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BrightFutures/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/BrightFutures/BrightFutures.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = BrightFutures;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E9AA3619D6E759E25F45159B84B2BC98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69F08005EB5495AD990F0EDBDC9C8492 /* Pods.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods/Pods.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FB45FFD90572718D82AB9092B750F0CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A70CDAD61F90AC503C7D04CC22DA2923 /* Debug */,
+				FB45FFD90572718D82AB9092B750F0CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		66DFDCB966A92F96BAF69E806B31B7EC /* Build configuration list for PBXNativeTarget "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A88E96A410FA950D0DCBDFB16084C222 /* Debug */,
+				E9AA3619D6E759E25F45159B84B2BC98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F3E00F0A9C96B838FF56DA2079C495B8 /* Build configuration list for PBXNativeTarget "BrightFutures" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DEC633221A363C59CC4457B79E5726B8 /* Debug */,
+				AE498BDE25F12A1F5605336656CA176A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
