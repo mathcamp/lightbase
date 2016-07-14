@@ -2,7 +2,7 @@
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![CocoaPods version](https://img.shields.io/cocoapods/v/hldb.svg)](https://cocoapods.org/pods/hldb) [![MIT License](https://img.shields.io/cocoapods/l/hldb.svg)](LICENSE) ![Platform iOS](https://img.shields.io/cocoapods/p/hldb.svg)
 
-Lightbase is a lightweight swifty wrapper for sqlite.
+#### Lightbase is a lightweight swifty wrapper for sqlite.
 
 Using Lighbase, you can create, update and delete sqlite tables; you can insert, upsert, update, and delete rows; you can query over the database with all the sqlite filters and accumulators you've come to know and love; and you can verify that everything is saving properly using MD5 hashes. Best of all, you can do it simply and swift-ily!
 
