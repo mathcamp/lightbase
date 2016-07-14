@@ -6,17 +6,11 @@
 
 Using Lighbase, you can create, update and delete sqlite tables; you can insert, upsert, update, and delete rows; you can query over the database with all the sqlite filters and accumulators you've come to know and love; and you can verify that everything is saving properly using MD5 hashes. Best of all, you can do it simply and swift-ily!
 
-Lightbase makes extensive use of reactive programming paradigms like [Promises or Futures](https://github.com/Thomvis/BrightFutures).
+Lightbase makes extensive use of reactive programming paradigms like [Promises and Futures](https://github.com/Thomvis/BrightFutures).
 
 ## Installation
 
-#### Pods
-
-`pod 'hldb'`
-
-#### Carthage
-
-`github "mathcamp/lightbase"`
+Coming Soon!
 
 ## Usage Example
 
