@@ -114,19 +114,6 @@ public class DirectDB: AbstractDB {
     
     var rcs: Int32?
     var statement: COpaquePointer = nil
-    
-    /*defer {
-      let closeErrorCode: Int32;
-      closeErrorCode = sqlite3_finalize(statement);
-      
-      if (closeErrorCode != SQLITE_OK) {
-        if (self.loggingErrors) {
-          NSLog("Unknown error finalizing or resetting statement (%d: %s)", closeErrorCode, sqlite3_errmsg(dbPtr));
-          NSLog("DB Query: %@", sql);
-        }
-      }
-    }*/
-    
 
     if (statement == nil) {
       
@@ -206,18 +193,6 @@ public class DirectDB: AbstractDB {
     var rc: Int32?
     var statement: COpaquePointer = nil
     let rs: DirectCursor
-    
-    /*defer {
-      let closeErrorCode: Int32;
-      closeErrorCode = sqlite3_finalize(statement);
-      
-      if (closeErrorCode != SQLITE_OK) {
-        if (self.loggingErrors) {
-          NSLog("Unknown error finalizing or resetting statement (%d: %s)", closeErrorCode, sqlite3_errmsg(dbPtr));
-          NSLog("DB Query: %@", query);
-        }
-      }
-    }*/
     
     if (statement == nil) {
       
