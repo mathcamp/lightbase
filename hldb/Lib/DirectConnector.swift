@@ -12,7 +12,7 @@ import SQLite
 public struct DirectCursor: LazySequenceType, GeneratorType {
   public typealias Element = NSDictionary // or whatever
   
-  private var statement: COpaquePointer
+  private let statement: COpaquePointer
   
   init(statement: COpaquePointer) {
     self.statement = statement
@@ -24,7 +24,7 @@ public struct DirectCursor: LazySequenceType, GeneratorType {
       let num_cols: Int32 = sqlite3_data_count(statement)
       
       if (num_cols > 0) {
-        var dict = NSMutableDictionary()
+        let dict = NSMutableDictionary()
         
         let columnCount = sqlite3_column_count(statement);
         
@@ -50,7 +50,7 @@ public struct DirectCursor: LazySequenceType, GeneratorType {
     let colIdx = Int32(colIndex)
     let columnType = Int32(sqlite3_column_type(statement, colIdx));
     
-    let returnValue: AnyObject;
+    let returnValue: AnyObject?;
     
     if (columnType == SQLITE_INTEGER) {
       returnValue = NSNumber(longLong: sqlite3_column_int64(statement, colIdx))
@@ -63,7 +63,7 @@ public struct DirectCursor: LazySequenceType, GeneratorType {
       returnValue = Blob(bytes: bytes, length: length)
     } else {
       //default to a string for everything else
-      returnValue = String.fromCString(UnsafePointer<CChar>(sqlite3_column_text(statement, colIdx)))!
+      returnValue = String.fromCString(UnsafePointer<CChar>(sqlite3_column_text(statement, colIdx)))
     }
     
     return returnValue;
@@ -80,12 +80,16 @@ public class DirectDB: AbstractDB {
   //private let dbPath = "DirectDB"
   
   internal let dbPointer: COpaquePointer?
-  private var inTransaction: Bool = false
-  private var isExecutingStatement = false
+  private private(set) var inTransaction: Bool {
+    get {
+      return self.inTransaction
+    }
+    set {}
+  }
   private let loggingErrors = true
   private var errorMessage: String = ""
   
-  let SQLITE_TRANSIENT = unsafeBitCast(-1, sqlite3_destructor_type.self)
+  static let SQLITE_TRANSIENT = unsafeBitCast(-1, sqlite3_destructor_type.self)
   
   public init(dbPath: String) {
     var db: COpaquePointer = nil
@@ -105,54 +109,45 @@ public class DirectDB: AbstractDB {
   
   public func executeUpdate(sql:String, withArgumentsInArray arrayArgs:[AnyObject]) -> Bool {
     
-    print(sql)
-    print(arrayArgs)
+    guard let dbPtr = self.dbPointer else { return false }
     
-    guard let _ = self.dbPointer else { return false }
-    
-    if (self.isExecutingStatement) {
-      NSLog("WARNING: DirectDB already executing statement")
-      return false;
-    }
-    
-    self.isExecutingStatement = true
     
     var rcs: Int32?
-    //var updateStatement: COpaquePointer = nil
     var statement: COpaquePointer = nil
-
     
-    /*if (_shouldCacheStatements) {
-     statement = [self cachedStatementForQuery:sql];
-     pStmt = statement ? [statement statement] : 0x00;
-     [statement reset];
-     }*/
-
+    /*defer {
+      let closeErrorCode: Int32;
+      closeErrorCode = sqlite3_finalize(statement);
+      
+      if (closeErrorCode != SQLITE_OK) {
+        if (self.loggingErrors) {
+          NSLog("Unknown error finalizing or resetting statement (%d: %s)", closeErrorCode, sqlite3_errmsg(dbPtr));
+          NSLog("DB Query: %@", sql);
+        }
+      }
+    }*/
     
+
     if (statement == nil) {
       
-      rcs = sqlite3_prepare_v2(self.dbPointer!, sql, -1, &statement, nil);
+      rcs = sqlite3_prepare_v2(dbPtr, sql, -1, &statement, nil);
       
       if (SQLITE_OK != rcs) {
         if (self.loggingErrors) {
-          //Log error
+          NSLog("Error calling sqlite3_prepare SQLITE_ERROR \(rcs): \(sqlite3_errmsg(dbPtr))");
+          NSLog("DB Query: %@", sql);
         }
-        let errorMessage = String.fromCString(sqlite3_errmsg(self.dbPointer!))!
+        let errorMessage = String.fromCString(sqlite3_errmsg(dbPtr))!
         print("Query could not be prepared! \(errorMessage)")
-        
-        sqlite3_finalize(statement)
-        self.isExecutingStatement = false
         return false;
       }
     }
     
     
-    var idx = 0
     let queryCount = Int(sqlite3_bind_parameter_count(statement))
     if (arrayArgs.count != queryCount) {
       NSLog("Error: the bind count (\(queryCount)) is not correct for the # of variables (\(arrayArgs.count)) (executeQuery)")
       sqlite3_finalize(statement)
-      self.isExecutingStatement = false
       return false
     }
     
@@ -176,84 +171,52 @@ public class DirectDB: AbstractDB {
     }
     else if (SQLITE_ERROR == rc) {
       if (self.loggingErrors) {
-        NSLog("Error calling sqlite3_step SQLITE_ERROR \(rc): \(sqlite3_errmsg(self.dbPointer!))");
+        NSLog("Error calling sqlite3_step SQLITE_ERROR \(rc): \(sqlite3_errmsg(dbPtr))");
         NSLog("DB Query: %@", sql);
       }
     }
     else if (SQLITE_MISUSE == rc) {
-      // uh oh.
+      // misused sqlite!
       if (self.loggingErrors) {
-        NSLog("Error calling sqlite3_step SQLITE_MISUSE \(rc): \(sqlite3_errmsg(self.dbPointer!))");
+        NSLog("Error calling sqlite3_step SQLITE_MISUSE \(rc): \(sqlite3_errmsg(dbPtr))");
         NSLog("DB Query: %@", sql);
       }
     }
     else {
-      // wtf?
+      // unknown issue?
       if (self.loggingErrors) {
-        NSLog("Error calling sqlite3_step UNKNOWN \(rc): \(sqlite3_errmsg(self.dbPointer!))");
+        NSLog("Error calling sqlite3_step UNKNOWN \(rc): \(sqlite3_errmsg(dbPtr))");
         NSLog("DB Query: %@", sql);
       }
     }
     
     if (rc == SQLITE_ROW) {
+      sqlite3_finalize(statement);
       return false
-      //assert(false, "A executeUpdate is being called with a query string '%@'", sql);
     }
+    sqlite3_finalize(statement)
     
-    /*if (_shouldCacheStatements && !cachedStmt) {
-      cachedStmt = [[FMStatement alloc] init];
-      
-      [cachedStmt setStatement:pStmt];
-      
-      [self setCachedStatement:cachedStmt forQuery:sql];
-      
-      FMDBRelease(cachedStmt);
-    }*/
-    
-    let closeErrorCode: Int32;
-    
-    /*if (cachedStmt) {
-      [cachedStmt setUseCount:[cachedStmt useCount] + 1];
-      closeErrorCode = sqlite3_reset(pStmt);
-    }
-    else {
-      /* Finalize the virtual machine. This releases all memory and other
-       ** resources allocated by the sqlite3_prepare() call above.
-       */
-     */
-      closeErrorCode = sqlite3_finalize(statement);
-    //}
-    
-    if (closeErrorCode != SQLITE_OK) {
-      if (self.loggingErrors) {
-        NSLog("Unknown error finalizing or resetting statement (%d: %s)", closeErrorCode, sqlite3_errmsg(self.dbPointer!));
-        NSLog("DB Query: %@", sql);
-      }
-    }
-    
-    self.isExecutingStatement = false;
     return (rc == SQLITE_DONE || rc == SQLITE_OK);
   }
+  
   public func executeQuery(query: String, withArgumentsInArray arrayArgs:[AnyObject]) -> DirectCursor? {
     
-    guard let _ = self.dbPointer else { return nil }
-    
-    if (self.isExecutingStatement) {
-      NSLog("WARNING: DirectDB already executing statement")
-      return nil;
-    }
-    
-    self.isExecutingStatement = true
+    guard let dbPtr = self.dbPointer else { return nil }
     
     var rc: Int32?
-    //var updateStatement: COpaquePointer = nil
     var statement: COpaquePointer = nil
     let rs: DirectCursor
     
-    /*if (_shouldCacheStatements) {
-      statement = [self cachedStatementForQuery:sql];
-      pStmt = statement ? [statement statement] : 0x00;
-      [statement reset];
+    /*defer {
+      let closeErrorCode: Int32;
+      closeErrorCode = sqlite3_finalize(statement);
+      
+      if (closeErrorCode != SQLITE_OK) {
+        if (self.loggingErrors) {
+          NSLog("Unknown error finalizing or resetting statement (%d: %s)", closeErrorCode, sqlite3_errmsg(dbPtr));
+          NSLog("DB Query: %@", query);
+        }
+      }
     }*/
     
     if (statement == nil) {
@@ -262,23 +225,20 @@ public class DirectDB: AbstractDB {
       
       if (SQLITE_OK != rc) {
         if (self.loggingErrors) {
-          //Log error
+          NSLog("Error calling sqlite3_prepare SQLITE_ERROR \(rc): \(sqlite3_errmsg(dbPtr))");
+          NSLog("DB Query: %@", query);
         }
-        let errorMessage = String.fromCString(sqlite3_errmsg(self.dbPointer!))!
+        let errorMessage = String.fromCString(sqlite3_errmsg(dbPtr))!
         print("Query could not be prepared! \(errorMessage)")
-        
-        sqlite3_finalize(statement)
-        self.isExecutingStatement = false
+        sqlite3_finalize(statement);
         return nil;
       }
     }
     
-    var idx = 0
     let queryCount = Int(sqlite3_bind_parameter_count(statement))
     if (arrayArgs.count != queryCount) {
       NSLog("Error: the bind count (\(queryCount)) is not correct for the # of variables (\(arrayArgs.count)) (executeQuery)")
-      sqlite3_finalize(statement)
-      self.isExecutingStatement = false
+      sqlite3_finalize(statement);
       return nil
     }
     
@@ -286,23 +246,9 @@ public class DirectDB: AbstractDB {
       self.bind(obj, atIndex:idx, inStatement:statement)
     }
     
-
-    
-    //pStmt. // to balance the release below
-    
-    /*if (!statement) {
-      statement = [[FMStatement alloc] init]
-      [statement setStatement:pStmt]
-      
-      if (_shouldCacheStatements && sql) {
-        [self setCachedStatement:statement forQuery:sql]
-      }
-    }*/
     
     // the statement gets closed in rs's dealloc or [rs close];
     rs = DirectCursor(statement: statement)
-    
-    self.isExecutingStatement = false
     
     return rs
     
@@ -315,9 +261,9 @@ public class DirectDB: AbstractDB {
     if obj == nil {
       return sqlite3_bind_null(pStmt, Int32(idx))
     } else if let blobObj = obj as? NSData {
-      return sqlite3_bind_blob(pStmt, idx, blobObj.bytes, Int32(blobObj.length), SQLITE_TRANSIENT)
+      return sqlite3_bind_blob(pStmt, idx, blobObj.bytes, Int32(blobObj.length), DirectDB.SQLITE_TRANSIENT)
     } else if let stringObj = obj as? String {
-      return sqlite3_bind_text(pStmt, idx, stringObj, Int32(stringObj.characters.count), SQLITE_TRANSIENT)
+      return sqlite3_bind_text(pStmt, idx, stringObj, Int32(stringObj.characters.count), DirectDB.SQLITE_TRANSIENT)
     } else if let int8Obj = obj as? Int8 {
       return sqlite3_bind_int(pStmt, idx, Int32(int8Obj))
     } else if let uint8Obj = obj as? UInt8 {
@@ -399,10 +345,6 @@ public class DirectDB: AbstractDB {
     return b;
   }
   
-  func isInTransaction() -> Bool {
-    return self.inTransaction;
-  }
-  
 }
 
 
@@ -431,18 +373,6 @@ public class DirectDBQueue: AbstractDBQueue {
       let db = self.db;
       block(db)
       
-      /*if (db.hasOpenResultSets) {
-        NSLog("Warning: there is at least one open result set around after performing [FMDatabaseQueue inDatabase:]");
-        
-        #if defined(DEBUG) && DEBUG
-          NSSet *openSetCopy = FMDBReturnAutoreleased([[db valueForKey:@"_openResultSets"] copy]);
-          for (NSValue *rsInWrappedInATastyValueMeal in openSetCopy) {
-            FMResultSet *rs = (FMResultSet *)[rsInWrappedInATastyValueMeal pointerValue];
-            NSLog(@"query: '%@'", [rs query]);
-          }
-        #endif
-      }*/
-      
       });
 
   }
@@ -453,9 +383,7 @@ public class DirectDBQueue: AbstractDBQueue {
       
       self.db.beginTransaction()
       
-      let shouldRollback = block(self.db)
-      
-      switch shouldRollback {
+      switch block(self.db) {
       case .Rollback:
         self.db.rollback()
       case .Ok:

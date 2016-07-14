@@ -10,7 +10,7 @@ import Foundation
 
 
 public struct FMCursor: LazySequenceType, GeneratorType {
-  public typealias Element = NSDictionary // or whatever
+  public typealias Element = NSDictionary
   
   let fmResult: FMResultSet
   

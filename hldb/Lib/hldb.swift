@@ -71,12 +71,11 @@ public struct DBQueryArgs {
 }
 
 public class DB <BackDB: AbstractDB, BackDBQueue: AbstractDBQueue where BackDB.Cursor : LazySequenceType, BackDB.Cursor.Generator.Element == NSDictionary, BackDBQueue.DB == BackDB> {
+  
     public lazy var queue: BackDBQueue = BackDBQueue(dbPath: self.dbPath)
     public let fileName: String
     public let dbPath: String
-    
-    
-    
+  
     public init(fileName: String) {
       self.fileName = fileName
       self.dbPath = DB.pathForDBFile(fileName)
@@ -167,7 +166,7 @@ public class DB <BackDB: AbstractDB, BackDBQueue: AbstractDBQueue where BackDB.C
     
     // only use within txBlock
     public func txQuery(db: BackDB, query: String, args:[AnyObject] = []) -> DBResult  {
-      if let rs = db.executeQuery(query, withArgumentsInArray:args as [AnyObject]) {
+      if let rs = db.executeQuery(query, withArgumentsInArray:args) {
         let items = Array(rs)
         return DBResult.Items(items)
       } else {
@@ -241,11 +240,7 @@ public struct TableField {
   public init(fromDict: NSDictionary) {
     defaultValue = .NonNull
     
-    if let name = fromDict["name"] as? String {
-      self.name = name
-    } else {
-      name = ""
-    }
+    self.name = (fromDict["name"] as? String) ?? ""
     
     if let typeValue = fromDict["type"] as? String {
       if let type = TableType(rawValue: typeValue) {
@@ -257,15 +252,12 @@ public struct TableField {
       type = .Text
     }
     
-    if let isPrimaryKey = fromDict["pk"] as? Int {
-      if isPrimaryKey == 1 {
-        self.index = .PrimaryKey
-      } else {
-        index = .None
-      }
+    if let isPrimaryKey = fromDict["pk"] as? Int where isPrimaryKey == 1 {
+      self.index = .PrimaryKey
     } else {
       index = .None
     }
+  
   }
   
   public func toDictionary() -> NSDictionary {
@@ -368,11 +360,11 @@ public struct TableField {
     }
     
     public func schema() -> Future<[TableField], NoError> {
-      let p = Promise<[TableField], NoError>()
       
+      let p = Promise<[TableField], NoError>()
       let query = "pragma table_info(\(name))"
-      db.txBlock { db in
-        return self.db.txQuery(db, query: query)
+      
+      db.txBlock { db in return self.db.txQuery(db, query: query)
         }.onSuccess { result in
           var fields: [TableField] = []
           
@@ -509,7 +501,6 @@ public struct TableField {
         let query = "INSERT INTO \(name) (\(fieldNamesStr)) values (\(fieldNamesPlaceholderStr))"
         for row in insertRows {
           let args = rowFields(row)
-          //          log("Q=\(query) Inserting=\(args)")
           queries.append(DBQueryArgs(query: query, args: args))
         }
       }
