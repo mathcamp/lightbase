@@ -9,6 +9,26 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>SQLite.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>SQLiteWrapper.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>hldb-iOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>hldbTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -18,6 +38,31 @@
 			<true/>
 		</dict>
 		<key>1935D66A1B6AADD500864C31</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>19B09D001D107EF000E68633</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>19DF86211D24816000990B4E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>19DF86331D2482A200990B4E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>463B90CB1B6C5AAD00F4D341</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>463B90D51B6C5AAD00F4D341</key>
 		<dict>
 			<key>primary</key>
 			<true/>
